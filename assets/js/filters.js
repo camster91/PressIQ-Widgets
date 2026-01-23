@@ -428,7 +428,14 @@
          * Show error message
          */
         showError(container) {
-            container.innerHTML = `<div class="acst-error"><p>${config.i18n.error}</p></div>`;
+            // Safely escape the error message to prevent XSS
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'acst-error';
+            const errorP = document.createElement('p');
+            errorP.textContent = config.i18n.error;
+            errorDiv.appendChild(errorP);
+            container.innerHTML = '';
+            container.appendChild(errorDiv);
         }
 
         /**

@@ -609,23 +609,40 @@ class Countdown extends Content_Base {
             }
         }
 
-        $this->add_render_attribute( 'countdown', array(
-            'class'             => 'acst-countdown',
-            'data-target-date'  => $target_date,
-            'data-expire-action'=> $settings['expire_action'],
-            'data-show-separator' => $settings['show_separator'],
-        ) );
+        // Build data attributes that match the JavaScript expectations
+        $countdown_attrs = array(
+            'class'              => 'acst-countdown',
+            'data-expire-action' => $settings['expire_action'],
+        );
+
+        // Set the appropriate date attribute based on countdown type
+        if ( $settings['countdown_type'] === 'due_date' ) {
+            // JavaScript expects ISO 8601 format for due_date
+            $countdown_attrs['data-due-date'] = gmdate( 'c', $target_date );
+        } else {
+            // For evergreen timers, pass the total seconds
+            $hours   = intval( $settings['evergreen_hours'] ?? 24 );
+            $minutes = intval( $settings['evergreen_minutes'] ?? 0 );
+            $countdown_attrs['data-evergreen'] = 'yes';
+            $countdown_attrs['data-evergreen-seconds'] = ( $hours * 3600 ) + ( $minutes * 60 );
+        }
+
+        $this->add_render_attribute( 'countdown', $countdown_attrs );
 
         if ( $settings['expire_action'] === 'message' ) {
             $this->add_render_attribute( 'countdown', 'data-expire-message', $settings['expire_message'] );
         } elseif ( $settings['expire_action'] === 'redirect' && ! empty( $settings['expire_redirect']['url'] ) ) {
-            $this->add_render_attribute( 'countdown', 'data-expire-redirect', $settings['expire_redirect']['url'] );
+            // Only allow safe redirect URLs (same origin or relative)
+            $redirect_url = $settings['expire_redirect']['url'];
+            if ( wp_validate_redirect( $redirect_url, home_url() ) ) {
+                $this->add_render_attribute( 'countdown', 'data-expire-redirect', esc_url( $redirect_url ) );
+            }
         }
         ?>
         <div <?php echo $this->get_render_attribute_string( 'countdown' ); ?>>
             <?php if ( $settings['show_days'] === 'yes' ) : ?>
                 <div class="acst-countdown__item" data-unit="days">
-                    <span class="acst-countdown__number">00</span>
+                    <span class="acst-countdown__number" data-countdown="days">00</span>
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
                         <span class="acst-countdown__label"><?php echo esc_html( $settings['label_days'] ); ?></span>
                     <?php endif; ?>
@@ -637,7 +654,7 @@ class Countdown extends Content_Base {
 
             <?php if ( $settings['show_hours'] === 'yes' ) : ?>
                 <div class="acst-countdown__item" data-unit="hours">
-                    <span class="acst-countdown__number">00</span>
+                    <span class="acst-countdown__number" data-countdown="hours">00</span>
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
                         <span class="acst-countdown__label"><?php echo esc_html( $settings['label_hours'] ); ?></span>
                     <?php endif; ?>
@@ -649,7 +666,7 @@ class Countdown extends Content_Base {
 
             <?php if ( $settings['show_minutes'] === 'yes' ) : ?>
                 <div class="acst-countdown__item" data-unit="minutes">
-                    <span class="acst-countdown__number">00</span>
+                    <span class="acst-countdown__number" data-countdown="minutes">00</span>
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
                         <span class="acst-countdown__label"><?php echo esc_html( $settings['label_minutes'] ); ?></span>
                     <?php endif; ?>
@@ -661,7 +678,7 @@ class Countdown extends Content_Base {
 
             <?php if ( $settings['show_seconds'] === 'yes' ) : ?>
                 <div class="acst-countdown__item" data-unit="seconds">
-                    <span class="acst-countdown__number">00</span>
+                    <span class="acst-countdown__number" data-countdown="seconds">00</span>
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
                         <span class="acst-countdown__label"><?php echo esc_html( $settings['label_seconds'] ); ?></span>
                     <?php endif; ?>
