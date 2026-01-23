@@ -105,7 +105,7 @@
                     break;
 
                 case 'redirect':
-                    if (this.expireRedirect) {
+                    if (this.expireRedirect && this.isValidRedirectUrl(this.expireRedirect)) {
                         window.location.href = this.expireRedirect;
                     }
                     break;
@@ -116,6 +116,21 @@
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
+        }
+
+        /**
+         * Validate redirect URL to prevent open redirect attacks
+         * Only allows same-origin URLs or relative paths
+         */
+        isValidRedirectUrl(url) {
+            try {
+                const redirectUrl = new URL(url, window.location.origin);
+                // Only allow same-origin redirects
+                return redirectUrl.origin === window.location.origin;
+            } catch (e) {
+                // If URL parsing fails, check if it's a relative path
+                return url.startsWith('/') && !url.startsWith('//');
+            }
         }
 
         destroy() {

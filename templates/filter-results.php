@@ -38,6 +38,7 @@ if ( empty( $posts ) ) {
 $first_post = $posts[0];
 $post_type  = get_post_type( $first_post );
 
+global $post;
 foreach ( $posts as $post ) :
     setup_postdata( $post );
 
@@ -63,11 +64,11 @@ foreach ( $posts as $post ) :
                 </h3>
                 <?php if ( $product ) : ?>
                     <div class="acst-filter-item__price">
-                        <?php echo $product->get_price_html(); ?>
+                        <?php echo wp_kses_post( $product->get_price_html() ); ?>
                     </div>
                     <?php if ( $product->get_average_rating() ) : ?>
                         <div class="acst-filter-item__rating">
-                            <?php echo wc_get_rating_html( $product->get_average_rating(), $product->get_rating_count() ); ?>
+                            <?php echo wp_kses_post( wc_get_rating_html( $product->get_average_rating(), $product->get_rating_count() ) ); ?>
                         </div>
                     <?php endif; ?>
                 <?php endif; ?>
@@ -118,7 +119,8 @@ foreach ( $posts as $post ) :
                                     esc_html( $cat->name )
                                 );
                             }
-                            echo implode( ', ', $cat_links );
+                            // Links are pre-escaped above, safe to output
+                            echo wp_kses_post( implode( ', ', $cat_links ) );
                             ?>
                         </span>
                     <?php endif; ?>
