@@ -1,0 +1,529 @@
+/**
+ * AC Starter Toolkit - Smart Filters Styles
+ */
+
+/* ==========================================================================
+   Base Filter Styles
+   ========================================================================== */
+
+.acst-filter {
+    margin-bottom: 1.5rem;
+}
+
+.acst-filter__label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9375rem;
+}
+
+/* ==========================================================================
+   Select Filter
+   ========================================================================== */
+
+.acst-filter__select {
+    width: 100%;
+    padding: 0.625rem 2rem 0.625rem 0.875rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.acst-filter__select:focus {
+    border-color: #0073aa;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.15);
+}
+
+.acst-filter__select:hover {
+    border-color: #999;
+}
+
+/* ==========================================================================
+   Checkbox & Radio Filters
+   ========================================================================== */
+
+.acst-filter__options {
+    display: flex;
+    flex-direction: column;
+}
+
+.acst-filter__options--horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.acst-filter__options--columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.625rem;
+}
+
+.acst-filter__option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.25rem 0;
+    transition: color 0.15s ease;
+}
+
+.acst-filter__option:hover {
+    color: #0073aa;
+}
+
+.acst-filter__option--hidden {
+    display: none;
+}
+
+/* Custom Checkbox */
+.acst-filter__checkbox {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    margin-right: 0.625rem;
+    flex-shrink: 0;
+    appearance: none;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s ease;
+}
+
+.acst-filter__checkbox:checked {
+    background-color: #0073aa;
+    border-color: #0073aa;
+}
+
+.acst-filter__checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.acst-filter__checkbox:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.15);
+}
+
+/* Custom Radio */
+.acst-filter__radio {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    margin-right: 0.625rem;
+    flex-shrink: 0;
+    appearance: none;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s ease;
+}
+
+.acst-filter__radio:checked {
+    border-color: #0073aa;
+}
+
+.acst-filter__radio:checked::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 8px;
+    height: 8px;
+    background-color: #0073aa;
+    border-radius: 50%;
+}
+
+.acst-filter__radio:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.15);
+}
+
+/* Option Label */
+.acst-filter__option-label {
+    font-size: 0.9375rem;
+    line-height: 1.4;
+}
+
+.acst-filter__option-count {
+    margin-left: 0.375rem;
+    color: #666;
+    font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   Collapsible Filters
+   ========================================================================== */
+
+.acst-filter__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0.75rem;
+}
+
+.acst-filter__header .acst-filter__label {
+    margin-bottom: 0;
+}
+
+.acst-filter__toggle {
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.acst-filter__toggle-icon {
+    width: 12px;
+    height: 12px;
+    position: relative;
+}
+
+.acst-filter__toggle-icon::before,
+.acst-filter__toggle-icon::after {
+    content: '';
+    position: absolute;
+    background-color: #333;
+    transition: transform 0.2s ease;
+}
+
+.acst-filter__toggle-icon::before {
+    width: 12px;
+    height: 2px;
+    top: 5px;
+    left: 0;
+}
+
+.acst-filter__toggle-icon::after {
+    width: 2px;
+    height: 12px;
+    top: 0;
+    left: 5px;
+}
+
+.acst-filter__header[data-collapsed="false"] .acst-filter__toggle-icon::after {
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+/* ==========================================================================
+   Search Within Filter
+   ========================================================================== */
+
+.acst-filter__search {
+    margin-bottom: 0.75rem;
+}
+
+.acst-filter__search-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.15s ease;
+}
+
+.acst-filter__search-input:focus {
+    border-color: #0073aa;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.15);
+}
+
+/* ==========================================================================
+   Show More/Less
+   ========================================================================== */
+
+.acst-filter__show-more {
+    background: none;
+    border: none;
+    color: #0073aa;
+    font-size: 0.875rem;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    text-decoration: underline;
+    transition: color 0.15s ease;
+}
+
+.acst-filter__show-more:hover {
+    color: #005177;
+}
+
+/* ==========================================================================
+   Range Filter
+   ========================================================================== */
+
+.acst-filter__range-wrapper {
+    padding: 0.5rem 0;
+}
+
+.acst-filter__range-slider {
+    position: relative;
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    margin: 1rem 0;
+}
+
+.acst-filter__range-track {
+    position: absolute;
+    height: 100%;
+    background: #0073aa;
+    border-radius: 3px;
+}
+
+.acst-filter__range-input {
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    background: transparent;
+    pointer-events: none;
+    appearance: none;
+    margin: 0;
+    top: 0;
+}
+
+.acst-filter__range-input::-webkit-slider-thumb {
+    pointer-events: auto;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border: 2px solid #0073aa;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    transition: transform 0.15s ease;
+}
+
+.acst-filter__range-input::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+.acst-filter__range-input::-moz-range-thumb {
+    pointer-events: auto;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border: 2px solid #0073aa;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.acst-filter__range-values {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.acst-filter__range-inputs {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.acst-filter__range-field {
+    flex: 1;
+}
+
+.acst-filter__range-field label {
+    display: block;
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.acst-filter__range-field input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Search Filter (Text Input)
+   ========================================================================== */
+
+.acst-filter__text-input {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.9375rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.acst-filter__text-input:focus {
+    border-color: #0073aa;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.15);
+}
+
+.acst-filter__text-input::placeholder {
+    color: #999;
+}
+
+/* ==========================================================================
+   Loading State
+   ========================================================================== */
+
+.acst-loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.acst-loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.acst-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e0e0e0;
+    border-top-color: #0073aa;
+    border-radius: 50%;
+    animation: acst-spin 0.8s linear infinite;
+}
+
+@keyframes acst-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==========================================================================
+   No Results
+   ========================================================================== */
+
+.acst-no-results {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    color: #666;
+}
+
+.acst-no-results p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   Error State
+   ========================================================================== */
+
+.acst-error {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    color: #d63638;
+    background: #fce4e4;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   Filter Results (Fallback Template)
+   ========================================================================== */
+
+.acst-filter-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.acst-filter-item:last-child {
+    border-bottom: none;
+}
+
+.acst-filter-item__image {
+    flex-shrink: 0;
+    width: 120px;
+}
+
+.acst-filter-item__image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.acst-filter-item__content {
+    flex: 1;
+}
+
+.acst-filter-item__title {
+    margin: 0 0 0.5rem;
+    font-size: 1.125rem;
+}
+
+.acst-filter-item__title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.acst-filter-item__title a:hover {
+    color: #0073aa;
+}
+
+.acst-filter-item__excerpt {
+    color: #666;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 767px) {
+    .acst-filter__options--columns {
+        grid-template-columns: 1fr;
+    }
+
+    .acst-filter__options--horizontal {
+        flex-direction: column;
+    }
+
+    .acst-filter-item {
+        flex-direction: column;
+    }
+
+    .acst-filter-item__image {
+        width: 100%;
+    }
+}

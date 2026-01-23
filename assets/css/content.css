@@ -1,0 +1,904 @@
+/**
+ * AC Starter Toolkit - Content Widgets Styles
+ *
+ * @package AC_Starter_Toolkit
+ */
+
+/* ==========================================================================
+   General / Base Styles
+   ========================================================================== */
+
+.acst-widget-box {
+    position: relative;
+}
+
+.acst-widget-title {
+    margin: 0 0 10px;
+}
+
+.acst-widget-description {
+    margin: 0;
+}
+
+.acst-button {
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.acst-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   Team Member Widget
+   ========================================================================== */
+
+.acst-team-member {
+    position: relative;
+    text-align: center;
+}
+
+/* Card Layout */
+.acst-team-member--card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.acst-team-member--card .acst-team-member__image {
+    margin-bottom: 20px;
+}
+
+.acst-team-member--card .acst-team-member__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.acst-team-member--card .acst-team-member__content {
+    padding: 0 20px 20px;
+}
+
+/* Horizontal Layout */
+.acst-team-member--horizontal {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.acst-team-member--horizontal .acst-team-member__image {
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.acst-team-member--horizontal .acst-team-member__image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.acst-team-member--horizontal .acst-team-member__content {
+    flex: 1;
+}
+
+/* Overlay Layout */
+.acst-team-member--overlay {
+    overflow: hidden;
+}
+
+.acst-team-member--overlay .acst-team-member__image {
+    position: relative;
+}
+
+.acst-team-member--overlay .acst-team-member__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.acst-team-member--overlay .acst-team-member__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: #fff;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.acst-team-member--overlay:hover .acst-team-member__content {
+    transform: translateY(0);
+}
+
+.acst-team-member--overlay .acst-team-member__name,
+.acst-team-member--overlay .acst-team-member__role {
+    color: #fff;
+}
+
+/* Team Member Elements */
+.acst-team-member__name {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin: 0 0 5px;
+    color: #333;
+}
+
+.acst-team-member__role {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0 0 10px;
+}
+
+.acst-team-member__bio {
+    font-size: 0.95em;
+    color: #555;
+    margin: 0 0 15px;
+    line-height: 1.6;
+}
+
+/* Social Links */
+.acst-team-member__social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.acst-team-member--horizontal .acst-team-member__social {
+    justify-content: flex-start;
+}
+
+.acst-team-member__social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.acst-team-member__social a:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* ==========================================================================
+   Pricing Table Widget
+   ========================================================================== */
+
+.acst-pricing-table {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.acst-pricing-table:hover {
+    transform: translateY(-5px);
+}
+
+/* Ribbon */
+.acst-pricing-table__ribbon {
+    position: absolute;
+    top: 15px;
+    right: -35px;
+    background: #ff6b6b;
+    color: #fff;
+    padding: 5px 40px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transform: rotate(45deg);
+    z-index: 10;
+}
+
+/* Header */
+.acst-pricing-table__header {
+    padding: 30px 20px;
+    background: #f8f9fa;
+}
+
+.acst-pricing-table__icon {
+    margin-bottom: 15px;
+    font-size: 48px;
+    color: #333;
+}
+
+.acst-pricing-table__title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.acst-pricing-table__description {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+}
+
+/* Price */
+.acst-pricing-table__price {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.acst-pricing-table__price-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2px;
+}
+
+.acst-pricing-table__currency {
+    font-size: 1.25em;
+    font-weight: 500;
+    color: #333;
+    line-height: 1;
+    margin-top: 5px;
+}
+
+.acst-pricing-table__amount {
+    font-size: 3em;
+    font-weight: 700;
+    color: #333;
+    line-height: 1;
+}
+
+.acst-pricing-table__period {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.acst-pricing-table__original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1.25em;
+    margin-right: 10px;
+}
+
+/* Features */
+.acst-pricing-table__features {
+    padding: 20px;
+}
+
+.acst-pricing-table__features-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.acst-pricing-table__feature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+}
+
+.acst-pricing-table__feature:last-child {
+    border-bottom: none;
+}
+
+.acst-pricing-table__feature-icon {
+    margin-right: 10px;
+    color: #4caf50;
+}
+
+.acst-pricing-table__feature--excluded {
+    color: #999;
+    text-decoration: line-through;
+}
+
+.acst-pricing-table__feature--excluded .acst-pricing-table__feature-icon {
+    color: #f44336;
+}
+
+/* Footer / Button */
+.acst-pricing-table__footer {
+    padding: 20px;
+}
+
+.acst-pricing-table__button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.acst-pricing-table__button:hover {
+    background: #555;
+    color: #fff;
+}
+
+/* ==========================================================================
+   Countdown Timer Widget
+   ========================================================================== */
+
+.acst-countdown {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.acst-countdown__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.acst-countdown__number {
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1;
+    color: #333;
+}
+
+.acst-countdown__label {
+    font-size: 0.85em;
+    color: #666;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.acst-countdown__separator {
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Expired State */
+.acst-countdown--expired .acst-countdown__number {
+    color: #999;
+}
+
+.acst-countdown__message {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* ==========================================================================
+   Tabs Widget
+   ========================================================================== */
+
+.acst-tabs {
+    display: flex;
+    flex-direction: column;
+}
+
+.acst-tabs--vertical {
+    flex-direction: row;
+}
+
+/* Tab Navigation */
+.acst-tabs__nav {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.acst-tabs--vertical .acst-tabs__nav {
+    flex-direction: column;
+    border-bottom: none;
+    border-right: 2px solid #e0e0e0;
+    flex-shrink: 0;
+    width: 200px;
+}
+
+.acst-tabs__nav-item {
+    margin-bottom: -2px;
+}
+
+.acst-tabs--vertical .acst-tabs__nav-item {
+    margin-bottom: 0;
+    margin-right: -2px;
+}
+
+.acst-tabs__nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #666;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.acst-tabs--vertical .acst-tabs__nav-link {
+    border-bottom: none;
+    border-right: 2px solid transparent;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.acst-tabs__nav-link:hover {
+    color: #333;
+    background: #f8f9fa;
+}
+
+.acst-tabs__nav-link[aria-selected="true"] {
+    color: #333;
+    border-bottom-color: #333;
+    font-weight: 600;
+}
+
+.acst-tabs--vertical .acst-tabs__nav-link[aria-selected="true"] {
+    border-bottom-color: transparent;
+    border-right-color: #333;
+}
+
+/* Tab Icon Positions */
+.acst-tabs__nav-link--icon-after {
+    flex-direction: row-reverse;
+}
+
+.acst-tabs__nav-link--icon-above {
+    flex-direction: column;
+}
+
+.acst-tabs__nav-icon {
+    font-size: 1.2em;
+}
+
+/* Tab Content */
+.acst-tabs__content {
+    flex: 1;
+}
+
+.acst-tabs__panel {
+    display: none;
+    padding: 20px;
+}
+
+.acst-tabs__panel[aria-hidden="false"] {
+    display: block;
+}
+
+.acst-tabs--vertical .acst-tabs__panel {
+    padding: 20px;
+}
+
+/* ==========================================================================
+   Accordion Widget
+   ========================================================================== */
+
+.acst-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.acst-accordion__item {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.acst-accordion__header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: left;
+    gap: 10px;
+}
+
+.acst-accordion__header:hover {
+    background: #e9ecef;
+}
+
+.acst-accordion__header[aria-expanded="true"] {
+    background: #e9ecef;
+}
+
+/* Icon Positions */
+.acst-accordion__header--icon-right {
+    flex-direction: row;
+}
+
+.acst-accordion__header--icon-left {
+    flex-direction: row-reverse;
+}
+
+.acst-accordion__header--icon-left .acst-accordion__toggle {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+/* Title Icon */
+.acst-accordion__title-icon {
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* Title */
+.acst-accordion__title-text {
+    flex: 1;
+    font-size: 1em;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Toggle Icon */
+.acst-accordion__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    color: #666;
+    transition: transform 0.3s ease;
+}
+
+.acst-accordion__header[aria-expanded="true"] .acst-accordion__toggle {
+    transform: rotate(180deg);
+}
+
+.acst-accordion__toggle-active {
+    display: none;
+}
+
+.acst-accordion__header[aria-expanded="true"] .acst-accordion__toggle-inactive {
+    display: none;
+}
+
+.acst-accordion__header[aria-expanded="true"] .acst-accordion__toggle-active {
+    display: block;
+}
+
+/* Content */
+.acst-accordion__content {
+    display: none;
+    padding: 20px;
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+}
+
+.acst-accordion__content[aria-hidden="false"] {
+    display: block;
+}
+
+/* ==========================================================================
+   Testimonial Widget
+   ========================================================================== */
+
+.acst-testimonial {
+    position: relative;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+/* Quote Icon */
+.acst-testimonial__quote {
+    position: absolute;
+    font-size: 40px;
+    color: #333;
+    opacity: 0.2;
+    line-height: 1;
+}
+
+.acst-testimonial__quote--top-left {
+    top: 20px;
+    left: 20px;
+}
+
+.acst-testimonial__quote--top-right {
+    top: 20px;
+    right: 20px;
+}
+
+.acst-testimonial__quote--bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+
+.acst-testimonial__quote--bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+
+.acst-testimonial__quote--inline {
+    position: relative;
+    display: inline;
+    vertical-align: top;
+    margin-right: 5px;
+    opacity: 0.5;
+}
+
+/* Image */
+.acst-testimonial__image {
+    margin-bottom: 20px;
+}
+
+.acst-testimonial__image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Content */
+.acst-testimonial__content-wrap {
+    margin-bottom: 20px;
+}
+
+.acst-testimonial__content {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Author */
+.acst-testimonial__author {
+    margin-top: 15px;
+}
+
+.acst-testimonial__name {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 5px;
+    text-decoration: none;
+}
+
+a.acst-testimonial__name:hover {
+    color: #555;
+}
+
+.acst-testimonial__title {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Rating */
+.acst-testimonial__rating {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 10px;
+}
+
+.acst-star {
+    font-size: 1em;
+    line-height: 1;
+}
+
+.acst-star--filled {
+    color: #ffc107;
+}
+
+.acst-star--empty {
+    color: #e0e0e0;
+}
+
+.acst-star--half {
+    position: relative;
+    color: #e0e0e0;
+}
+
+.acst-star--half::before {
+    content: '\2605';
+    position: absolute;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+    color: #ffc107;
+}
+
+/* Layouts */
+
+/* Default Layout */
+.acst-testimonial--default {
+    text-align: center;
+}
+
+.acst-testimonial--default .acst-testimonial__image {
+    display: flex;
+    justify-content: center;
+}
+
+/* Centered Layout */
+.acst-testimonial--centered {
+    text-align: center;
+}
+
+.acst-testimonial--centered .acst-testimonial__image {
+    display: flex;
+    justify-content: center;
+}
+
+/* Bubble Layout */
+.acst-testimonial--bubble .acst-testimonial__content-wrap {
+    position: relative;
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.acst-testimonial--bubble .acst-testimonial__content-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 40px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #f8f9fa;
+}
+
+.acst-testimonial--bubble .acst-testimonial__author-wrap {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-left: 10px;
+}
+
+.acst-testimonial--bubble .acst-testimonial__image {
+    margin-bottom: 0;
+}
+
+.acst-testimonial--bubble .acst-testimonial__author {
+    margin-top: 0;
+    text-align: left;
+}
+
+.acst-testimonial--bubble .acst-testimonial__rating {
+    justify-content: flex-start;
+}
+
+/* Side Layout */
+.acst-testimonial--side {
+    display: flex;
+    text-align: left;
+    align-items: flex-start;
+}
+
+.acst-testimonial--side .acst-testimonial__aside {
+    flex-shrink: 0;
+    margin-right: 25px;
+}
+
+.acst-testimonial--side .acst-testimonial__image {
+    margin-bottom: 0;
+}
+
+.acst-testimonial--side .acst-testimonial__main {
+    flex: 1;
+}
+
+.acst-testimonial--side .acst-testimonial__rating {
+    justify-content: flex-start;
+}
+
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
+
+@media (max-width: 767px) {
+    /* Team Member */
+    .acst-team-member--horizontal {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .acst-team-member--horizontal .acst-team-member__image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .acst-team-member--horizontal .acst-team-member__social {
+        justify-content: center;
+    }
+
+    /* Countdown */
+    .acst-countdown__item {
+        min-width: 60px;
+        padding: 10px;
+    }
+
+    .acst-countdown__number {
+        font-size: 1.75em;
+    }
+
+    /* Tabs */
+    .acst-tabs--vertical {
+        flex-direction: column;
+    }
+
+    .acst-tabs--vertical .acst-tabs__nav {
+        flex-direction: row;
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #e0e0e0;
+        overflow-x: auto;
+    }
+
+    .acst-tabs--vertical .acst-tabs__nav-item {
+        margin-right: 0;
+        margin-bottom: -2px;
+    }
+
+    .acst-tabs--vertical .acst-tabs__nav-link {
+        border-right: none;
+        border-bottom: 2px solid transparent;
+    }
+
+    .acst-tabs--vertical .acst-tabs__nav-link[aria-selected="true"] {
+        border-right-color: transparent;
+        border-bottom-color: #333;
+    }
+
+    /* Testimonial */
+    .acst-testimonial--side {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .acst-testimonial--side .acst-testimonial__aside {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .acst-testimonial--side .acst-testimonial__rating {
+        justify-content: center;
+    }
+
+    .acst-testimonial--bubble .acst-testimonial__author-wrap {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .acst-testimonial--bubble .acst-testimonial__author {
+        text-align: center;
+    }
+
+    .acst-testimonial--bubble .acst-testimonial__rating {
+        justify-content: center;
+    }
+
+    .acst-testimonial--bubble .acst-testimonial__content-wrap::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
