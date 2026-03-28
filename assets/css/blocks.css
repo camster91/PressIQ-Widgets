@@ -1,0 +1,320 @@
+/**
+ * AC Starter Toolkit - Block Styles
+ *
+ * Styles for native WordPress blocks (FSE / Site Editor).
+ * Reuses existing .acst-* class names from the Elementor widgets
+ * so content.css handles base rendering. This file adds block-specific
+ * adjustments and the Post Filter grid.
+ *
+ * @package AC_Starter_Toolkit
+ */
+
+/* ==========================================================================
+   Block wrapper defaults (inherit theme fonts)
+   ========================================================================== */
+
+[class*="wp-block-acst-"] {
+    font-family: inherit;
+    line-height: inherit;
+}
+
+/* ==========================================================================
+   Accordion – show/hide without Elementor JS
+   ========================================================================== */
+
+.acst-accordion__content[hidden] {
+    display: none !important;
+}
+
+.acst-accordion__content:not([hidden]) {
+    display: block;
+}
+
+.acst-accordion__item.is-active .acst-accordion__toggle-icon--inactive {
+    display: none;
+}
+
+.acst-accordion__item:not(.is-active) .acst-accordion__toggle-icon--active {
+    display: none;
+}
+
+.acst-accordion__header {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.acst-accordion__title {
+    flex: 1;
+    font-weight: 600;
+}
+
+.acst-accordion__toggle {
+    margin-left: auto;
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   Tabs – show/hide without Elementor JS
+   ========================================================================== */
+
+.acst-tabs__panel[hidden] {
+    display: none !important;
+}
+
+.acst-tabs__panel.is-active {
+    display: block;
+}
+
+.acst-tabs__tab {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* ==========================================================================
+   Post Filter Block
+   ========================================================================== */
+
+.acst-post-filter__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: flex-end;
+}
+
+.acst-post-filter__controls .acst-filter {
+    flex: 1;
+    min-width: 180px;
+}
+
+.acst-post-filter__controls .acst-filter--search {
+    flex: 2;
+    min-width: 250px;
+}
+
+/* Search input */
+.acst-filter__search-wrap {
+    position: relative;
+    display: flex;
+}
+
+.acst-filter__search-input {
+    width: 100%;
+    padding: 0.625rem 2.5rem 0.625rem 0.875rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: #333;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.15s ease;
+}
+
+.acst-filter__search-input:focus {
+    border-color: #0073aa;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.15);
+}
+
+.acst-filter__search-clear {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #999;
+    line-height: 1;
+    padding: 4px;
+}
+
+.acst-filter__search-clear:hover {
+    color: #333;
+}
+
+/* Results grid */
+.acst-post-filter__results--grid {
+    display: grid;
+    grid-template-columns: repeat( var(--acst-columns, 3), 1fr );
+    gap: 24px;
+}
+
+.acst-post-filter__results--list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.acst-post-filter__results--list .acst-post-filter__item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.acst-post-filter__results--list .acst-post-filter__thumbnail {
+    flex-shrink: 0;
+    width: 200px;
+}
+
+/* Item card */
+.acst-post-filter__item {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.acst-post-filter__item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.acst-post-filter__thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.acst-post-filter__content {
+    padding: 16px;
+}
+
+.acst-post-filter__title {
+    font-size: 1.125em;
+    margin: 0 0 8px;
+}
+
+.acst-post-filter__title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.acst-post-filter__title a:hover {
+    color: #0073aa;
+}
+
+.acst-post-filter__meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.acst-post-filter__categories {
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.acst-post-filter__excerpt {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.6;
+}
+
+.acst-post-filter__excerpt p {
+    margin: 0;
+}
+
+.acst-post-filter__no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 1.1em;
+}
+
+/* Loading state */
+.acst-post-filter__results--loading {
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+/* Pagination / Load More */
+.acst-post-filter__pagination {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.acst-post-filter__load-more {
+    padding: 12px 32px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.acst-post-filter__load-more:hover {
+    background: #555;
+}
+
+/* ==========================================================================
+   Checkbox filter styles (for post-filter block)
+   ========================================================================== */
+
+.acst-filter__options {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.acst-filter__checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.9375rem;
+}
+
+.acst-filter__checkbox-text {
+    flex: 1;
+}
+
+.acst-filter__count {
+    color: #999;
+    font-size: 0.85em;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 767px) {
+    .acst-post-filter__results--grid {
+        grid-template-columns: 1fr;
+    }
+
+    .acst-post-filter__controls {
+        flex-direction: column;
+    }
+
+    .acst-post-filter__controls .acst-filter {
+        min-width: 100%;
+    }
+
+    .acst-post-filter__results--list .acst-post-filter__item {
+        flex-direction: column;
+    }
+
+    .acst-post-filter__results--list .acst-post-filter__thumbnail {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .acst-post-filter__results--grid {
+        grid-template-columns: repeat( min( var(--acst-columns, 3), 2 ), 1fr );
+    }
+}

@@ -40,6 +40,7 @@ class Admin {
         'modules' => array(
             'filters' => true,
             'content' => true,
+            'blocks'  => false,
         ),
     );
 
@@ -192,6 +193,20 @@ class Admin {
                     'acst-accordion'     => esc_html__( 'Accordion', 'ac-starter-toolkit' ),
                 ),
             ),
+            'blocks' => array(
+                'name'        => esc_html__( 'WordPress Blocks (FSE)', 'ac-starter-toolkit' ),
+                'description' => esc_html__( 'Native WordPress blocks for the Site Editor and block themes like Twenty Twenty-Six. Works without Elementor. Includes Accordion, Tabs, Team Member, Pricing Table, Testimonial, Countdown Timer, and Post Filter blocks.', 'ac-starter-toolkit' ),
+                'icon'        => 'dashicons-block-default',
+                'widgets'     => array(
+                    'acst-block-accordion'     => esc_html__( 'Accordion Block', 'ac-starter-toolkit' ),
+                    'acst-block-tabs'          => esc_html__( 'Tabs Block', 'ac-starter-toolkit' ),
+                    'acst-block-team-member'   => esc_html__( 'Team Member Block', 'ac-starter-toolkit' ),
+                    'acst-block-pricing-table' => esc_html__( 'Pricing Table Block', 'ac-starter-toolkit' ),
+                    'acst-block-testimonial'   => esc_html__( 'Testimonial Block', 'ac-starter-toolkit' ),
+                    'acst-block-countdown'     => esc_html__( 'Countdown Timer Block', 'ac-starter-toolkit' ),
+                    'acst-block-post-filter'   => esc_html__( 'Post Filter Block', 'ac-starter-toolkit' ),
+                ),
+            ),
         );
     }
 
@@ -247,7 +262,7 @@ class Admin {
                     <div class="acst-card acst-card--welcome">
                         <div class="acst-card__content">
                             <h2><?php esc_html_e( 'Welcome to AC Starter Toolkit', 'ac-starter-toolkit' ); ?></h2>
-                            <p><?php esc_html_e( 'A modular Elementor toolkit with smart filtering and content widgets. Enable the modules you need and start building.', 'ac-starter-toolkit' ); ?></p>
+                            <p><?php esc_html_e( 'A modular toolkit with smart filtering and content widgets. Works with Elementor widgets and native WordPress blocks for Full Site Editing themes like Twenty Twenty-Six. Enable the modules you need and start building.', 'ac-starter-toolkit' ); ?></p>
                         </div>
                     </div>
 
@@ -310,12 +325,22 @@ class Admin {
                                         <?php esc_html_e( 'View All Widgets', 'ac-starter-toolkit' ); ?>
                                     </a>
                                 </li>
+                                <?php if ( defined( 'ELEMENTOR_VERSION' ) ) : ?>
                                 <li>
                                     <a href="<?php echo esc_url( admin_url( 'edit.php?post_type=elementor_library' ) ); ?>">
                                         <span class="dashicons dashicons-admin-page"></span>
                                         <?php esc_html_e( 'Elementor Templates', 'ac-starter-toolkit' ); ?>
                                     </a>
                                 </li>
+                                <?php endif; ?>
+                                <?php if ( wp_is_block_theme() ) : ?>
+                                <li>
+                                    <a href="<?php echo esc_url( admin_url( 'site-editor.php' ) ); ?>">
+                                        <span class="dashicons dashicons-layout"></span>
+                                        <?php esc_html_e( 'Site Editor', 'ac-starter-toolkit' ); ?>
+                                    </a>
+                                </li>
+                                <?php endif; ?>
                             </ul>
                         </div>
                     </div>
@@ -355,6 +380,19 @@ class Admin {
                                             echo esc_html( WC_VERSION );
                                         } else {
                                             esc_html_e( 'Not Active', 'ac-starter-toolkit' );
+                                        }
+                                        ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><?php esc_html_e( 'Block Theme (FSE)', 'ac-starter-toolkit' ); ?></td>
+                                    <td>
+                                        <?php
+                                        if ( function_exists( 'wp_is_block_theme' ) && wp_is_block_theme() ) {
+                                            $theme = wp_get_theme();
+                                            echo esc_html( $theme->get( 'Name' ) . ' ' . $theme->get( 'Version' ) );
+                                        } else {
+                                            esc_html_e( 'Classic Theme', 'ac-starter-toolkit' );
                                         }
                                         ?>
                                     </td>
@@ -453,6 +491,15 @@ class Admin {
                             <li><?php esc_html_e( 'Configure filter sources (taxonomy, meta field, or manual options)', 'ac-starter-toolkit' ); ?></li>
                             <li><?php esc_html_e( 'Visitors can now filter content without page reloads', 'ac-starter-toolkit' ); ?></li>
                         </ol>
+
+                        <h3><?php esc_html_e( 'Using WordPress Blocks (FSE / Block Themes)', 'ac-starter-toolkit' ); ?></h3>
+                        <ol class="acst-steps">
+                            <li><?php esc_html_e( 'Enable the "WordPress Blocks (FSE)" module above', 'ac-starter-toolkit' ); ?></li>
+                            <li><?php esc_html_e( 'Open any page or the Site Editor (Appearance → Editor)', 'ac-starter-toolkit' ); ?></li>
+                            <li><?php esc_html_e( 'Search for "AC" or browse the "AC Starter Toolkit" block category', 'ac-starter-toolkit' ); ?></li>
+                            <li><?php esc_html_e( 'Insert blocks and configure them via the block sidebar panel', 'ac-starter-toolkit' ); ?></li>
+                            <li><?php esc_html_e( 'Blocks work natively with block themes like Twenty Twenty-Six — no Elementor required', 'ac-starter-toolkit' ); ?></li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -520,8 +567,42 @@ class Admin {
             ),
         );
 
-        return isset( $widgets[ $widget_id ] ) ? $widgets[ $widget_id ] : array(
-            'icon'        => 'eicon-apps',
+        // Block widget info.
+        $block_widgets = array(
+            'acst-block-accordion'     => array(
+                'icon'        => 'dashicons dashicons-list-view',
+                'description' => esc_html__( 'Collapsible accordion sections for the WordPress Site Editor.', 'ac-starter-toolkit' ),
+            ),
+            'acst-block-tabs'          => array(
+                'icon'        => 'dashicons dashicons-table-row-after',
+                'description' => esc_html__( 'Tabbed content interface for block themes.', 'ac-starter-toolkit' ),
+            ),
+            'acst-block-team-member'   => array(
+                'icon'        => 'dashicons dashicons-admin-users',
+                'description' => esc_html__( 'Team member profiles with photo, social links for the Site Editor.', 'ac-starter-toolkit' ),
+            ),
+            'acst-block-pricing-table' => array(
+                'icon'        => 'dashicons dashicons-money-alt',
+                'description' => esc_html__( 'Pricing plans with features and CTA button for block themes.', 'ac-starter-toolkit' ),
+            ),
+            'acst-block-testimonial'   => array(
+                'icon'        => 'dashicons dashicons-format-quote',
+                'description' => esc_html__( 'Customer testimonials with rating stars for the Site Editor.', 'ac-starter-toolkit' ),
+            ),
+            'acst-block-countdown'     => array(
+                'icon'        => 'dashicons dashicons-clock',
+                'description' => esc_html__( 'Countdown timer with expire actions for block themes.', 'ac-starter-toolkit' ),
+            ),
+            'acst-block-post-filter'   => array(
+                'icon'        => 'dashicons dashicons-filter',
+                'description' => esc_html__( 'AJAX-powered post filter with search, taxonomy filters, and sorting for block themes.', 'ac-starter-toolkit' ),
+            ),
+        );
+
+        $all_widgets = array_merge( $widgets, $block_widgets );
+
+        return isset( $all_widgets[ $widget_id ] ) ? $all_widgets[ $widget_id ] : array(
+            'icon'        => 'dashicons dashicons-admin-generic',
             'description' => '',
         );
     }

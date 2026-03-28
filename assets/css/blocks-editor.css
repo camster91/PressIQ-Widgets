@@ -1,0 +1,28 @@
+/**
+ * AC Starter Toolkit - Block Editor Styles
+ *
+ * @package AC_Starter_Toolkit
+ */
+
+/* Ensure blocks display correctly inside the editor */
+[class*="wp-block-acst-"] .acst-accordion,
+[class*="wp-block-acst-"] .acst-tabs,
+[class*="wp-block-acst-"] .acst-team-member,
+[class*="wp-block-acst-"] .acst-pricing-table,
+[class*="wp-block-acst-"] .acst-testimonial,
+[class*="wp-block-acst-"] .acst-countdown,
+[class*="wp-block-acst-"] .acst-post-filter {
+    pointer-events: none;
+}
+
+/* Allow interaction with controls */
+[class*="wp-block-acst-"].is-selected .acst-accordion,
+[class*="wp-block-acst-"].is-selected .acst-tabs,
+[class*="wp-block-acst-"].is-selected .acst-post-filter {
+    pointer-events: auto;
+}
+
+/* Editor placeholder when block has no content */
+[class*="wp-block-acst-"] .components-placeholder {
+    min-height: 100px;
+}

@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "acst/accordion",
+    "version": "1.0.0",
+    "title": "Accordion",
+    "category": "ac-starter-toolkit",
+    "icon": "list-view",
+    "description": "Display content in collapsible accordion sections.",
+    "keywords": [ "accordion", "toggle", "collapse", "faq" ],
+    "supports": {
+        "html": false,
+        "align": [ "wide", "full" ],
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        },
+        "typography": {
+            "fontSize": true
+        }
+    },
+    "attributes": {
+        "items": {
+            "type": "array",
+            "default": [
+                { "title": "Accordion Item 1", "content": "Content for accordion item 1.", "open": true },
+                { "title": "Accordion Item 2", "content": "Content for accordion item 2.", "open": false },
+                { "title": "Accordion Item 3", "content": "Content for accordion item 3.", "open": false }
+            ]
+        },
+        "collapseOthers": {
+            "type": "boolean",
+            "default": true
+        },
+        "titleTag": {
+            "type": "string",
+            "default": "div"
+        }
+    },
+    "textdomain": "ac-starter-toolkit",
+    "render": "file:./render.php"
+}

@@ -1,0 +1,86 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "acst/pricing-table",
+    "version": "1.0.0",
+    "title": "Pricing Table",
+    "category": "ac-starter-toolkit",
+    "icon": "money-alt",
+    "description": "Display pricing plans with features list and CTA button.",
+    "keywords": [ "pricing", "table", "plan", "price", "subscription" ],
+    "supports": {
+        "html": false,
+        "align": [ "wide", "full" ],
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        },
+        "typography": {
+            "fontSize": true
+        }
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Basic Plan"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": "For individuals"
+        },
+        "currency": {
+            "type": "string",
+            "default": "$"
+        },
+        "price": {
+            "type": "string",
+            "default": "29"
+        },
+        "originalPrice": {
+            "type": "string",
+            "default": ""
+        },
+        "period": {
+            "type": "string",
+            "default": "/month"
+        },
+        "currencyPosition": {
+            "type": "string",
+            "default": "before"
+        },
+        "featured": {
+            "type": "boolean",
+            "default": false
+        },
+        "ribbonText": {
+            "type": "string",
+            "default": "Popular"
+        },
+        "features": {
+            "type": "array",
+            "default": [
+                { "text": "10 Projects", "available": true },
+                { "text": "5GB Storage", "available": true },
+                { "text": "Priority Support", "available": false }
+            ]
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Get Started"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "buttonTarget": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "textdomain": "ac-starter-toolkit",
+    "render": "file:./render.php"
+}

@@ -1,0 +1,94 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "acst/countdown",
+    "version": "1.0.0",
+    "title": "Countdown Timer",
+    "category": "ac-starter-toolkit",
+    "icon": "clock",
+    "description": "Display a countdown timer to a specific date/time with expire actions.",
+    "keywords": [ "countdown", "timer", "clock", "date" ],
+    "supports": {
+        "html": false,
+        "align": [ "wide", "full" ],
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        },
+        "typography": {
+            "fontSize": true
+        }
+    },
+    "attributes": {
+        "countdownType": {
+            "type": "string",
+            "default": "due_date"
+        },
+        "dueDate": {
+            "type": "string",
+            "default": ""
+        },
+        "evergreenHours": {
+            "type": "number",
+            "default": 24
+        },
+        "evergreenMinutes": {
+            "type": "number",
+            "default": 0
+        },
+        "showDays": {
+            "type": "boolean",
+            "default": true
+        },
+        "showHours": {
+            "type": "boolean",
+            "default": true
+        },
+        "showMinutes": {
+            "type": "boolean",
+            "default": true
+        },
+        "showSeconds": {
+            "type": "boolean",
+            "default": true
+        },
+        "showLabels": {
+            "type": "boolean",
+            "default": true
+        },
+        "showSeparator": {
+            "type": "boolean",
+            "default": true
+        },
+        "labelDays": {
+            "type": "string",
+            "default": "Days"
+        },
+        "labelHours": {
+            "type": "string",
+            "default": "Hours"
+        },
+        "labelMinutes": {
+            "type": "string",
+            "default": "Minutes"
+        },
+        "labelSeconds": {
+            "type": "string",
+            "default": "Seconds"
+        },
+        "expireAction": {
+            "type": "string",
+            "default": "hide"
+        },
+        "expireMessage": {
+            "type": "string",
+            "default": "This offer has expired!"
+        }
+    },
+    "textdomain": "ac-starter-toolkit",
+    "render": "file:./render.php"
+}

@@ -36,27 +36,47 @@ define( 'ACST_MINIMUM_ELEMENTOR_VERSION', '3.0.0' );
 define( 'ACST_MINIMUM_PHP_VERSION', '7.4' );
 
 /**
- * Load the plugin after Elementor loads
+ * Check if the blocks module is enabled in options
+ *
+ * @return bool
+ */
+function acst_is_blocks_module_active() {
+    $options = get_option( 'acst_options', array() );
+    return ! empty( $options['modules']['blocks'] );
+}
+
+/**
+ * Check if Elementor is available
+ *
+ * @return bool
+ */
+function acst_has_elementor() {
+    return did_action( 'elementor/loaded' ) && defined( 'ELEMENTOR_VERSION' )
+        && version_compare( ELEMENTOR_VERSION, ACST_MINIMUM_ELEMENTOR_VERSION, '>=' );
+}
+
+/**
+ * Load the plugin after Elementor loads (or independently for blocks mode)
  */
 function acst_load_plugin() {
     // Load text domain for translations
     load_plugin_textdomain( 'ac-starter-toolkit', false, dirname( ACST_PLUGIN_BASENAME ) . '/languages' );
 
-    // Check if Elementor is installed and activated
-    if ( ! did_action( 'elementor/loaded' ) ) {
-        add_action( 'admin_notices', 'acst_admin_notice_missing_elementor' );
-        return;
-    }
-
-    // Check for required Elementor version
-    if ( ! version_compare( ELEMENTOR_VERSION, ACST_MINIMUM_ELEMENTOR_VERSION, '>=' ) ) {
-        add_action( 'admin_notices', 'acst_admin_notice_minimum_elementor_version' );
-        return;
-    }
-
     // Check for required PHP version
     if ( version_compare( PHP_VERSION, ACST_MINIMUM_PHP_VERSION, '<' ) ) {
         add_action( 'admin_notices', 'acst_admin_notice_minimum_php_version' );
+        return;
+    }
+
+    $has_elementor   = acst_has_elementor();
+    $blocks_active   = acst_is_blocks_module_active();
+
+    // If neither Elementor nor blocks module is available, show notice
+    if ( ! $has_elementor && ! $blocks_active ) {
+        add_action( 'admin_notices', 'acst_admin_notice_missing_elementor' );
+        // Still load the plugin for admin settings so blocks can be enabled
+        require_once ACST_PLUGIN_DIR . 'includes/class-plugin.php';
+        \AC_Starter_Toolkit\Plugin::instance();
         return;
     }
 
@@ -67,7 +87,7 @@ function acst_load_plugin() {
 add_action( 'plugins_loaded', 'acst_load_plugin' );
 
 /**
- * Admin notice: Elementor not installed
+ * Admin notice: Elementor not installed (shown only when blocks module is also inactive)
  */
 function acst_admin_notice_missing_elementor() {
     if ( isset( $_GET['activate'] ) ) {
@@ -76,12 +96,12 @@ function acst_admin_notice_missing_elementor() {
 
     $message = sprintf(
         /* translators: 1: Plugin name 2: Elementor */
-        esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'ac-starter-toolkit' ),
+        esc_html__( '"%1$s" works best with "%2$s" for Elementor widgets, or enable the Blocks module for native WordPress block support (compatible with block themes like Twenty Twenty-Six).', 'ac-starter-toolkit' ),
         '<strong>' . esc_html__( 'AC Starter Toolkit', 'ac-starter-toolkit' ) . '</strong>',
         '<strong>' . esc_html__( 'Elementor', 'ac-starter-toolkit' ) . '</strong>'
     );
 
-    printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+    printf( '<div class="notice notice-info is-dismissible"><p>%1$s</p></div>', $message );
 }
 
 /**
@@ -126,12 +146,12 @@ function acst_admin_notice_minimum_php_version() {
  * Plugin activation hook
  */
 function acst_activate() {
-    // Set default options
+    // Set default options – enable blocks by default for block theme compatibility
     $default_options = array(
         'modules' => array(
             'filters' => true,
-            'content' => false,
-            'blocks'  => false,
+            'content' => true,
+            'blocks'  => true,
         ),
     );
 

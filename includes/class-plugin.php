@@ -69,6 +69,7 @@ final class Plugin {
             'modules' => array(
                 'filters' => true,
                 'content' => true,
+                'blocks'  => false,
             ),
         ) );
     }
@@ -144,30 +145,45 @@ final class Plugin {
             Admin::instance();
         }
 
-        // Initialize after Elementor is fully loaded
-        add_action( 'elementor/init', array( $this, 'init' ) );
+        $has_elementor = function_exists( 'acst_has_elementor' ) && acst_has_elementor();
 
-        // Register widget categories
-        add_action( 'elementor/elements/categories_registered', array( $this, 'register_widget_categories' ) );
+        // Elementor-specific hooks (only when Elementor is active)
+        if ( $has_elementor ) {
+            // Initialize after Elementor is fully loaded
+            add_action( 'elementor/init', array( $this, 'init' ) );
 
-        // Register widgets
-        add_action( 'elementor/widgets/register', array( $this, 'register_widgets' ) );
+            // Register widget categories
+            add_action( 'elementor/elements/categories_registered', array( $this, 'register_widget_categories' ) );
 
-        // Enqueue frontend scripts and styles
-        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
+            // Register widgets
+            add_action( 'elementor/widgets/register', array( $this, 'register_widgets' ) );
 
-        // Enqueue editor scripts and styles
-        add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'enqueue_editor_assets' ) );
+            // Enqueue editor scripts and styles
+            add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'enqueue_editor_assets' ) );
 
-        // Initialize AJAX handlers
+            // Enqueue Elementor frontend assets
+            add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
+        }
+
+        // Initialize AJAX handlers (needed for both Elementor and blocks)
         add_action( 'init', array( $this, 'init_ajax_handlers' ) );
+
+        // Initialize blocks module (independent of Elementor)
+        if ( $this->is_module_active( 'blocks' ) ) {
+            add_action( 'init', array( $this, 'init_blocks_module' ) );
+
+            // If no Elementor, still enqueue content CSS for block rendering
+            if ( ! $has_elementor ) {
+                add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_block_content_assets' ) );
+            }
+        }
     }
 
     /**
-     * Initialize plugin
+     * Initialize plugin (Elementor mode)
      */
     public function init() {
-        // Load active modules
+        // Load active Elementor modules
         $this->load_modules();
 
         /**
@@ -179,13 +195,18 @@ final class Plugin {
     }
 
     /**
-     * Load active modules
+     * Load active Elementor modules (filters, content)
      */
     private function load_modules() {
         $active_modules = $this->options['modules'] ?? array();
 
         foreach ( $active_modules as $module_slug => $is_active ) {
             if ( ! $is_active ) {
+                continue;
+            }
+
+            // Skip blocks module here – it's loaded separately
+            if ( $module_slug === 'blocks' ) {
                 continue;
             }
 
@@ -200,6 +221,40 @@ final class Plugin {
                     $this->modules[ $module_slug ] = new $module_class();
                 }
             }
+        }
+    }
+
+    /**
+     * Initialize the blocks module for FSE / block theme support
+     */
+    public function init_blocks_module() {
+        $module_file = ACST_PLUGIN_DIR . 'modules/blocks/class-blocks-module.php';
+
+        if ( file_exists( $module_file ) ) {
+            require_once $module_file;
+            $this->modules['blocks'] = new \AC_Starter_Toolkit\Modules\Blocks\Blocks_Module();
+        }
+    }
+
+    /**
+     * Enqueue content CSS for blocks when Elementor is not active
+     */
+    public function enqueue_block_content_assets() {
+        wp_enqueue_style(
+            'acst-content',
+            ACST_PLUGIN_URL . 'assets/css/content.css',
+            array(),
+            ACST_VERSION
+        );
+
+        // Also load filters CSS if filters module is active
+        if ( $this->is_module_active( 'filters' ) ) {
+            wp_enqueue_style(
+                'acst-filters',
+                ACST_PLUGIN_URL . 'assets/css/filters.css',
+                array(),
+                ACST_VERSION
+            );
         }
     }
 
