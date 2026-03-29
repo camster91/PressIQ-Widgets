@@ -98,7 +98,7 @@ class Blocks_Module {
      */
     public function enqueue_editor_assets() {
         $asset_file = ACST_PLUGIN_DIR . 'assets/js/blocks-editor.asset.php';
-        $deps       = array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-data' );
+        $deps       = array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-data', 'wp-server-side-render' );
         $version    = ACST_VERSION;
 
         if ( file_exists( $asset_file ) ) {

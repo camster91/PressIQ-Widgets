@@ -25,11 +25,6 @@
     var ServerSideRender = wp.serverSideRender || wp.components.ServerSideRender;
     var Fragment       = wp.element.Fragment;
 
-    // Fallback for ServerSideRender
-    if ( ! ServerSideRender && wp.editor ) {
-        ServerSideRender = wp.editor.ServerSideRender;
-    }
-
     /* =========================================================================
        Helper: Repeater-like item management
        ========================================================================= */
