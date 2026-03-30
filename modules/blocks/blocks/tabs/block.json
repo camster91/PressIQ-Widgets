@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "acst/tabs",
+    "version": "1.0.0",
+    "title": "Tabs",
+    "category": "ac-starter-toolkit",
+    "icon": "table-row-after",
+    "description": "Display content in a tabbed interface.",
+    "keywords": [ "tabs", "toggle", "switch", "content" ],
+    "supports": {
+        "html": false,
+        "align": [ "wide", "full" ],
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        },
+        "typography": {
+            "fontSize": true
+        }
+    },
+    "attributes": {
+        "tabs": {
+            "type": "array",
+            "default": [
+                { "title": "Tab 1", "content": "Content for tab 1." },
+                { "title": "Tab 2", "content": "Content for tab 2." },
+                { "title": "Tab 3", "content": "Content for tab 3." }
+            ]
+        },
+        "layout": {
+            "type": "string",
+            "default": "horizontal"
+        },
+        "defaultActive": {
+            "type": "number",
+            "default": 1
+        }
+    },
+    "textdomain": "ac-starter-toolkit",
+    "render": "file:./render.php"
+}

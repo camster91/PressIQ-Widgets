@@ -1,0 +1,62 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "acst/testimonial",
+    "version": "1.0.0",
+    "title": "Testimonial",
+    "category": "ac-starter-toolkit",
+    "icon": "format-quote",
+    "description": "Display customer testimonials with photo, rating, and multiple layouts.",
+    "keywords": [ "testimonial", "review", "quote", "feedback" ],
+    "supports": {
+        "html": false,
+        "align": [ "wide", "full" ],
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        },
+        "typography": {
+            "fontSize": true
+        }
+    },
+    "attributes": {
+        "content": {
+            "type": "string",
+            "default": "This is an amazing product! I highly recommend it to everyone."
+        },
+        "name": {
+            "type": "string",
+            "default": "Jane Smith"
+        },
+        "title": {
+            "type": "string",
+            "default": "CEO, Company Inc."
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "imageId": {
+            "type": "number",
+            "default": 0
+        },
+        "rating": {
+            "type": "number",
+            "default": 5
+        },
+        "showRating": {
+            "type": "boolean",
+            "default": true
+        },
+        "layout": {
+            "type": "string",
+            "default": "default"
+        }
+    },
+    "textdomain": "ac-starter-toolkit",
+    "render": "file:./render.php"
+}

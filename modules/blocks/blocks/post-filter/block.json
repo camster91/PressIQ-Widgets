@@ -1,0 +1,78 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "acst/post-filter",
+    "version": "1.0.0",
+    "title": "Post Filter",
+    "category": "ac-starter-toolkit",
+    "icon": "filter",
+    "description": "AJAX-powered post filter with search, select, checkbox, and sorting options for dynamic content filtering.",
+    "keywords": [ "filter", "search", "ajax", "sort", "taxonomy" ],
+    "supports": {
+        "html": false,
+        "align": [ "wide", "full" ],
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        },
+        "typography": {
+            "fontSize": true
+        }
+    },
+    "attributes": {
+        "queryId": {
+            "type": "string",
+            "default": "main_query"
+        },
+        "postType": {
+            "type": "string",
+            "default": "post"
+        },
+        "postsPerPage": {
+            "type": "number",
+            "default": 9
+        },
+        "showSearch": {
+            "type": "boolean",
+            "default": true
+        },
+        "searchPlaceholder": {
+            "type": "string",
+            "default": "Search..."
+        },
+        "showSort": {
+            "type": "boolean",
+            "default": true
+        },
+        "taxonomyFilters": {
+            "type": "array",
+            "default": []
+        },
+        "layout": {
+            "type": "string",
+            "default": "grid"
+        },
+        "columns": {
+            "type": "number",
+            "default": 3
+        },
+        "showExcerpt": {
+            "type": "boolean",
+            "default": true
+        },
+        "showThumbnail": {
+            "type": "boolean",
+            "default": true
+        },
+        "showMeta": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "textdomain": "ac-starter-toolkit",
+    "render": "file:./render.php"
+}
