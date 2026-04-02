@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint JavaScript
+        run: npm run lint:js
+
+      - name: Lint CSS
+        run: npm run lint:css
+
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    # Add tests when available
+    # For now, this job serves as a placeholder for future PHPUnit/Playwright tests
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run build
+        run: npm run build
+
+  docker-build-test:
+    name: Docker Build Test
+    runs-on: ubuntu-latest
+    # Only run on main/master to avoid unnecessary builds on PRs
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          load: true
+          tags: pressiq-widgets:test
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Verify image exists
+        run: docker images pressiq-widgets:test
