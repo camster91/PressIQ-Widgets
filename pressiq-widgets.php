@@ -1,18 +1,18 @@
 <?php
 /**
- * Plugin Name: AC Starter Toolkit
+ * Plugin Name: PressIQ Widgets
  * Description: A modular Elementor widget toolkit with smart filters, content widgets, and more.
  * Version: 1.0.0
  * Author: Ashley Cameron
  * Author URI: https://example.com
- * Text Domain: ac-starter-toolkit
+ * Text Domain: pressiq-widgets
  * Domain Path: /languages
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * Elementor tested up to: 3.19
  * Elementor Pro tested up to: 3.19
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
 // Exit if accessed directly
@@ -23,17 +23,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Plugin constants
  */
-define( 'ACST_VERSION', '1.0.0' );
-define( 'ACST_PLUGIN_FILE', __FILE__ );
-define( 'ACST_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define( 'ACST_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'ACST_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+define( 'PRESSIQ_VERSION', '1.0.0' );
+define( 'PRESSIQ_PLUGIN_FILE', __FILE__ );
+define( 'PRESSIQ_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'PRESSIQ_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'PRESSIQ_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 
 /**
  * Minimum requirements
  */
-define( 'ACST_MINIMUM_ELEMENTOR_VERSION', '3.0.0' );
-define( 'ACST_MINIMUM_PHP_VERSION', '7.4' );
+define( 'PRESSIQ_MINIMUM_ELEMENTOR_VERSION', '3.0.0' );
+define( 'PRESSIQ_MINIMUM_PHP_VERSION', '7.4' );
 
 /**
  * Check if the blocks module is enabled in options
@@ -52,7 +52,7 @@ function acst_is_blocks_module_active() {
  */
 function acst_has_elementor() {
     return did_action( 'elementor/loaded' ) && defined( 'ELEMENTOR_VERSION' )
-        && version_compare( ELEMENTOR_VERSION, ACST_MINIMUM_ELEMENTOR_VERSION, '>=' );
+        && version_compare( ELEMENTOR_VERSION, PRESSIQ_MINIMUM_ELEMENTOR_VERSION, '>=' );
 }
 
 /**
@@ -60,10 +60,10 @@ function acst_has_elementor() {
  */
 function acst_load_plugin() {
     // Load text domain for translations
-    load_plugin_textdomain( 'ac-starter-toolkit', false, dirname( ACST_PLUGIN_BASENAME ) . '/languages' );
+    load_plugin_textdomain( 'pressiq-widgets', false, dirname( PRESSIQ_PLUGIN_BASENAME ) . '/languages' );
 
     // Check for required PHP version
-    if ( version_compare( PHP_VERSION, ACST_MINIMUM_PHP_VERSION, '<' ) ) {
+    if ( version_compare( PHP_VERSION, PRESSIQ_MINIMUM_PHP_VERSION, '<' ) ) {
         add_action( 'admin_notices', 'acst_admin_notice_minimum_php_version' );
         return;
     }
@@ -75,14 +75,14 @@ function acst_load_plugin() {
     if ( ! $has_elementor && ! $blocks_active ) {
         add_action( 'admin_notices', 'acst_admin_notice_missing_elementor' );
         // Still load the plugin for admin settings so blocks can be enabled
-        require_once ACST_PLUGIN_DIR . 'includes/class-plugin.php';
-        \AC_Starter_Toolkit\Plugin::instance();
+        require_once PRESSIQ_PLUGIN_DIR . 'includes/class-plugin.php';
+        \PressIQ_Widgets\Plugin::instance();
         return;
     }
 
     // All checks passed - load the plugin
-    require_once ACST_PLUGIN_DIR . 'includes/class-plugin.php';
-    \AC_Starter_Toolkit\Plugin::instance();
+    require_once PRESSIQ_PLUGIN_DIR . 'includes/class-plugin.php';
+    \PressIQ_Widgets\Plugin::instance();
 }
 add_action( 'plugins_loaded', 'acst_load_plugin' );
 
@@ -96,9 +96,9 @@ function acst_admin_notice_missing_elementor() {
 
     $message = sprintf(
         /* translators: 1: Plugin name 2: Elementor */
-        esc_html__( '"%1$s" works best with "%2$s" for Elementor widgets, or enable the Blocks module for native WordPress block support (compatible with block themes like Twenty Twenty-Six).', 'ac-starter-toolkit' ),
-        '<strong>' . esc_html__( 'AC Starter Toolkit', 'ac-starter-toolkit' ) . '</strong>',
-        '<strong>' . esc_html__( 'Elementor', 'ac-starter-toolkit' ) . '</strong>'
+        esc_html__( '"%1$s" works best with "%2$s" for Elementor widgets, or enable the Blocks module for native WordPress block support (compatible with block themes like Twenty Twenty-Six).', 'pressiq-widgets' ),
+        '<strong>' . esc_html__( 'PressIQ Widgets', 'pressiq-widgets' ) . '</strong>',
+        '<strong>' . esc_html__( 'Elementor', 'pressiq-widgets' ) . '</strong>'
     );
 
     printf( '<div class="notice notice-info is-dismissible"><p>%1$s</p></div>', $message );
@@ -114,10 +114,10 @@ function acst_admin_notice_minimum_elementor_version() {
 
     $message = sprintf(
         /* translators: 1: Plugin name 2: Elementor 3: Required version */
-        esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'ac-starter-toolkit' ),
-        '<strong>' . esc_html__( 'AC Starter Toolkit', 'ac-starter-toolkit' ) . '</strong>',
-        '<strong>' . esc_html__( 'Elementor', 'ac-starter-toolkit' ) . '</strong>',
-        ACST_MINIMUM_ELEMENTOR_VERSION
+        esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'pressiq-widgets' ),
+        '<strong>' . esc_html__( 'PressIQ Widgets', 'pressiq-widgets' ) . '</strong>',
+        '<strong>' . esc_html__( 'Elementor', 'pressiq-widgets' ) . '</strong>',
+        PRESSIQ_MINIMUM_ELEMENTOR_VERSION
     );
 
     printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
@@ -133,10 +133,10 @@ function acst_admin_notice_minimum_php_version() {
 
     $message = sprintf(
         /* translators: 1: Plugin name 2: PHP 3: Required version */
-        esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'ac-starter-toolkit' ),
-        '<strong>' . esc_html__( 'AC Starter Toolkit', 'ac-starter-toolkit' ) . '</strong>',
-        '<strong>' . esc_html__( 'PHP', 'ac-starter-toolkit' ) . '</strong>',
-        ACST_MINIMUM_PHP_VERSION
+        esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'pressiq-widgets' ),
+        '<strong>' . esc_html__( 'PressIQ Widgets', 'pressiq-widgets' ) . '</strong>',
+        '<strong>' . esc_html__( 'PHP', 'pressiq-widgets' ) . '</strong>',
+        PRESSIQ_MINIMUM_PHP_VERSION
     );
 
     printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
