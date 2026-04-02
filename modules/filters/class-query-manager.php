@@ -2,10 +2,10 @@
 /**
  * Query Manager for Filters
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Filters;
+namespace PressIQ_Widgets\Modules\Filters;
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -192,7 +192,7 @@ class Query_Manager {
          * @param array $filter_data Active filter values.
          * @param array $options     Additional options.
          */
-        return apply_filters( 'acst/filter_query_args', $args, $filter_data, $options );
+        return apply_filters( 'pressiq/filter_query_args', $args, $filter_data, $options );
     }
 
     /**

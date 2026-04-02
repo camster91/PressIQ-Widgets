@@ -2,7 +2,7 @@
 /**
  * Team Member Block - Server-side Render
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  *
  * @var array    $attributes Block attributes.
  * @var string   $content    Block content.
@@ -63,12 +63,12 @@ $social_svg = array(
 $has_link = ! empty( $link_url );
 
 $wrapper_attrs = get_block_wrapper_attributes( array(
-    'class' => 'acst-team-member acst-team-member--' . esc_attr( $layout ),
+    'class' => 'pressiq-team-member pressiq-team-member--' . esc_attr( $layout ),
 ) );
 ?>
 <div <?php echo $wrapper_attrs; ?>>
     <?php if ( ! empty( $image_url ) ) : ?>
-        <div class="acst-team-member__image">
+        <div class="pressiq-team-member__image">
             <?php if ( $has_link ) : ?>
                 <a href="<?php echo esc_url( $link_url ); ?>"<?php echo $link_target ? ' target="' . esc_attr( $link_target ) . '"' : ''; ?>>
             <?php endif; ?>
@@ -85,9 +85,9 @@ $wrapper_attrs = get_block_wrapper_attributes( array(
         </div>
     <?php endif; ?>
 
-    <div class="acst-team-member__content">
+    <div class="pressiq-team-member__content">
         <?php if ( ! empty( $name ) ) : ?>
-            <<?php echo esc_attr( $name_tag ); ?> class="acst-team-member__name">
+            <<?php echo esc_attr( $name_tag ); ?> class="pressiq-team-member__name">
                 <?php if ( $has_link ) : ?>
                     <a href="<?php echo esc_url( $link_url ); ?>"<?php echo $link_target ? ' target="' . esc_attr( $link_target ) . '"' : ''; ?>>
                         <?php echo esc_html( $name ); ?>
@@ -99,15 +99,15 @@ $wrapper_attrs = get_block_wrapper_attributes( array(
         <?php endif; ?>
 
         <?php if ( ! empty( $role ) ) : ?>
-            <div class="acst-team-member__role"><?php echo esc_html( $role ); ?></div>
+            <div class="pressiq-team-member__role"><?php echo esc_html( $role ); ?></div>
         <?php endif; ?>
 
         <?php if ( ! empty( $bio ) ) : ?>
-            <div class="acst-team-member__bio"><?php echo wp_kses_post( $bio ); ?></div>
+            <div class="pressiq-team-member__bio"><?php echo wp_kses_post( $bio ); ?></div>
         <?php endif; ?>
 
         <?php if ( ! empty( $social_links ) ) : ?>
-            <div class="acst-team-member__social">
+            <div class="pressiq-team-member__social">
                 <?php foreach ( $social_links as $social ) :
                     $network = $social['network'] ?? '';
                     $url     = $social['url'] ?? '#';

@@ -1,4 +1,4 @@
-# PressIQ Widgets (formerly AC Starter Toolkit)
+# PressIQ Widgets
 
 **A professional, production-ready WordPress plugin delivering essential, high-performance UI widgets and layout modules.**
 
@@ -7,7 +7,7 @@ As part of the GlowOS & Nexus AI ecosystem's broader product consolidation, **Pr
 ## 🚀 Vision: A Public-Ready Plugin
 
 **Transition from Internal to Public:**
-- **Code Refactoring:** Ensuring full compliance with WordPress coding standards, sanitization, and security best practices.
+- **Code Refactoring:** Completed renaming to `pressiq_` prefix for full compliance with WordPress coding standards.
 - **Module Architecture:** Migrating from a monolithic toolkit to an opt-in, modular architecture (only load what you need).
 - **Pro Upgrades:** Establishing a freemium model to support ongoing development as part of our monetization strategy.
 
@@ -28,7 +28,7 @@ As part of the GlowOS & Nexus AI ecosystem's broader product consolidation, **Pr
 
 ## 📈 Roadmap for WordPress.org Submission
 
-- [ ] Rename all internal functions and classes to use the `pressiq_` prefix.
+- [x] Rename all internal functions and classes to use the `pressiq_` prefix.
 - [ ] Implement robust escaping (`esc_html__`, `esc_attr__`) on all output.
 - [ ] Create an admin settings page for toggling modules on/off.
 - [ ] Prepare `readme.txt` using the official WordPress plugin template.

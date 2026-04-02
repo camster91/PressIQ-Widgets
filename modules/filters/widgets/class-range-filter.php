@@ -2,13 +2,13 @@
 /**
  * Range Filter Widget
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Filters\Widgets;
+namespace PressIQ_Widgets\Modules\Filters\Widgets;
 
 use Elementor\Controls_Manager;
-use AC_Starter_Toolkit\Modules\Filters\Query_Manager;
+use PressIQ_Widgets\Modules\Filters\Query_Manager;
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -28,7 +28,7 @@ class Range_Filter extends Filter_Base {
      * @return string
      */
     public function get_name() {
-        return 'acst-range-filter';
+        return 'pressiq-range-filter';
     }
 
     /**
@@ -37,7 +37,7 @@ class Range_Filter extends Filter_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__( 'Range Filter', 'ac-starter-toolkit' );
+        return esc_html__( 'Range Filter', 'pressiq-widgets' );
     }
 
     /**
@@ -69,7 +69,7 @@ class Range_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_range_source',
             array(
-                'label' => esc_html__( 'Data Source', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Data Source', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -77,13 +77,13 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'source_type',
             array(
-                'label'   => esc_html__( 'Source', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Source', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'price',
                 'options' => array(
-                    'price'  => esc_html__( 'WooCommerce Price', 'ac-starter-toolkit' ),
-                    'meta'   => esc_html__( 'Meta Field', 'ac-starter-toolkit' ),
-                    'manual' => esc_html__( 'Manual Range', 'ac-starter-toolkit' ),
+                    'price'  => esc_html__( 'WooCommerce Price', 'pressiq-widgets' ),
+                    'meta'   => esc_html__( 'Meta Field', 'pressiq-widgets' ),
+                    'manual' => esc_html__( 'Manual Range', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -91,7 +91,7 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'post_type',
             array(
-                'label'     => esc_html__( 'Post Type', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Post Type', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'product',
                 'options'   => $this->get_post_types_options(),
@@ -104,10 +104,10 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'meta_key',
             array(
-                'label'       => esc_html__( 'Meta Key', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Meta Key', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::TEXT,
                 'default'     => '',
-                'description' => esc_html__( 'Enter the numeric meta field key.', 'ac-starter-toolkit' ),
+                'description' => esc_html__( 'Enter the numeric meta field key.', 'pressiq-widgets' ),
                 'condition'   => array(
                     'source_type' => 'meta',
                 ),
@@ -117,7 +117,7 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'manual_min',
             array(
-                'label'     => esc_html__( 'Minimum Value', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Minimum Value', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::NUMBER,
                 'default'   => 0,
                 'condition' => array(
@@ -129,7 +129,7 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'manual_max',
             array(
-                'label'     => esc_html__( 'Maximum Value', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Maximum Value', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::NUMBER,
                 'default'   => 1000,
                 'condition' => array(
@@ -141,7 +141,7 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'step',
             array(
-                'label'   => esc_html__( 'Step', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Step', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::NUMBER,
                 'default' => 1,
                 'min'     => 0.01,
@@ -154,7 +154,7 @@ class Range_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_range_options',
             array(
-                'label' => esc_html__( 'Range Options', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Range Options', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -162,13 +162,13 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'display_type',
             array(
-                'label'   => esc_html__( 'Display Type', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Display Type', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'slider_inputs',
                 'options' => array(
-                    'slider'        => esc_html__( 'Slider Only', 'ac-starter-toolkit' ),
-                    'inputs'        => esc_html__( 'Inputs Only', 'ac-starter-toolkit' ),
-                    'slider_inputs' => esc_html__( 'Slider + Inputs', 'ac-starter-toolkit' ),
+                    'slider'        => esc_html__( 'Slider Only', 'pressiq-widgets' ),
+                    'inputs'        => esc_html__( 'Inputs Only', 'pressiq-widgets' ),
+                    'slider_inputs' => esc_html__( 'Slider + Inputs', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -176,31 +176,31 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'prefix',
             array(
-                'label'   => esc_html__( 'Prefix', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Prefix', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
                 'default' => '',
-                'description' => esc_html__( 'E.g., $ for currency', 'ac-starter-toolkit' ),
+                'description' => esc_html__( 'E.g., $ for currency', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'suffix',
             array(
-                'label'   => esc_html__( 'Suffix', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Suffix', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
                 'default' => '',
-                'description' => esc_html__( 'E.g., km, sq ft', 'ac-starter-toolkit' ),
+                'description' => esc_html__( 'E.g., km, sq ft', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'thousands_separator',
             array(
-                'label'        => esc_html__( 'Use Thousands Separator', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Use Thousands Separator', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -208,9 +208,9 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'min_label',
             array(
-                'label'   => esc_html__( 'Min Label', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Min Label', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Min', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Min', 'pressiq-widgets' ),
                 'condition' => array(
                     'display_type!' => 'slider',
                 ),
@@ -220,9 +220,9 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'max_label',
             array(
-                'label'   => esc_html__( 'Max Label', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Max Label', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Max', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Max', 'pressiq-widgets' ),
                 'condition' => array(
                     'display_type!' => 'slider',
                 ),
@@ -238,7 +238,7 @@ class Range_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_slider_style',
             array(
-                'label'     => esc_html__( 'Slider', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Slider', 'pressiq-widgets' ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => array(
                     'display_type!' => 'inputs',
@@ -249,11 +249,11 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'slider_track_color',
             array(
-                'label'     => esc_html__( 'Track Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Track Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#e0e0e0',
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__range-slider' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__range-slider' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -261,11 +261,11 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'slider_active_color',
             array(
-                'label'     => esc_html__( 'Active Track Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Active Track Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#0073aa',
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__range-track' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__range-track' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -273,7 +273,7 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'slider_height',
             array(
-                'label'      => esc_html__( 'Track Height', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Track Height', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -287,8 +287,8 @@ class Range_Filter extends Filter_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__range-slider' => 'height: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .acst-filter__range-track' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__range-slider' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__range-track' => 'height: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -296,12 +296,12 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'handle_color',
             array(
-                'label'     => esc_html__( 'Handle Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Handle Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#fff',
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__range-input::-webkit-slider-thumb' => 'background-color: {{VALUE}};',
-                    '{{WRAPPER}} .acst-filter__range-input::-moz-range-thumb' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__range-input::-webkit-slider-thumb' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__range-input::-moz-range-thumb' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -309,12 +309,12 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'handle_border_color',
             array(
-                'label'     => esc_html__( 'Handle Border Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Handle Border Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#0073aa',
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__range-input::-webkit-slider-thumb' => 'border-color: {{VALUE}};',
-                    '{{WRAPPER}} .acst-filter__range-input::-moz-range-thumb' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__range-input::-webkit-slider-thumb' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__range-input::-moz-range-thumb' => 'border-color: {{VALUE}};',
                 ),
             )
         );
@@ -322,7 +322,7 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'handle_size',
             array(
-                'label'      => esc_html__( 'Handle Size', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Handle Size', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -336,8 +336,8 @@ class Range_Filter extends Filter_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__range-input::-webkit-slider-thumb' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .acst-filter__range-input::-moz-range-thumb' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__range-input::-webkit-slider-thumb' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__range-input::-moz-range-thumb' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -348,7 +348,7 @@ class Range_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_inputs_style',
             array(
-                'label'     => esc_html__( 'Input Fields', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Input Fields', 'pressiq-widgets' ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => array(
                     'display_type!' => 'slider',
@@ -360,17 +360,17 @@ class Range_Filter extends Filter_Base {
             \Elementor\Group_Control_Typography::get_type(),
             array(
                 'name'     => 'inputs_typography',
-                'selector' => '{{WRAPPER}} .acst-filter__range-field input',
+                'selector' => '{{WRAPPER}} .pressiq-filter__range-field input',
             )
         );
 
         $this->add_control(
             'inputs_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__range-field input' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__range-field input' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -378,10 +378,10 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'inputs_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__range-field input' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__range-field input' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -389,10 +389,10 @@ class Range_Filter extends Filter_Base {
         $this->add_control(
             'inputs_border_color',
             array(
-                'label'     => esc_html__( 'Border Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Border Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__range-field input' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__range-field input' => 'border-color: {{VALUE}};',
                 ),
             )
         );
@@ -506,22 +506,22 @@ class Range_Filter extends Filter_Base {
         $data_attrs['data-max']       = $range['max'];
         $data_attrs['data-step']      = $step;
         ?>
-        <div class="acst-filter acst-filter--range"<?php echo $this->render_data_attrs( $data_attrs ); ?>>
+        <div class="pressiq-filter pressiq-filter--range"<?php echo $this->render_data_attrs( $data_attrs ); ?>>
             <?php $this->render_label( $settings ); ?>
 
-            <div class="acst-filter__range-wrapper">
+            <div class="pressiq-filter__range-wrapper">
                 <?php if ( $display_type !== 'inputs' ) : ?>
                     <!-- Slider -->
-                    <div class="acst-filter__range-slider">
-                        <div class="acst-filter__range-track" style="left: 0%; width: 100%;"></div>
+                    <div class="pressiq-filter__range-slider">
+                        <div class="pressiq-filter__range-track" style="left: 0%; width: 100%;"></div>
                         <input type="range"
-                               class="acst-filter__range-input acst-filter__range-min"
+                               class="pressiq-filter__range-input pressiq-filter__range-min"
                                min="<?php echo esc_attr( $range['min'] ); ?>"
                                max="<?php echo esc_attr( $range['max'] ); ?>"
                                step="<?php echo esc_attr( $step ); ?>"
                                value="<?php echo esc_attr( $range['min'] ); ?>">
                         <input type="range"
-                               class="acst-filter__range-input acst-filter__range-max"
+                               class="pressiq-filter__range-input pressiq-filter__range-max"
                                min="<?php echo esc_attr( $range['min'] ); ?>"
                                max="<?php echo esc_attr( $range['max'] ); ?>"
                                step="<?php echo esc_attr( $step ); ?>"
@@ -529,11 +529,11 @@ class Range_Filter extends Filter_Base {
                     </div>
 
                     <!-- Range value display -->
-                    <div class="acst-filter__range-values">
-                        <span class="acst-filter__range-min-value">
+                    <div class="pressiq-filter__range-values">
+                        <span class="pressiq-filter__range-min-value">
                             <?php echo esc_html( $this->format_number( $range['min'], $settings ) ); ?>
                         </span>
-                        <span class="acst-filter__range-max-value">
+                        <span class="pressiq-filter__range-max-value">
                             <?php echo esc_html( $this->format_number( $range['max'], $settings ) ); ?>
                         </span>
                     </div>
@@ -541,21 +541,21 @@ class Range_Filter extends Filter_Base {
 
                 <?php if ( $display_type !== 'slider' ) : ?>
                     <!-- Min/Max inputs -->
-                    <div class="acst-filter__range-inputs">
-                        <div class="acst-filter__range-field">
+                    <div class="pressiq-filter__range-inputs">
+                        <div class="pressiq-filter__range-field">
                             <label><?php echo esc_html( $settings['min_label'] ); ?></label>
                             <input type="number"
-                                   class="acst-filter__range-min"
+                                   class="pressiq-filter__range-min"
                                    min="<?php echo esc_attr( $range['min'] ); ?>"
                                    max="<?php echo esc_attr( $range['max'] ); ?>"
                                    step="<?php echo esc_attr( $step ); ?>"
                                    value="<?php echo esc_attr( $range['min'] ); ?>"
                                    placeholder="<?php echo esc_attr( $range['min'] ); ?>">
                         </div>
-                        <div class="acst-filter__range-field">
+                        <div class="pressiq-filter__range-field">
                             <label><?php echo esc_html( $settings['max_label'] ); ?></label>
                             <input type="number"
-                                   class="acst-filter__range-max"
+                                   class="pressiq-filter__range-max"
                                    min="<?php echo esc_attr( $range['min'] ); ?>"
                                    max="<?php echo esc_attr( $range['max'] ); ?>"
                                    step="<?php echo esc_attr( $step ); ?>"
@@ -574,31 +574,31 @@ class Range_Filter extends Filter_Base {
      */
     protected function content_template() {
         ?>
-        <div class="acst-filter acst-filter--range">
+        <div class="pressiq-filter pressiq-filter--range">
             <# if ( settings.show_label === 'yes' && settings.filter_label ) { #>
-                <label class="acst-filter__label">{{{ settings.filter_label }}}</label>
+                <label class="pressiq-filter__label">{{{ settings.filter_label }}}</label>
             <# } #>
 
-            <div class="acst-filter__range-wrapper">
+            <div class="pressiq-filter__range-wrapper">
                 <# if ( settings.display_type !== 'inputs' ) { #>
-                    <div class="acst-filter__range-slider">
-                        <div class="acst-filter__range-track" style="left: 0%; width: 100%;"></div>
-                        <input type="range" class="acst-filter__range-input" min="0" max="1000" value="0">
-                        <input type="range" class="acst-filter__range-input" min="0" max="1000" value="1000">
+                    <div class="pressiq-filter__range-slider">
+                        <div class="pressiq-filter__range-track" style="left: 0%; width: 100%;"></div>
+                        <input type="range" class="pressiq-filter__range-input" min="0" max="1000" value="0">
+                        <input type="range" class="pressiq-filter__range-input" min="0" max="1000" value="1000">
                     </div>
-                    <div class="acst-filter__range-values">
+                    <div class="pressiq-filter__range-values">
                         <span>{{{ settings.prefix }}}0{{{ settings.suffix }}}</span>
                         <span>{{{ settings.prefix }}}1000{{{ settings.suffix }}}</span>
                     </div>
                 <# } #>
 
                 <# if ( settings.display_type !== 'slider' ) { #>
-                    <div class="acst-filter__range-inputs">
-                        <div class="acst-filter__range-field">
+                    <div class="pressiq-filter__range-inputs">
+                        <div class="pressiq-filter__range-field">
                             <label>{{{ settings.min_label }}}</label>
                             <input type="number" value="0">
                         </div>
-                        <div class="acst-filter__range-field">
+                        <div class="pressiq-filter__range-field">
                             <label>{{{ settings.max_label }}}</label>
                             <input type="number" value="1000">
                         </div>

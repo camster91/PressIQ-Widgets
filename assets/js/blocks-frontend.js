@@ -15,24 +15,24 @@
        ========================================================================= */
 
     function initAccordions() {
-        document.querySelectorAll( '.acst-accordion' ).forEach( function( accordion ) {
-            if ( accordion.dataset.acstInit ) return;
-            accordion.dataset.acstInit = '1';
+        document.querySelectorAll( '.pressiq-accordion' ).forEach( function( accordion ) {
+            if ( accordion.dataset.pressiqInit ) return;
+            accordion.dataset.pressiqInit = '1';
 
             var collapseOthers = accordion.dataset.collapseOthers === 'true';
 
-            accordion.querySelectorAll( '.acst-accordion__header' ).forEach( function( header ) {
+            accordion.querySelectorAll( '.pressiq-accordion__header' ).forEach( function( header ) {
                 header.addEventListener( 'click', function() {
-                    var item      = header.closest( '.acst-accordion__item' );
-                    var contentEl = item.querySelector( '.acst-accordion__content' );
+                    var item      = header.closest( '.pressiq-accordion__item' );
+                    var contentEl = item.querySelector( '.pressiq-accordion__content' );
                     var isOpen    = header.getAttribute( 'aria-expanded' ) === 'true';
 
                     if ( collapseOthers && ! isOpen ) {
-                        accordion.querySelectorAll( '.acst-accordion__item.is-active' ).forEach( function( otherItem ) {
+                        accordion.querySelectorAll( '.pressiq-accordion__item.is-active' ).forEach( function( otherItem ) {
                             if ( otherItem !== item ) {
                                 otherItem.classList.remove( 'is-active' );
-                                var otherHeader  = otherItem.querySelector( '.acst-accordion__header' );
-                                var otherContent = otherItem.querySelector( '.acst-accordion__content' );
+                                var otherHeader  = otherItem.querySelector( '.pressiq-accordion__header' );
+                                var otherContent = otherItem.querySelector( '.pressiq-accordion__content' );
                                 otherHeader.setAttribute( 'aria-expanded', 'false' );
                                 otherContent.setAttribute( 'hidden', '' );
                             }
@@ -58,22 +58,22 @@
        ========================================================================= */
 
     function initTabs() {
-        document.querySelectorAll( '.acst-tabs' ).forEach( function( tabsContainer ) {
-            if ( tabsContainer.dataset.acstInit ) return;
-            tabsContainer.dataset.acstInit = '1';
+        document.querySelectorAll( '.pressiq-tabs' ).forEach( function( tabsContainer ) {
+            if ( tabsContainer.dataset.pressiqInit ) return;
+            tabsContainer.dataset.pressiqInit = '1';
 
-            tabsContainer.querySelectorAll( '.acst-tabs__tab' ).forEach( function( tab ) {
+            tabsContainer.querySelectorAll( '.pressiq-tabs__tab' ).forEach( function( tab ) {
                 tab.addEventListener( 'click', function() {
                     var tabNum = tab.dataset.tab;
 
                     // Deactivate all tabs.
-                    tabsContainer.querySelectorAll( '.acst-tabs__tab' ).forEach( function( t ) {
+                    tabsContainer.querySelectorAll( '.pressiq-tabs__tab' ).forEach( function( t ) {
                         t.classList.remove( 'is-active' );
                         t.setAttribute( 'aria-selected', 'false' );
                     } );
 
                     // Hide all panels.
-                    tabsContainer.querySelectorAll( '.acst-tabs__panel' ).forEach( function( p ) {
+                    tabsContainer.querySelectorAll( '.pressiq-tabs__panel' ).forEach( function( p ) {
                         p.classList.remove( 'is-active' );
                         p.setAttribute( 'hidden', '' );
                     } );
@@ -83,7 +83,7 @@
                     tab.setAttribute( 'aria-selected', 'true' );
 
                     // Show corresponding panel.
-                    var panel = tabsContainer.querySelector( '.acst-tabs__panel[data-tab="' + tabNum + '"]' );
+                    var panel = tabsContainer.querySelector( '.pressiq-tabs__panel[data-tab="' + tabNum + '"]' );
                     if ( panel ) {
                         panel.classList.add( 'is-active' );
                         panel.removeAttribute( 'hidden' );
@@ -92,8 +92,8 @@
             } );
 
             // Keyboard navigation.
-            tabsContainer.querySelector( '.acst-tabs__nav' ).addEventListener( 'keydown', function( e ) {
-                var tabs = Array.from( tabsContainer.querySelectorAll( '.acst-tabs__tab' ) );
+            tabsContainer.querySelector( '.pressiq-tabs__nav' ).addEventListener( 'keydown', function( e ) {
+                var tabs = Array.from( tabsContainer.querySelectorAll( '.pressiq-tabs__tab' ) );
                 var index = tabs.indexOf( document.activeElement );
                 if ( index < 0 ) return;
 
@@ -119,16 +119,16 @@
        ========================================================================= */
 
     function initCountdowns() {
-        document.querySelectorAll( '.acst-countdown' ).forEach( function( countdown ) {
-            if ( countdown.dataset.acstInit ) return;
-            countdown.dataset.acstInit = '1';
+        document.querySelectorAll( '.pressiq-countdown' ).forEach( function( countdown ) {
+            if ( countdown.dataset.pressiqInit ) return;
+            countdown.dataset.pressiqInit = '1';
 
             var expireAction = countdown.dataset.expireAction || 'hide';
             var targetTime;
 
             if ( countdown.dataset.evergreen === 'yes' ) {
                 var evergreenSeconds = parseInt( countdown.dataset.evergreenSeconds, 10 ) || 86400;
-                var storageKey       = 'acst_eg_' + window.location.pathname;
+                var storageKey       = 'pressiq_eg_' + window.location.pathname;
                 var stored           = localStorage.getItem( storageKey );
 
                 if ( stored ) {
@@ -182,8 +182,8 @@
             function handleExpire() {
                 if ( expireAction === 'message' ) {
                     var message = countdown.dataset.expireMessage || '';
-                    countdown.innerHTML = '<div class="acst-countdown__message">' + escapeHtml( message ) + '</div>';
-                    countdown.classList.add( 'acst-countdown--expired' );
+                    countdown.innerHTML = '<div class="pressiq-countdown__message">' + escapeHtml( message ) + '</div>';
+                    countdown.classList.add( 'pressiq-countdown--expired' );
                 } else {
                     countdown.style.display = 'none';
                 }
@@ -204,20 +204,20 @@
        ========================================================================= */
 
     function initPostFilters() {
-        document.querySelectorAll( '.acst-post-filter' ).forEach( function( filterBlock ) {
-            if ( filterBlock.dataset.acstInit ) return;
-            filterBlock.dataset.acstInit = '1';
+        document.querySelectorAll( '.pressiq-post-filter' ).forEach( function( filterBlock ) {
+            if ( filterBlock.dataset.pressiqInit ) return;
+            filterBlock.dataset.pressiqInit = '1';
 
             var queryId     = filterBlock.dataset.queryId;
             var postType    = filterBlock.dataset.postType || 'post';
             var perPage     = parseInt( filterBlock.dataset.perPage, 10 ) || 9;
-            var resultsWrap = filterBlock.querySelector( '.acst-post-filter__results' );
+            var resultsWrap = filterBlock.querySelector( '.pressiq-post-filter__results' );
             var debounceTimer;
             var currentPage = 1;
 
             // Search input.
-            var searchInput = filterBlock.querySelector( '.acst-filter__search-input' );
-            var clearBtn    = filterBlock.querySelector( '.acst-filter__search-clear' );
+            var searchInput = filterBlock.querySelector( '.pressiq-filter__search-input' );
+            var clearBtn    = filterBlock.querySelector( '.pressiq-filter__search-clear' );
 
             if ( searchInput ) {
                 searchInput.addEventListener( 'input', function() {
@@ -242,7 +242,7 @@
             }
 
             // Select filters (taxonomy + sort).
-            filterBlock.querySelectorAll( '.acst-filter__select' ).forEach( function( select ) {
+            filterBlock.querySelectorAll( '.pressiq-filter__select' ).forEach( function( select ) {
                 select.addEventListener( 'change', function() {
                     currentPage = 1;
                     doFilter();
@@ -250,7 +250,7 @@
             } );
 
             // Checkbox filters.
-            filterBlock.querySelectorAll( '.acst-filter__checkbox' ).forEach( function( cb ) {
+            filterBlock.querySelectorAll( '.pressiq-filter__checkbox' ).forEach( function( cb ) {
                 cb.addEventListener( 'change', function() {
                     currentPage = 1;
                     doFilter();
@@ -258,7 +258,7 @@
             } );
 
             // Load more.
-            var loadMoreBtn = filterBlock.querySelector( '.acst-post-filter__load-more' );
+            var loadMoreBtn = filterBlock.querySelector( '.pressiq-post-filter__load-more' );
             if ( loadMoreBtn ) {
                 loadMoreBtn.addEventListener( 'click', function() {
                     currentPage++;
@@ -281,7 +281,7 @@
                 }
 
                 // Taxonomy filters.
-                filterBlock.querySelectorAll( '.acst-filter--select [data-filter-id]' ).forEach( function( select ) {
+                filterBlock.querySelectorAll( '.pressiq-filter--select [data-filter-id]' ).forEach( function( select ) {
                     if ( select.tagName === 'SELECT' && select.value ) {
                         filters[ select.dataset.filterId ] = select.value;
                     }
@@ -289,7 +289,7 @@
 
                 // Checkbox filters.
                 var checkboxFilters = {};
-                filterBlock.querySelectorAll( '.acst-filter__checkbox:checked' ).forEach( function( cb ) {
+                filterBlock.querySelectorAll( '.pressiq-filter__checkbox:checked' ).forEach( function( cb ) {
                     var fid = cb.dataset.filterId;
                     if ( ! checkboxFilters[ fid ] ) checkboxFilters[ fid ] = [];
                     checkboxFilters[ fid ].push( cb.value );
@@ -302,13 +302,13 @@
             }
 
             function doFilter( append ) {
-                var config = window.acstBlocks || {};
+                var config = window.pressiqBlocks || {};
                 if ( ! config.ajaxUrl ) return;
 
                 var filters = collectFilters();
 
                 var formData = new FormData();
-                formData.append( 'action', 'acst_filter' );
+                formData.append( 'action', 'pressiq_filter' );
                 formData.append( 'nonce', config.nonce );
                 formData.append( 'query_id', queryId );
                 formData.append( 'post_type', postType );
@@ -316,7 +316,7 @@
                 formData.append( 'paged', currentPage );
                 formData.append( 'filters', JSON.stringify( filters ) );
 
-                resultsWrap.classList.add( 'acst-post-filter__results--loading' );
+                resultsWrap.classList.add( 'pressiq-post-filter__results--loading' );
 
                 fetch( config.ajaxUrl, {
                     method: 'POST',
@@ -325,7 +325,7 @@
                 } )
                 .then( function( response ) { return response.json(); } )
                 .then( function( data ) {
-                    resultsWrap.classList.remove( 'acst-post-filter__results--loading' );
+                    resultsWrap.classList.remove( 'pressiq-post-filter__results--loading' );
 
                     if ( data.success && data.data && data.data.html ) {
                         if ( append ) {
@@ -335,17 +335,17 @@
                         }
 
                         // Update load more visibility.
-                        var pagination = filterBlock.querySelector( '.acst-post-filter__pagination' );
+                        var pagination = filterBlock.querySelector( '.pressiq-post-filter__pagination' );
                         if ( pagination ) {
                             var maxPages = data.data.max_pages || 1;
                             pagination.style.display = currentPage >= maxPages ? 'none' : '';
                         }
                     } else if ( ! append ) {
-                        resultsWrap.innerHTML = '<p class="acst-post-filter__no-results">' + ( config.i18n.noResults || 'No results found.' ) + '</p>';
+                        resultsWrap.innerHTML = '<p class="pressiq-post-filter__no-results">' + ( config.i18n.noResults || 'No results found.' ) + '</p>';
                     }
                 } )
                 .catch( function() {
-                    resultsWrap.classList.remove( 'acst-post-filter__results--loading' );
+                    resultsWrap.classList.remove( 'pressiq-post-filter__results--loading' );
                 } );
             }
         } );

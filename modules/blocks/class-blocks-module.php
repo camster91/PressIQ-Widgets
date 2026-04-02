@@ -5,10 +5,10 @@
  * Registers native WordPress blocks for use in the Site Editor
  * and block-based themes like Twenty Twenty-Six.
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Blocks;
+namespace PressIQ_Widgets\Modules\Blocks;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -45,7 +45,7 @@ class Blocks_Module {
      * Constructor
      */
     public function __construct() {
-        $this->blocks_dir = ACST_PLUGIN_DIR . 'modules/blocks/blocks/';
+        $this->blocks_dir = PRESSIQ_PLUGIN_DIR . 'modules/blocks/blocks/';
 
         add_action( 'init', array( $this, 'register_blocks' ) );
         add_action( 'init', array( $this, 'register_block_category' ) );
@@ -78,14 +78,14 @@ class Blocks_Module {
         add_filter( 'block_categories_all', function ( $categories ) {
             // Check if category already exists.
             foreach ( $categories as $category ) {
-                if ( $category['slug'] === 'ac-starter-toolkit' ) {
+                if ( $category['slug'] === 'pressiq-widgets' ) {
                     return $categories;
                 }
             }
 
             array_unshift( $categories, array(
-                'slug'  => 'ac-starter-toolkit',
-                'title' => esc_html__( 'AC Starter Toolkit', 'ac-starter-toolkit' ),
+                'slug'  => 'pressiq-widgets',
+                'title' => esc_html__( 'AC Starter Toolkit', 'pressiq-widgets' ),
                 'icon'  => 'admin-generic',
             ) );
 
@@ -97,9 +97,9 @@ class Blocks_Module {
      * Enqueue block editor assets
      */
     public function enqueue_editor_assets() {
-        $asset_file = ACST_PLUGIN_DIR . 'assets/js/blocks-editor.asset.php';
+        $asset_file = PRESSIQ_PLUGIN_DIR . 'assets/js/blocks-editor.asset.php';
         $deps       = array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-data', 'wp-server-side-render' );
-        $version    = ACST_VERSION;
+        $version    = PRESSIQ_VERSION;
 
         if ( file_exists( $asset_file ) ) {
             $asset = require $asset_file;
@@ -108,20 +108,20 @@ class Blocks_Module {
         }
 
         wp_enqueue_script(
-            'acst-blocks-editor',
-            ACST_PLUGIN_URL . 'assets/js/blocks-editor.js',
+            'pressiq-blocks-editor',
+            PRESSIQ_PLUGIN_URL . 'assets/js/blocks-editor.js',
             $deps,
             $version,
             true
         );
 
-        wp_set_script_translations( 'acst-blocks-editor', 'ac-starter-toolkit' );
+        wp_set_script_translations( 'pressiq-blocks-editor', 'pressiq-widgets' );
 
         wp_enqueue_style(
-            'acst-blocks-editor',
-            ACST_PLUGIN_URL . 'assets/css/blocks-editor.css',
+            'pressiq-blocks-editor',
+            PRESSIQ_PLUGIN_URL . 'assets/css/blocks-editor.css',
             array( 'wp-edit-blocks' ),
-            ACST_VERSION
+            PRESSIQ_VERSION
         );
     }
 
@@ -131,20 +131,20 @@ class Blocks_Module {
     public function enqueue_frontend_assets() {
         if ( ! is_admin() ) {
             wp_enqueue_script(
-                'acst-blocks-frontend',
-                ACST_PLUGIN_URL . 'assets/js/blocks-frontend.js',
+                'pressiq-blocks-frontend',
+                PRESSIQ_PLUGIN_URL . 'assets/js/blocks-frontend.js',
                 array(),
-                ACST_VERSION,
+                PRESSIQ_VERSION,
                 true
             );
 
-            wp_localize_script( 'acst-blocks-frontend', 'acstBlocks', array(
+            wp_localize_script( 'pressiq-blocks-frontend', 'pressiqBlocks', array(
                 'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-                'nonce'   => wp_create_nonce( 'acst_filter_nonce' ),
+                'nonce'   => wp_create_nonce( 'pressiq_filter_nonce' ),
                 'i18n'    => array(
-                    'loading'   => esc_html__( 'Loading...', 'ac-starter-toolkit' ),
-                    'noResults' => esc_html__( 'No results found.', 'ac-starter-toolkit' ),
-                    'error'     => esc_html__( 'An error occurred.', 'ac-starter-toolkit' ),
+                    'loading'   => esc_html__( 'Loading...', 'pressiq-widgets' ),
+                    'noResults' => esc_html__( 'No results found.', 'pressiq-widgets' ),
+                    'error'     => esc_html__( 'An error occurred.', 'pressiq-widgets' ),
                 ),
             ) );
         }
@@ -155,10 +155,10 @@ class Blocks_Module {
      */
     public function enqueue_block_assets() {
         wp_enqueue_style(
-            'acst-blocks',
-            ACST_PLUGIN_URL . 'assets/css/blocks.css',
+            'pressiq-blocks',
+            PRESSIQ_PLUGIN_URL . 'assets/css/blocks.css',
             array(),
-            ACST_VERSION
+            PRESSIQ_VERSION
         );
     }
 

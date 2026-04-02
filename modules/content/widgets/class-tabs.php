@@ -2,10 +2,10 @@
 /**
  * Tabs Widget
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Content\Widgets;
+namespace PressIQ_Widgets\Modules\Content\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
@@ -33,7 +33,7 @@ class Tabs extends Content_Base {
      * @return string
      */
     public function get_name() {
-        return 'acst-tabs';
+        return 'pressiq-tabs';
     }
 
     /**
@@ -42,7 +42,7 @@ class Tabs extends Content_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__( 'Tabs', 'ac-starter-toolkit' );
+        return esc_html__( 'Tabs', 'pressiq-widgets' );
     }
 
     /**
@@ -71,7 +71,7 @@ class Tabs extends Content_Base {
         $this->start_controls_section(
             'section_tabs',
             array(
-                'label' => esc_html__( 'Tabs', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Tabs', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -81,9 +81,9 @@ class Tabs extends Content_Base {
         $repeater->add_control(
             'tab_title',
             array(
-                'label'   => esc_html__( 'Title', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Title', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Tab Title', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Tab Title', 'pressiq-widgets' ),
                 'dynamic' => array( 'active' => true ),
             )
         );
@@ -91,7 +91,7 @@ class Tabs extends Content_Base {
         $repeater->add_control(
             'tab_icon',
             array(
-                'label' => esc_html__( 'Icon', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Icon', 'pressiq-widgets' ),
                 'type'  => Controls_Manager::ICONS,
             )
         );
@@ -99,30 +99,30 @@ class Tabs extends Content_Base {
         $repeater->add_control(
             'tab_content',
             array(
-                'label'   => esc_html__( 'Content', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Content', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::WYSIWYG,
-                'default' => esc_html__( 'Tab content goes here.', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Tab content goes here.', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'tabs',
             array(
-                'label'       => esc_html__( 'Tabs', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Tabs', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::REPEATER,
                 'fields'      => $repeater->get_controls(),
                 'default'     => array(
                     array(
-                        'tab_title'   => esc_html__( 'Tab 1', 'ac-starter-toolkit' ),
-                        'tab_content' => esc_html__( 'Content for tab 1.', 'ac-starter-toolkit' ),
+                        'tab_title'   => esc_html__( 'Tab 1', 'pressiq-widgets' ),
+                        'tab_content' => esc_html__( 'Content for tab 1.', 'pressiq-widgets' ),
                     ),
                     array(
-                        'tab_title'   => esc_html__( 'Tab 2', 'ac-starter-toolkit' ),
-                        'tab_content' => esc_html__( 'Content for tab 2.', 'ac-starter-toolkit' ),
+                        'tab_title'   => esc_html__( 'Tab 2', 'pressiq-widgets' ),
+                        'tab_content' => esc_html__( 'Content for tab 2.', 'pressiq-widgets' ),
                     ),
                     array(
-                        'tab_title'   => esc_html__( 'Tab 3', 'ac-starter-toolkit' ),
-                        'tab_content' => esc_html__( 'Content for tab 3.', 'ac-starter-toolkit' ),
+                        'tab_title'   => esc_html__( 'Tab 3', 'pressiq-widgets' ),
+                        'tab_content' => esc_html__( 'Content for tab 3.', 'pressiq-widgets' ),
                     ),
                 ),
                 'title_field' => '{{{ tab_title }}}',
@@ -135,7 +135,7 @@ class Tabs extends Content_Base {
         $this->start_controls_section(
             'section_settings',
             array(
-                'label' => esc_html__( 'Settings', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Settings', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -143,12 +143,12 @@ class Tabs extends Content_Base {
         $this->add_control(
             'tabs_layout',
             array(
-                'label'   => esc_html__( 'Layout', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Layout', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'horizontal',
                 'options' => array(
-                    'horizontal' => esc_html__( 'Horizontal', 'ac-starter-toolkit' ),
-                    'vertical'   => esc_html__( 'Vertical', 'ac-starter-toolkit' ),
+                    'horizontal' => esc_html__( 'Horizontal', 'pressiq-widgets' ),
+                    'vertical'   => esc_html__( 'Vertical', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -156,29 +156,29 @@ class Tabs extends Content_Base {
         $this->add_responsive_control(
             'tabs_alignment',
             array(
-                'label'     => esc_html__( 'Tabs Alignment', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Tabs Alignment', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::CHOOSE,
                 'options'   => array(
                     'flex-start' => array(
-                        'title' => esc_html__( 'Left', 'ac-starter-toolkit' ),
+                        'title' => esc_html__( 'Left', 'pressiq-widgets' ),
                         'icon'  => 'eicon-h-align-left',
                     ),
                     'center'     => array(
-                        'title' => esc_html__( 'Center', 'ac-starter-toolkit' ),
+                        'title' => esc_html__( 'Center', 'pressiq-widgets' ),
                         'icon'  => 'eicon-h-align-center',
                     ),
                     'flex-end'   => array(
-                        'title' => esc_html__( 'Right', 'ac-starter-toolkit' ),
+                        'title' => esc_html__( 'Right', 'pressiq-widgets' ),
                         'icon'  => 'eicon-h-align-right',
                     ),
                     'stretch'    => array(
-                        'title' => esc_html__( 'Stretch', 'ac-starter-toolkit' ),
+                        'title' => esc_html__( 'Stretch', 'pressiq-widgets' ),
                         'icon'  => 'eicon-h-align-stretch',
                     ),
                 ),
                 'default'   => 'flex-start',
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-tabs__nav' => 'justify-content: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-tabs__nav' => 'justify-content: {{VALUE}};',
                 ),
                 'condition' => array(
                     'tabs_layout' => 'horizontal',
@@ -189,7 +189,7 @@ class Tabs extends Content_Base {
         $this->add_control(
             'default_active',
             array(
-                'label'   => esc_html__( 'Default Active Tab', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Default Active Tab', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::NUMBER,
                 'default' => 1,
                 'min'     => 1,
@@ -199,13 +199,13 @@ class Tabs extends Content_Base {
         $this->add_control(
             'icon_position',
             array(
-                'label'   => esc_html__( 'Icon Position', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Icon Position', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'before',
                 'options' => array(
-                    'before' => esc_html__( 'Before Title', 'ac-starter-toolkit' ),
-                    'after'  => esc_html__( 'After Title', 'ac-starter-toolkit' ),
-                    'above'  => esc_html__( 'Above Title', 'ac-starter-toolkit' ),
+                    'before' => esc_html__( 'Before Title', 'pressiq-widgets' ),
+                    'after'  => esc_html__( 'After Title', 'pressiq-widgets' ),
+                    'above'  => esc_html__( 'Above Title', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -216,7 +216,7 @@ class Tabs extends Content_Base {
         $this->start_controls_section(
             'section_style_tabs_nav',
             array(
-                'label' => esc_html__( 'Tabs Navigation', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Tabs Navigation', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -226,18 +226,18 @@ class Tabs extends Content_Base {
             array(
                 'name'     => 'nav_background',
                 'types'    => array( 'classic', 'gradient' ),
-                'selector' => '{{WRAPPER}} .acst-tabs__nav',
+                'selector' => '{{WRAPPER}} .pressiq-tabs__nav',
             )
         );
 
         $this->add_responsive_control(
             'nav_padding',
             array(
-                'label'      => esc_html__( 'Padding', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Padding', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-tabs__nav' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-tabs__nav' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -245,7 +245,7 @@ class Tabs extends Content_Base {
         $this->add_responsive_control(
             'nav_spacing',
             array(
-                'label'      => esc_html__( 'Spacing', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Spacing', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -255,7 +255,7 @@ class Tabs extends Content_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-tabs__nav' => 'gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-tabs__nav' => 'gap: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -264,7 +264,7 @@ class Tabs extends Content_Base {
             Group_Control_Border::get_type(),
             array(
                 'name'     => 'nav_border',
-                'selector' => '{{WRAPPER}} .acst-tabs__nav',
+                'selector' => '{{WRAPPER}} .pressiq-tabs__nav',
             )
         );
 
@@ -274,7 +274,7 @@ class Tabs extends Content_Base {
         $this->start_controls_section(
             'section_style_tab_items',
             array(
-                'label' => esc_html__( 'Tab Items', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Tab Items', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -283,7 +283,7 @@ class Tabs extends Content_Base {
             Group_Control_Typography::get_type(),
             array(
                 'name'     => 'tab_typography',
-                'selector' => '{{WRAPPER}} .acst-tabs__tab',
+                'selector' => '{{WRAPPER}} .pressiq-tabs__tab',
             )
         );
 
@@ -293,17 +293,17 @@ class Tabs extends Content_Base {
         $this->start_controls_tab(
             'tab_style_normal',
             array(
-                'label' => esc_html__( 'Normal', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Normal', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'tab_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-tabs__tab' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-tabs__tab' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -311,10 +311,10 @@ class Tabs extends Content_Base {
         $this->add_control(
             'tab_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-tabs__tab' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-tabs__tab' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -325,17 +325,17 @@ class Tabs extends Content_Base {
         $this->start_controls_tab(
             'tab_style_hover',
             array(
-                'label' => esc_html__( 'Hover', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Hover', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'tab_hover_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-tabs__tab:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-tabs__tab:hover' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -343,10 +343,10 @@ class Tabs extends Content_Base {
         $this->add_control(
             'tab_hover_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-tabs__tab:hover' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-tabs__tab:hover' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -357,17 +357,17 @@ class Tabs extends Content_Base {
         $this->start_controls_tab(
             'tab_style_active',
             array(
-                'label' => esc_html__( 'Active', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Active', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'tab_active_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-tabs__tab.is-active' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-tabs__tab.is-active' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -375,10 +375,10 @@ class Tabs extends Content_Base {
         $this->add_control(
             'tab_active_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-tabs__tab.is-active' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-tabs__tab.is-active' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -391,7 +391,7 @@ class Tabs extends Content_Base {
             Group_Control_Border::get_type(),
             array(
                 'name'      => 'tab_border',
-                'selector'  => '{{WRAPPER}} .acst-tabs__tab',
+                'selector'  => '{{WRAPPER}} .pressiq-tabs__tab',
                 'separator' => 'before',
             )
         );
@@ -399,11 +399,11 @@ class Tabs extends Content_Base {
         $this->add_responsive_control(
             'tab_border_radius',
             array(
-                'label'      => esc_html__( 'Border Radius', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Radius', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', '%' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-tabs__tab' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-tabs__tab' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -411,11 +411,11 @@ class Tabs extends Content_Base {
         $this->add_responsive_control(
             'tab_padding',
             array(
-                'label'      => esc_html__( 'Padding', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Padding', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-tabs__tab' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-tabs__tab' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -423,7 +423,7 @@ class Tabs extends Content_Base {
         $this->add_responsive_control(
             'icon_size',
             array(
-                'label'      => esc_html__( 'Icon Size', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Icon Size', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -433,8 +433,8 @@ class Tabs extends Content_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-tabs__tab-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .acst-tabs__tab-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-tabs__tab-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-tabs__tab-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -442,7 +442,7 @@ class Tabs extends Content_Base {
         $this->add_responsive_control(
             'icon_spacing',
             array(
-                'label'      => esc_html__( 'Icon Spacing', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Icon Spacing', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -452,9 +452,9 @@ class Tabs extends Content_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-tabs__tab-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .acst-tabs__tab--icon-above .acst-tabs__tab-icon' => 'margin-right: 0; margin-bottom: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .acst-tabs__tab--icon-after .acst-tabs__tab-icon' => 'margin-right: 0; margin-left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-tabs__tab-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-tabs__tab--icon-above .pressiq-tabs__tab-icon' => 'margin-right: 0; margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-tabs__tab--icon-after .pressiq-tabs__tab-icon' => 'margin-right: 0; margin-left: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -465,7 +465,7 @@ class Tabs extends Content_Base {
         $this->start_controls_section(
             'section_style_content',
             array(
-                'label' => esc_html__( 'Content', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Content', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -475,7 +475,7 @@ class Tabs extends Content_Base {
             array(
                 'name'     => 'content_background',
                 'types'    => array( 'classic', 'gradient' ),
-                'selector' => '{{WRAPPER}} .acst-tabs__content',
+                'selector' => '{{WRAPPER}} .pressiq-tabs__content',
             )
         );
 
@@ -483,18 +483,18 @@ class Tabs extends Content_Base {
             Group_Control_Border::get_type(),
             array(
                 'name'     => 'content_border',
-                'selector' => '{{WRAPPER}} .acst-tabs__content',
+                'selector' => '{{WRAPPER}} .pressiq-tabs__content',
             )
         );
 
         $this->add_responsive_control(
             'content_border_radius',
             array(
-                'label'      => esc_html__( 'Border Radius', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Radius', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', '%' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-tabs__content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-tabs__content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -502,11 +502,11 @@ class Tabs extends Content_Base {
         $this->add_responsive_control(
             'content_padding',
             array(
-                'label'      => esc_html__( 'Padding', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Padding', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-tabs__content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-tabs__content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -515,17 +515,17 @@ class Tabs extends Content_Base {
             Group_Control_Typography::get_type(),
             array(
                 'name'     => 'content_typography',
-                'selector' => '{{WRAPPER}} .acst-tabs__panel',
+                'selector' => '{{WRAPPER}} .pressiq-tabs__panel',
             )
         );
 
         $this->add_control(
             'content_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-tabs__panel' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-tabs__panel' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -549,25 +549,25 @@ class Tabs extends Content_Base {
         }
 
         $this->add_render_attribute( 'wrapper', 'class', array(
-            'acst-tabs',
-            'acst-tabs--' . $layout,
+            'pressiq-tabs',
+            'pressiq-tabs--' . $layout,
         ) );
         ?>
         <div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
-            <div class="acst-tabs__nav" role="tablist">
+            <div class="pressiq-tabs__nav" role="tablist">
                 <?php foreach ( $tabs as $index => $tab ) :
                     $tab_count = $index + 1;
                     $is_active = $tab_count === $default_active;
-                    $tab_id    = 'acst-tab-' . $widget_id . '-' . $tab_count;
-                    $panel_id  = 'acst-panel-' . $widget_id . '-' . $tab_count;
+                    $tab_id    = 'pressiq-tab-' . $widget_id . '-' . $tab_count;
+                    $panel_id  = 'pressiq-panel-' . $widget_id . '-' . $tab_count;
                     $has_icon  = ! empty( $tab['tab_icon']['value'] );
 
-                    $tab_class = 'acst-tabs__tab';
+                    $tab_class = 'pressiq-tabs__tab';
                     if ( $is_active ) {
                         $tab_class .= ' is-active';
                     }
                     if ( $has_icon ) {
-                        $tab_class .= ' acst-tabs__tab--icon-' . $icon_position;
+                        $tab_class .= ' pressiq-tabs__tab--icon-' . $icon_position;
                     }
                 ?>
                     <button type="button"
@@ -578,15 +578,15 @@ class Tabs extends Content_Base {
                             aria-controls="<?php echo esc_attr( $panel_id ); ?>"
                             data-tab="<?php echo esc_attr( $tab_count ); ?>">
                         <?php if ( $has_icon && $icon_position !== 'after' ) : ?>
-                            <span class="acst-tabs__tab-icon">
+                            <span class="pressiq-tabs__tab-icon">
                                 <?php Icons_Manager::render_icon( $tab['tab_icon'], array( 'aria-hidden' => 'true' ) ); ?>
                             </span>
                         <?php endif; ?>
 
-                        <span class="acst-tabs__tab-title"><?php echo esc_html( $tab['tab_title'] ); ?></span>
+                        <span class="pressiq-tabs__tab-title"><?php echo esc_html( $tab['tab_title'] ); ?></span>
 
                         <?php if ( $has_icon && $icon_position === 'after' ) : ?>
-                            <span class="acst-tabs__tab-icon">
+                            <span class="pressiq-tabs__tab-icon">
                                 <?php Icons_Manager::render_icon( $tab['tab_icon'], array( 'aria-hidden' => 'true' ) ); ?>
                             </span>
                         <?php endif; ?>
@@ -594,14 +594,14 @@ class Tabs extends Content_Base {
                 <?php endforeach; ?>
             </div>
 
-            <div class="acst-tabs__content">
+            <div class="pressiq-tabs__content">
                 <?php foreach ( $tabs as $index => $tab ) :
                     $tab_count = $index + 1;
                     $is_active = $tab_count === $default_active;
-                    $tab_id    = 'acst-tab-' . $widget_id . '-' . $tab_count;
-                    $panel_id  = 'acst-panel-' . $widget_id . '-' . $tab_count;
+                    $tab_id    = 'pressiq-tab-' . $widget_id . '-' . $tab_count;
+                    $panel_id  = 'pressiq-panel-' . $widget_id . '-' . $tab_count;
                 ?>
-                    <div class="acst-tabs__panel<?php echo $is_active ? ' is-active' : ''; ?>"
+                    <div class="pressiq-tabs__panel<?php echo $is_active ? ' is-active' : ''; ?>"
                          id="<?php echo esc_attr( $panel_id ); ?>"
                          role="tabpanel"
                          aria-labelledby="<?php echo esc_attr( $tab_id ); ?>"

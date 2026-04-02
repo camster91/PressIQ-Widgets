@@ -8,16 +8,16 @@
 
 /* Widget category icon */
 .elementor-panel .elementor-element-wrapper .icon[class*="ac-"] {
-    font-family: 'eicons';
+    font-family: eicons, sans-serif;
 }
 
 /* Widget preview placeholder */
-.elementor-widget-acst-select-filter .elementor-widget-empty-icon::before,
-.elementor-widget-acst-checkbox-filter .elementor-widget-empty-icon::before,
-.elementor-widget-acst-radio-filter .elementor-widget-empty-icon::before,
-.elementor-widget-acst-range-filter .elementor-widget-empty-icon::before,
-.elementor-widget-acst-sorting-filter .elementor-widget-empty-icon::before,
-.elementor-widget-acst-search-filter .elementor-widget-empty-icon::before {
+.elementor-widget-pressiq-select-filter .elementor-widget-empty-icon::before,
+.elementor-widget-pressiq-checkbox-filter .elementor-widget-empty-icon::before,
+.elementor-widget-pressiq-radio-filter .elementor-widget-empty-icon::before,
+.elementor-widget-pressiq-range-filter .elementor-widget-empty-icon::before,
+.elementor-widget-pressiq-sorting-filter .elementor-widget-empty-icon::before,
+.elementor-widget-pressiq-search-filter .elementor-widget-empty-icon::before {
     content: '\e91e'; /* eicon-filter */
 }
 
@@ -25,17 +25,17 @@
    Filter Widget Preview Styles (Editor)
    ========================================================================== */
 
-.elementor-editor-active .acst-filter {
+.elementor-editor-active .pressiq-filter {
     min-height: 50px;
 }
 
-.elementor-editor-active .acst-filter__options {
+.elementor-editor-active .pressiq-filter__options {
     min-height: 30px;
 }
 
 /* Placeholder styles in editor */
-.elementor-editor-active .acst-filter--checkbox .acst-filter__options:empty::before,
-.elementor-editor-active .acst-filter--radio .acst-filter__options:empty::before {
+.elementor-editor-active .pressiq-filter--checkbox .pressiq-filter__options:empty::before,
+.elementor-editor-active .pressiq-filter--radio .pressiq-filter__options:empty::before {
     content: 'Options will appear here based on your data source settings';
     color: #888;
     font-style: italic;
@@ -47,11 +47,11 @@
    ========================================================================== */
 
 /* Layout */
-.acst-admin {
+.pressiq-admin {
     margin: 20px 20px 20px 0;
 }
 
-.acst-admin__header {
+.pressiq-admin__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -60,109 +60,109 @@
     border-bottom: 1px solid #ddd;
 }
 
-.acst-admin__title {
+.pressiq-admin__title {
     margin: 0;
     font-size: 28px;
     font-weight: 400;
     color: #1d2327;
 }
 
-.acst-admin__version {
+.pressiq-admin__version {
     margin: 0;
     color: #646970;
     font-size: 13px;
 }
 
-.acst-admin__content {
+.pressiq-admin__content {
     display: grid;
     grid-template-columns: 1fr 320px;
     gap: 25px;
 }
 
-.acst-admin__content--full {
+.pressiq-admin__content--full {
     display: block;
 }
 
-.acst-admin__main {
+.pressiq-admin__main {
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
-.acst-admin__sidebar {
+.pressiq-admin__sidebar {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 /* Cards */
-.acst-card {
+.pressiq-card {
     background: #fff;
     border: 1px solid #c3c4c7;
     border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 0.04);
 }
 
-.acst-card--welcome {
+.pressiq-card--welcome {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
     border: none;
 }
 
-.acst-card--welcome h2 {
+.pressiq-card--welcome h2 {
     color: #fff;
     margin-top: 0;
 }
 
-.acst-card--welcome p {
+.pressiq-card--welcome p {
     opacity: 0.9;
     margin-bottom: 0;
 }
 
-.acst-card__header {
+.pressiq-card__header {
     padding: 15px 20px;
     border-bottom: 1px solid #dcdcde;
 }
 
-.acst-card__header h2,
-.acst-card__header h3 {
+.pressiq-card__header h2,
+.pressiq-card__header h3 {
     margin: 0;
     font-size: 14px;
     font-weight: 600;
     color: #1d2327;
 }
 
-.acst-card__header h2 {
+.pressiq-card__header h2 {
     font-size: 16px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.acst-card__header p {
+.pressiq-card__header p {
     margin: 8px 0 0;
     color: #646970;
     font-size: 13px;
 }
 
-.acst-card__content {
+.pressiq-card__content {
     padding: 20px;
 }
 
 /* Modules */
-.acst-modules {
+.pressiq-modules {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.acst-module {
+.pressiq-module {
     border: 1px solid #dcdcde;
     border-radius: 4px;
     overflow: hidden;
 }
 
-.acst-module__header {
+.pressiq-module__header {
     display: flex;
     align-items: flex-start;
     gap: 15px;
@@ -170,37 +170,37 @@
     background: #f6f7f7;
 }
 
-.acst-module__icon {
+.pressiq-module__icon {
     font-size: 24px;
     color: #646970;
     margin-top: 2px;
 }
 
-.acst-module__info {
+.pressiq-module__info {
     flex: 1;
 }
 
-.acst-module__name {
+.pressiq-module__name {
     margin: 0 0 5px;
     font-size: 15px;
     font-weight: 600;
     color: #1d2327;
 }
 
-.acst-module__description {
+.pressiq-module__description {
     margin: 0;
     font-size: 13px;
     color: #646970;
     line-height: 1.5;
 }
 
-.acst-module__widgets {
+.pressiq-module__widgets {
     padding: 15px 20px;
     background: #fff;
     border-top: 1px solid #dcdcde;
 }
 
-.acst-module__widgets strong {
+.pressiq-module__widgets strong {
     display: block;
     font-size: 12px;
     text-transform: uppercase;
@@ -208,7 +208,7 @@
     margin-bottom: 10px;
 }
 
-.acst-module__widgets ul {
+.pressiq-module__widgets ul {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -217,7 +217,7 @@
     list-style: none;
 }
 
-.acst-module__widgets li {
+.pressiq-module__widgets li {
     display: inline-block;
     padding: 4px 10px;
     background: #f0f0f1;
@@ -227,7 +227,7 @@
 }
 
 /* Toggle Switch */
-.acst-toggle {
+.pressiq-toggle {
     position: relative;
     display: inline-block;
     width: 50px;
@@ -235,25 +235,22 @@
     flex-shrink: 0;
 }
 
-.acst-toggle input {
+.pressiq-toggle input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-.acst-toggle__slider {
+.pressiq-toggle__slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background-color: #a7aaad;
     transition: 0.3s;
     border-radius: 26px;
 }
 
-.acst-toggle__slider::before {
+.pressiq-toggle__slider::before {
     position: absolute;
     content: "";
     height: 20px;
@@ -265,30 +262,30 @@
     border-radius: 50%;
 }
 
-.acst-toggle input:checked + .acst-toggle__slider {
+.pressiq-toggle input:checked + .pressiq-toggle__slider {
     background-color: #2271b1;
 }
 
-.acst-toggle input:checked + .acst-toggle__slider::before {
+.pressiq-toggle input:checked + .pressiq-toggle__slider::before {
     transform: translateX(24px);
 }
 
 /* Quick Links */
-.acst-links {
+.pressiq-links {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.acst-links li {
+.pressiq-links li {
     margin-bottom: 10px;
 }
 
-.acst-links li:last-child {
+.pressiq-links li:last-child {
     margin-bottom: 0;
 }
 
-.acst-links a {
+.pressiq-links a {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -297,44 +294,44 @@
     font-size: 13px;
 }
 
-.acst-links a:hover {
+.pressiq-links a:hover {
     color: #135e96;
 }
 
-.acst-links .dashicons {
+.pressiq-links .dashicons {
     font-size: 16px;
     width: 16px;
     height: 16px;
 }
 
 /* Info Table */
-.acst-info-table {
+.pressiq-info-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.acst-info-table td {
+.pressiq-info-table td {
     padding: 8px 0;
     border-bottom: 1px solid #f0f0f1;
     font-size: 13px;
 }
 
-.acst-info-table tr:last-child td {
+.pressiq-info-table tr:last-child td {
     border-bottom: none;
 }
 
-.acst-info-table td:first-child {
+.pressiq-info-table td:first-child {
     color: #646970;
 }
 
-.acst-info-table td:last-child {
+.pressiq-info-table td:last-child {
     text-align: right;
     font-weight: 500;
     color: #1d2327;
 }
 
 /* Badges */
-.acst-badge {
+.pressiq-badge {
     display: inline-block;
     padding: 2px 8px;
     border-radius: 3px;
@@ -343,24 +340,24 @@
     text-transform: uppercase;
 }
 
-.acst-badge--enabled {
+.pressiq-badge--enabled {
     background: #d4edda;
     color: #155724;
 }
 
-.acst-badge--disabled {
+.pressiq-badge--disabled {
     background: #f8d7da;
     color: #721c24;
 }
 
 /* Widgets Grid */
-.acst-widgets-grid {
+.pressiq-widgets-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
 }
 
-.acst-widget-card {
+.pressiq-widget-card {
     padding: 20px;
     border: 1px solid #dcdcde;
     border-radius: 4px;
@@ -368,28 +365,28 @@
     transition: box-shadow 0.2s;
 }
 
-.acst-widget-card:hover {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.pressiq-widget-card:hover {
+    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
 }
 
-.acst-widget-card--disabled {
+.pressiq-widget-card--disabled {
     opacity: 0.5;
 }
 
-.acst-widget-card__icon {
+.pressiq-widget-card__icon {
     font-size: 32px;
     color: #646970;
     margin-bottom: 10px;
 }
 
-.acst-widget-card__name {
+.pressiq-widget-card__name {
     margin: 0 0 8px;
     font-size: 14px;
     font-weight: 600;
     color: #1d2327;
 }
 
-.acst-widget-card__description {
+.pressiq-widget-card__description {
     margin: 0;
     font-size: 12px;
     color: #646970;
@@ -397,19 +394,19 @@
 }
 
 /* Instructions */
-.acst-instructions {
+.pressiq-instructions {
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin-bottom: 30px;
 }
 
-.acst-instruction {
+.pressiq-instruction {
     display: flex;
     gap: 15px;
 }
 
-.acst-instruction__number {
+.pressiq-instruction__number {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -423,26 +420,26 @@
     flex-shrink: 0;
 }
 
-.acst-instruction__content h4 {
+.pressiq-instruction__content h4 {
     margin: 0 0 5px;
     font-size: 14px;
     font-weight: 600;
     color: #1d2327;
 }
 
-.acst-instruction__content p {
+.pressiq-instruction__content p {
     margin: 0;
     font-size: 13px;
     color: #646970;
     line-height: 1.5;
 }
 
-.acst-steps {
+.pressiq-steps {
     margin: 15px 0 0;
     padding-left: 20px;
 }
 
-.acst-steps li {
+.pressiq-steps li {
     margin-bottom: 8px;
     font-size: 13px;
     color: #50575e;
@@ -450,32 +447,31 @@
 }
 
 /* Responsive */
-@media (max-width: 1200px) {
-    .acst-admin__content {
+@media (width <= 1200px) {
+    .pressiq-admin__content {
         grid-template-columns: 1fr;
     }
 
-    .acst-admin__sidebar {
-        flex-direction: row;
-        flex-wrap: wrap;
+    .pressiq-admin__sidebar {
+        flex-flow: row wrap;
     }
 
-    .acst-admin__sidebar .acst-card {
+    .pressiq-admin__sidebar .pressiq-card {
         flex: 1;
         min-width: 250px;
     }
 }
 
-@media (max-width: 600px) {
-    .acst-module__header {
+@media (width <= 600px) {
+    .pressiq-module__header {
         flex-direction: column;
     }
 
-    .acst-toggle {
+    .pressiq-toggle {
         align-self: flex-start;
     }
 
-    .acst-widgets-grid {
+    .pressiq-widgets-grid {
         grid-template-columns: 1fr;
     }
 }

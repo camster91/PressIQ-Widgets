@@ -2,10 +2,10 @@
 /**
  * Search Filter Widget
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Filters\Widgets;
+namespace PressIQ_Widgets\Modules\Filters\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Icons_Manager;
@@ -28,7 +28,7 @@ class Search_Filter extends Filter_Base {
      * @return string
      */
     public function get_name() {
-        return 'acst-search-filter';
+        return 'pressiq-search-filter';
     }
 
     /**
@@ -37,7 +37,7 @@ class Search_Filter extends Filter_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__( 'Search Filter', 'ac-starter-toolkit' );
+        return esc_html__( 'Search Filter', 'pressiq-widgets' );
     }
 
     /**
@@ -69,7 +69,7 @@ class Search_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_search_options',
             array(
-                'label' => esc_html__( 'Search Options', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Search Options', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -77,32 +77,32 @@ class Search_Filter extends Filter_Base {
         $this->add_control(
             'placeholder',
             array(
-                'label'   => esc_html__( 'Placeholder', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Placeholder', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Search...', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Search...', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'min_characters',
             array(
-                'label'       => esc_html__( 'Minimum Characters', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Minimum Characters', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::NUMBER,
                 'default'     => 2,
                 'min'         => 1,
                 'max'         => 10,
-                'description' => esc_html__( 'Minimum characters before search triggers.', 'ac-starter-toolkit' ),
+                'description' => esc_html__( 'Minimum characters before search triggers.', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'show_search_icon',
             array(
-                'label'        => esc_html__( 'Show Search Icon', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show Search Icon', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -110,12 +110,12 @@ class Search_Filter extends Filter_Base {
         $this->add_control(
             'icon_position',
             array(
-                'label'     => esc_html__( 'Icon Position', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Icon Position', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'left',
                 'options'   => array(
-                    'left'  => esc_html__( 'Left', 'ac-starter-toolkit' ),
-                    'right' => esc_html__( 'Right', 'ac-starter-toolkit' ),
+                    'left'  => esc_html__( 'Left', 'pressiq-widgets' ),
+                    'right' => esc_html__( 'Right', 'pressiq-widgets' ),
                 ),
                 'condition' => array(
                     'show_search_icon' => 'yes',
@@ -126,11 +126,11 @@ class Search_Filter extends Filter_Base {
         $this->add_control(
             'show_clear_button',
             array(
-                'label'        => esc_html__( 'Show Clear Button', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show Clear Button', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -138,16 +138,16 @@ class Search_Filter extends Filter_Base {
         $this->add_control(
             'search_in',
             array(
-                'label'       => esc_html__( 'Search In', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Search In', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::SELECT2,
                 'multiple'    => true,
                 'default'     => array( 'title', 'content' ),
                 'options'     => array(
-                    'title'   => esc_html__( 'Title', 'ac-starter-toolkit' ),
-                    'content' => esc_html__( 'Content', 'ac-starter-toolkit' ),
-                    'excerpt' => esc_html__( 'Excerpt', 'ac-starter-toolkit' ),
+                    'title'   => esc_html__( 'Title', 'pressiq-widgets' ),
+                    'content' => esc_html__( 'Content', 'pressiq-widgets' ),
+                    'excerpt' => esc_html__( 'Excerpt', 'pressiq-widgets' ),
                 ),
-                'description' => esc_html__( 'Select which fields to search in.', 'ac-starter-toolkit' ),
+                'description' => esc_html__( 'Select which fields to search in.', 'pressiq-widgets' ),
             )
         );
 
@@ -160,7 +160,7 @@ class Search_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_input_style',
             array(
-                'label' => esc_html__( 'Input', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Input', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -169,7 +169,7 @@ class Search_Filter extends Filter_Base {
             \Elementor\Group_Control_Typography::get_type(),
             array(
                 'name'     => 'input_typography',
-                'selector' => '{{WRAPPER}} .acst-filter__text-input',
+                'selector' => '{{WRAPPER}} .pressiq-filter__text-input',
             )
         );
 
@@ -179,17 +179,17 @@ class Search_Filter extends Filter_Base {
         $this->start_controls_tab(
             'input_style_normal',
             array(
-                'label' => esc_html__( 'Normal', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Normal', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'input_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__text-input' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__text-input' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -197,10 +197,10 @@ class Search_Filter extends Filter_Base {
         $this->add_control(
             'input_placeholder_color',
             array(
-                'label'     => esc_html__( 'Placeholder Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Placeholder Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__text-input::placeholder' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__text-input::placeholder' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -208,10 +208,10 @@ class Search_Filter extends Filter_Base {
         $this->add_control(
             'input_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__search-wrapper' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__search-wrapper' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -219,10 +219,10 @@ class Search_Filter extends Filter_Base {
         $this->add_control(
             'input_border_color',
             array(
-                'label'     => esc_html__( 'Border Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Border Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__search-wrapper' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__search-wrapper' => 'border-color: {{VALUE}};',
                 ),
             )
         );
@@ -233,17 +233,17 @@ class Search_Filter extends Filter_Base {
         $this->start_controls_tab(
             'input_style_focus',
             array(
-                'label' => esc_html__( 'Focus', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Focus', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'input_focus_border_color',
             array(
-                'label'     => esc_html__( 'Border Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Border Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__search-wrapper:focus-within' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__search-wrapper:focus-within' => 'border-color: {{VALUE}};',
                 ),
             )
         );
@@ -252,7 +252,7 @@ class Search_Filter extends Filter_Base {
             \Elementor\Group_Control_Box_Shadow::get_type(),
             array(
                 'name'     => 'input_focus_box_shadow',
-                'selector' => '{{WRAPPER}} .acst-filter__search-wrapper:focus-within',
+                'selector' => '{{WRAPPER}} .pressiq-filter__search-wrapper:focus-within',
             )
         );
 
@@ -263,7 +263,7 @@ class Search_Filter extends Filter_Base {
         $this->add_control(
             'input_border_width',
             array(
-                'label'      => esc_html__( 'Border Width', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Width', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -274,7 +274,7 @@ class Search_Filter extends Filter_Base {
                 ),
                 'separator'  => 'before',
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__search-wrapper' => 'border-width: {{SIZE}}{{UNIT}}; border-style: solid;',
+                    '{{WRAPPER}} .pressiq-filter__search-wrapper' => 'border-width: {{SIZE}}{{UNIT}}; border-style: solid;',
                 ),
             )
         );
@@ -282,11 +282,11 @@ class Search_Filter extends Filter_Base {
         $this->add_responsive_control(
             'input_border_radius',
             array(
-                'label'      => esc_html__( 'Border Radius', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Radius', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', '%' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__search-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__search-wrapper' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -294,11 +294,11 @@ class Search_Filter extends Filter_Base {
         $this->add_responsive_control(
             'input_padding',
             array(
-                'label'      => esc_html__( 'Padding', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Padding', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__search-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__search-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -309,7 +309,7 @@ class Search_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_icon_style',
             array(
-                'label'     => esc_html__( 'Icon', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Icon', 'pressiq-widgets' ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => array(
                     'show_search_icon' => 'yes',
@@ -320,10 +320,10 @@ class Search_Filter extends Filter_Base {
         $this->add_control(
             'icon_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__search-icon' => 'color: {{VALUE}}; fill: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__search-icon' => 'color: {{VALUE}}; fill: {{VALUE}};',
                 ),
             )
         );
@@ -331,7 +331,7 @@ class Search_Filter extends Filter_Base {
         $this->add_control(
             'icon_size',
             array(
-                'label'      => esc_html__( 'Size', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Size', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -345,7 +345,7 @@ class Search_Filter extends Filter_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__search-icon' => 'font-size: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__search-icon' => 'font-size: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -353,7 +353,7 @@ class Search_Filter extends Filter_Base {
         $this->add_control(
             'icon_spacing',
             array(
-                'label'      => esc_html__( 'Spacing', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Spacing', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -367,8 +367,8 @@ class Search_Filter extends Filter_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__search-wrapper--icon-left .acst-filter__search-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .acst-filter__search-wrapper--icon-right .acst-filter__search-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__search-wrapper--icon-left .pressiq-filter__search-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__search-wrapper--icon-right .pressiq-filter__search-icon' => 'margin-left: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -393,17 +393,17 @@ class Search_Filter extends Filter_Base {
         $data_attrs['data-min-chars']   = $min_chars;
         $data_attrs['data-search-in']   = implode( ',', $search_in );
 
-        $wrapper_class = 'acst-filter__search-wrapper';
+        $wrapper_class = 'pressiq-filter__search-wrapper';
         if ( $show_icon ) {
-            $wrapper_class .= ' acst-filter__search-wrapper--icon-' . $icon_position;
+            $wrapper_class .= ' pressiq-filter__search-wrapper--icon-' . $icon_position;
         }
         ?>
-        <div class="acst-filter acst-filter--search"<?php echo $this->render_data_attrs( $data_attrs ); ?>>
+        <div class="pressiq-filter pressiq-filter--search"<?php echo $this->render_data_attrs( $data_attrs ); ?>>
             <?php $this->render_label( $settings ); ?>
 
             <div class="<?php echo esc_attr( $wrapper_class ); ?>">
                 <?php if ( $show_icon && $icon_position === 'left' ) : ?>
-                    <span class="acst-filter__search-icon">
+                    <span class="pressiq-filter__search-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -412,13 +412,13 @@ class Search_Filter extends Filter_Base {
                 <?php endif; ?>
 
                 <input type="text"
-                       class="acst-filter__text-input"
+                       class="pressiq-filter__text-input"
                        name="_search"
                        placeholder="<?php echo esc_attr( $settings['placeholder'] ); ?>"
                        autocomplete="off">
 
                 <?php if ( $show_clear ) : ?>
-                    <button type="button" class="acst-filter__search-clear" style="display: none;" aria-label="<?php esc_attr_e( 'Clear search', 'ac-starter-toolkit' ); ?>">
+                    <button type="button" class="pressiq-filter__search-clear" style="display: none;" aria-label="<?php esc_attr_e( 'Clear search', 'pressiq-widgets' ); ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -427,7 +427,7 @@ class Search_Filter extends Filter_Base {
                 <?php endif; ?>
 
                 <?php if ( $show_icon && $icon_position === 'right' ) : ?>
-                    <span class="acst-filter__search-icon">
+                    <span class="pressiq-filter__search-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -445,19 +445,19 @@ class Search_Filter extends Filter_Base {
     protected function content_template() {
         ?>
         <#
-        var wrapperClass = 'acst-filter__search-wrapper';
+        var wrapperClass = 'pressiq-filter__search-wrapper';
         if ( settings.show_search_icon === 'yes' ) {
-            wrapperClass += ' acst-filter__search-wrapper--icon-' + settings.icon_position;
+            wrapperClass += ' pressiq-filter__search-wrapper--icon-' + settings.icon_position;
         }
         #>
-        <div class="acst-filter acst-filter--search">
+        <div class="pressiq-filter pressiq-filter--search">
             <# if ( settings.show_label === 'yes' && settings.filter_label ) { #>
-                <label class="acst-filter__label">{{{ settings.filter_label }}}</label>
+                <label class="pressiq-filter__label">{{{ settings.filter_label }}}</label>
             <# } #>
 
             <div class="{{{ wrapperClass }}}">
                 <# if ( settings.show_search_icon === 'yes' && settings.icon_position === 'left' ) { #>
-                    <span class="acst-filter__search-icon">
+                    <span class="pressiq-filter__search-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -465,10 +465,10 @@ class Search_Filter extends Filter_Base {
                     </span>
                 <# } #>
 
-                <input type="text" class="acst-filter__text-input" placeholder="{{{ settings.placeholder }}}">
+                <input type="text" class="pressiq-filter__text-input" placeholder="{{{ settings.placeholder }}}">
 
                 <# if ( settings.show_clear_button === 'yes' ) { #>
-                    <button type="button" class="acst-filter__search-clear">
+                    <button type="button" class="pressiq-filter__search-clear">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -477,7 +477,7 @@ class Search_Filter extends Filter_Base {
                 <# } #>
 
                 <# if ( settings.show_search_icon === 'yes' && settings.icon_position === 'right' ) { #>
-                    <span class="acst-filter__search-icon">
+                    <span class="pressiq-filter__search-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>

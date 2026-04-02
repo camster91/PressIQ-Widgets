@@ -2,10 +2,10 @@
 /**
  * Filter Base Widget
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Filters\Widgets;
+namespace PressIQ_Widgets\Modules\Filters\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -40,7 +40,7 @@ abstract class Filter_Base extends Widget_Base {
      * @return array
      */
     public function get_style_depends() {
-        return array( 'acst-filters' );
+        return array( 'pressiq-filters' );
     }
 
     /**
@@ -49,7 +49,7 @@ abstract class Filter_Base extends Widget_Base {
      * @return array
      */
     public function get_script_depends() {
-        return array( 'acst-filters' );
+        return array( 'pressiq-filters' );
     }
 
     /**
@@ -59,7 +59,7 @@ abstract class Filter_Base extends Widget_Base {
         $this->start_controls_section(
             'section_filter_settings',
             array(
-                'label' => esc_html__( 'Filter Settings', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Filter Settings', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -68,10 +68,10 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_control(
             'query_id',
             array(
-                'label'       => esc_html__( 'Query ID', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Query ID', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::TEXT,
                 'default'     => '',
-                'description' => esc_html__( 'Enter the Query ID of the Posts/Loop Grid widget you want to filter. Leave empty to filter all grids on the page.', 'ac-starter-toolkit' ),
+                'description' => esc_html__( 'Enter the Query ID of the Posts/Loop Grid widget you want to filter. Leave empty to filter all grids on the page.', 'pressiq-widgets' ),
             )
         );
 
@@ -79,7 +79,7 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_control(
             'filter_label',
             array(
-                'label'   => esc_html__( 'Label', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Label', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
                 'default' => '',
             )
@@ -89,11 +89,11 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_control(
             'show_label',
             array(
-                'label'        => esc_html__( 'Show Label', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show Label', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -108,7 +108,7 @@ abstract class Filter_Base extends Widget_Base {
         $this->start_controls_section(
             'section_data_source',
             array(
-                'label' => esc_html__( 'Data Source', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Data Source', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -117,13 +117,13 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_control(
             'source_type',
             array(
-                'label'   => esc_html__( 'Source', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Source', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'taxonomy',
                 'options' => array(
-                    'taxonomy' => esc_html__( 'Taxonomy', 'ac-starter-toolkit' ),
-                    'meta'     => esc_html__( 'Meta Field', 'ac-starter-toolkit' ),
-                    'manual'   => esc_html__( 'Manual Options', 'ac-starter-toolkit' ),
+                    'taxonomy' => esc_html__( 'Taxonomy', 'pressiq-widgets' ),
+                    'meta'     => esc_html__( 'Meta Field', 'pressiq-widgets' ),
+                    'manual'   => esc_html__( 'Manual Options', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -132,7 +132,7 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_control(
             'taxonomy',
             array(
-                'label'     => esc_html__( 'Taxonomy', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Taxonomy', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'category',
                 'options'   => $this->get_taxonomies_options(),
@@ -146,7 +146,7 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_control(
             'post_type',
             array(
-                'label'     => esc_html__( 'Post Type', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Post Type', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'post',
                 'options'   => $this->get_post_types_options(),
@@ -160,10 +160,10 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_control(
             'meta_key',
             array(
-                'label'       => esc_html__( 'Meta Key', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Meta Key', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::TEXT,
                 'default'     => '',
-                'description' => esc_html__( 'Enter the meta field key to filter by.', 'ac-starter-toolkit' ),
+                'description' => esc_html__( 'Enter the meta field key to filter by.', 'pressiq-widgets' ),
                 'condition'   => array(
                     'source_type' => 'meta',
                 ),
@@ -174,10 +174,10 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_control(
             'manual_options',
             array(
-                'label'       => esc_html__( 'Options', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Options', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::TEXTAREA,
                 'default'     => "value1|Label 1\nvalue2|Label 2\nvalue3|Label 3",
-                'description' => esc_html__( 'Enter options in format: value|label (one per line)', 'ac-starter-toolkit' ),
+                'description' => esc_html__( 'Enter options in format: value|label (one per line)', 'pressiq-widgets' ),
                 'condition'   => array(
                     'source_type' => 'manual',
                 ),
@@ -188,11 +188,11 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_control(
             'show_count',
             array(
-                'label'        => esc_html__( 'Show Count', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show Count', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => '',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
                 'condition'    => array(
                     'source_type!' => 'manual',
@@ -204,11 +204,11 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_control(
             'hide_empty',
             array(
-                'label'        => esc_html__( 'Hide Empty', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Hide Empty', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
                 'condition'    => array(
                     'source_type' => 'taxonomy',
@@ -226,7 +226,7 @@ abstract class Filter_Base extends Widget_Base {
         $this->start_controls_section(
             'section_label_style',
             array(
-                'label'     => esc_html__( 'Label', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Label', 'pressiq-widgets' ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => array(
                     'show_label' => 'yes',
@@ -238,17 +238,17 @@ abstract class Filter_Base extends Widget_Base {
             Group_Control_Typography::get_type(),
             array(
                 'name'     => 'label_typography',
-                'selector' => '{{WRAPPER}} .acst-filter__label',
+                'selector' => '{{WRAPPER}} .pressiq-filter__label',
             )
         );
 
         $this->add_control(
             'label_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__label' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__label' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -256,11 +256,11 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_responsive_control(
             'label_margin',
             array(
-                'label'      => esc_html__( 'Margin', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Margin', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em', '%' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__label' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__label' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -275,7 +275,7 @@ abstract class Filter_Base extends Widget_Base {
         $this->start_controls_section(
             'section_input_style',
             array(
-                'label' => esc_html__( 'Input', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Input', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -284,7 +284,7 @@ abstract class Filter_Base extends Widget_Base {
             Group_Control_Typography::get_type(),
             array(
                 'name'     => 'input_typography',
-                'selector' => '{{WRAPPER}} .acst-filter__input, {{WRAPPER}} .acst-filter__select',
+                'selector' => '{{WRAPPER}} .pressiq-filter__input, {{WRAPPER}} .pressiq-filter__select',
             )
         );
 
@@ -294,17 +294,17 @@ abstract class Filter_Base extends Widget_Base {
         $this->start_controls_tab(
             'input_style_normal',
             array(
-                'label' => esc_html__( 'Normal', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Normal', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'input_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__input, {{WRAPPER}} .acst-filter__select' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__input, {{WRAPPER}} .pressiq-filter__select' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -312,10 +312,10 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_control(
             'input_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__input, {{WRAPPER}} .acst-filter__select' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__input, {{WRAPPER}} .pressiq-filter__select' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -324,7 +324,7 @@ abstract class Filter_Base extends Widget_Base {
             Group_Control_Border::get_type(),
             array(
                 'name'     => 'input_border',
-                'selector' => '{{WRAPPER}} .acst-filter__input, {{WRAPPER}} .acst-filter__select',
+                'selector' => '{{WRAPPER}} .pressiq-filter__input, {{WRAPPER}} .pressiq-filter__select',
             )
         );
 
@@ -334,17 +334,17 @@ abstract class Filter_Base extends Widget_Base {
         $this->start_controls_tab(
             'input_style_focus',
             array(
-                'label' => esc_html__( 'Focus', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Focus', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'input_focus_border_color',
             array(
-                'label'     => esc_html__( 'Border Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Border Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__input:focus, {{WRAPPER}} .acst-filter__select:focus' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__input:focus, {{WRAPPER}} .pressiq-filter__select:focus' => 'border-color: {{VALUE}};',
                 ),
             )
         );
@@ -353,7 +353,7 @@ abstract class Filter_Base extends Widget_Base {
             Group_Control_Box_Shadow::get_type(),
             array(
                 'name'     => 'input_focus_box_shadow',
-                'selector' => '{{WRAPPER}} .acst-filter__input:focus, {{WRAPPER}} .acst-filter__select:focus',
+                'selector' => '{{WRAPPER}} .pressiq-filter__input:focus, {{WRAPPER}} .pressiq-filter__select:focus',
             )
         );
 
@@ -364,12 +364,12 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_responsive_control(
             'input_padding',
             array(
-                'label'      => esc_html__( 'Padding', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Padding', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em', '%' ),
                 'separator'  => 'before',
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__input, {{WRAPPER}} .acst-filter__select' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__input, {{WRAPPER}} .pressiq-filter__select' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -377,11 +377,11 @@ abstract class Filter_Base extends Widget_Base {
         $this->add_responsive_control(
             'input_border_radius',
             array(
-                'label'      => esc_html__( 'Border Radius', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Radius', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', '%' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__input, {{WRAPPER}} .acst-filter__select' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__input, {{WRAPPER}} .pressiq-filter__select' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -409,7 +409,7 @@ abstract class Filter_Base extends Widget_Base {
                 $options[ 'pa_' . $attribute->attribute_name ] = sprintf(
                     '%s (%s)',
                     $attribute->attribute_label,
-                    esc_html__( 'Product Attribute', 'ac-starter-toolkit' )
+                    esc_html__( 'Product Attribute', 'pressiq-widgets' )
                 );
             }
         }
@@ -562,7 +562,7 @@ abstract class Filter_Base extends Widget_Base {
         }
 
         printf(
-            '<label class="acst-filter__label">%s</label>',
+            '<label class="pressiq-filter__label">%s</label>',
             esc_html( $settings['filter_label'] )
         );
     }

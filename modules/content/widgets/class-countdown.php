@@ -2,10 +2,10 @@
 /**
  * Countdown Timer Widget
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Content\Widgets;
+namespace PressIQ_Widgets\Modules\Content\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
@@ -31,7 +31,7 @@ class Countdown extends Content_Base {
      * @return string
      */
     public function get_name() {
-        return 'acst-countdown';
+        return 'pressiq-countdown';
     }
 
     /**
@@ -40,7 +40,7 @@ class Countdown extends Content_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__( 'Countdown Timer', 'ac-starter-toolkit' );
+        return esc_html__( 'Countdown Timer', 'pressiq-widgets' );
     }
 
     /**
@@ -69,7 +69,7 @@ class Countdown extends Content_Base {
         $this->start_controls_section(
             'section_countdown',
             array(
-                'label' => esc_html__( 'Countdown', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Countdown', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -77,12 +77,12 @@ class Countdown extends Content_Base {
         $this->add_control(
             'countdown_type',
             array(
-                'label'   => esc_html__( 'Type', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Type', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'due_date',
                 'options' => array(
-                    'due_date'  => esc_html__( 'Due Date', 'ac-starter-toolkit' ),
-                    'evergreen' => esc_html__( 'Evergreen Timer', 'ac-starter-toolkit' ),
+                    'due_date'  => esc_html__( 'Due Date', 'pressiq-widgets' ),
+                    'evergreen' => esc_html__( 'Evergreen Timer', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -90,7 +90,7 @@ class Countdown extends Content_Base {
         $this->add_control(
             'due_date',
             array(
-                'label'          => esc_html__( 'Due Date', 'ac-starter-toolkit' ),
+                'label'          => esc_html__( 'Due Date', 'pressiq-widgets' ),
                 'type'           => Controls_Manager::DATE_TIME,
                 'default'        => gmdate( 'Y-m-d H:i', strtotime( '+1 month' ) ),
                 'picker_options' => array(
@@ -105,7 +105,7 @@ class Countdown extends Content_Base {
         $this->add_control(
             'evergreen_hours',
             array(
-                'label'     => esc_html__( 'Hours', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Hours', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::NUMBER,
                 'default'   => 24,
                 'min'       => 0,
@@ -118,7 +118,7 @@ class Countdown extends Content_Base {
         $this->add_control(
             'evergreen_minutes',
             array(
-                'label'     => esc_html__( 'Minutes', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Minutes', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::NUMBER,
                 'default'   => 0,
                 'min'       => 0,
@@ -132,11 +132,11 @@ class Countdown extends Content_Base {
         $this->add_control(
             'show_days',
             array(
-                'label'        => esc_html__( 'Show Days', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show Days', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -144,11 +144,11 @@ class Countdown extends Content_Base {
         $this->add_control(
             'show_hours',
             array(
-                'label'        => esc_html__( 'Show Hours', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show Hours', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -156,11 +156,11 @@ class Countdown extends Content_Base {
         $this->add_control(
             'show_minutes',
             array(
-                'label'        => esc_html__( 'Show Minutes', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show Minutes', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -168,11 +168,11 @@ class Countdown extends Content_Base {
         $this->add_control(
             'show_seconds',
             array(
-                'label'        => esc_html__( 'Show Seconds', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show Seconds', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -180,11 +180,11 @@ class Countdown extends Content_Base {
         $this->add_control(
             'show_labels',
             array(
-                'label'        => esc_html__( 'Show Labels', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show Labels', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -195,7 +195,7 @@ class Countdown extends Content_Base {
         $this->start_controls_section(
             'section_labels',
             array(
-                'label'     => esc_html__( 'Labels', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Labels', 'pressiq-widgets' ),
                 'tab'       => Controls_Manager::TAB_CONTENT,
                 'condition' => array(
                     'show_labels' => 'yes',
@@ -206,36 +206,36 @@ class Countdown extends Content_Base {
         $this->add_control(
             'label_days',
             array(
-                'label'   => esc_html__( 'Days', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Days', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Days', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Days', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'label_hours',
             array(
-                'label'   => esc_html__( 'Hours', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Hours', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Hours', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Hours', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'label_minutes',
             array(
-                'label'   => esc_html__( 'Minutes', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Minutes', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Minutes', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Minutes', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'label_seconds',
             array(
-                'label'   => esc_html__( 'Seconds', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Seconds', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Seconds', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Seconds', 'pressiq-widgets' ),
             )
         );
 
@@ -245,7 +245,7 @@ class Countdown extends Content_Base {
         $this->start_controls_section(
             'section_actions',
             array(
-                'label' => esc_html__( 'Actions', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Actions', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -253,13 +253,13 @@ class Countdown extends Content_Base {
         $this->add_control(
             'expire_action',
             array(
-                'label'   => esc_html__( 'On Expire', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'On Expire', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'hide',
                 'options' => array(
-                    'hide'    => esc_html__( 'Hide', 'ac-starter-toolkit' ),
-                    'message' => esc_html__( 'Show Message', 'ac-starter-toolkit' ),
-                    'redirect'=> esc_html__( 'Redirect', 'ac-starter-toolkit' ),
+                    'hide'    => esc_html__( 'Hide', 'pressiq-widgets' ),
+                    'message' => esc_html__( 'Show Message', 'pressiq-widgets' ),
+                    'redirect'=> esc_html__( 'Redirect', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -267,9 +267,9 @@ class Countdown extends Content_Base {
         $this->add_control(
             'expire_message',
             array(
-                'label'     => esc_html__( 'Message', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Message', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::TEXTAREA,
-                'default'   => esc_html__( 'This offer has expired!', 'ac-starter-toolkit' ),
+                'default'   => esc_html__( 'This offer has expired!', 'pressiq-widgets' ),
                 'rows'      => 3,
                 'condition' => array(
                     'expire_action' => 'message',
@@ -280,9 +280,9 @@ class Countdown extends Content_Base {
         $this->add_control(
             'expire_redirect',
             array(
-                'label'       => esc_html__( 'Redirect URL', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Redirect URL', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://your-link.com', 'ac-starter-toolkit' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'pressiq-widgets' ),
                 'condition'   => array(
                     'expire_action' => 'redirect',
                 ),
@@ -295,7 +295,7 @@ class Countdown extends Content_Base {
         $this->start_controls_section(
             'section_style_layout',
             array(
-                'label' => esc_html__( 'Layout', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Layout', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -303,25 +303,25 @@ class Countdown extends Content_Base {
         $this->add_responsive_control(
             'layout_alignment',
             array(
-                'label'     => esc_html__( 'Alignment', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Alignment', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::CHOOSE,
                 'options'   => array(
                     'flex-start' => array(
-                        'title' => esc_html__( 'Left', 'ac-starter-toolkit' ),
+                        'title' => esc_html__( 'Left', 'pressiq-widgets' ),
                         'icon'  => 'eicon-h-align-left',
                     ),
                     'center'     => array(
-                        'title' => esc_html__( 'Center', 'ac-starter-toolkit' ),
+                        'title' => esc_html__( 'Center', 'pressiq-widgets' ),
                         'icon'  => 'eicon-h-align-center',
                     ),
                     'flex-end'   => array(
-                        'title' => esc_html__( 'Right', 'ac-starter-toolkit' ),
+                        'title' => esc_html__( 'Right', 'pressiq-widgets' ),
                         'icon'  => 'eicon-h-align-right',
                     ),
                 ),
                 'default'   => 'center',
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-countdown' => 'justify-content: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-countdown' => 'justify-content: {{VALUE}};',
                 ),
             )
         );
@@ -329,7 +329,7 @@ class Countdown extends Content_Base {
         $this->add_responsive_control(
             'item_spacing',
             array(
-                'label'      => esc_html__( 'Item Spacing', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Item Spacing', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -343,7 +343,7 @@ class Countdown extends Content_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-countdown' => 'gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-countdown' => 'gap: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -354,7 +354,7 @@ class Countdown extends Content_Base {
         $this->start_controls_section(
             'section_style_box',
             array(
-                'label' => esc_html__( 'Boxes', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Boxes', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -364,7 +364,7 @@ class Countdown extends Content_Base {
             array(
                 'name'     => 'box_background',
                 'types'    => array( 'classic', 'gradient' ),
-                'selector' => '{{WRAPPER}} .acst-countdown__item',
+                'selector' => '{{WRAPPER}} .pressiq-countdown__item',
             )
         );
 
@@ -372,18 +372,18 @@ class Countdown extends Content_Base {
             Group_Control_Border::get_type(),
             array(
                 'name'     => 'box_border',
-                'selector' => '{{WRAPPER}} .acst-countdown__item',
+                'selector' => '{{WRAPPER}} .pressiq-countdown__item',
             )
         );
 
         $this->add_responsive_control(
             'box_border_radius',
             array(
-                'label'      => esc_html__( 'Border Radius', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Radius', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', '%' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-countdown__item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-countdown__item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -392,18 +392,18 @@ class Countdown extends Content_Base {
             Group_Control_Box_Shadow::get_type(),
             array(
                 'name'     => 'box_shadow',
-                'selector' => '{{WRAPPER}} .acst-countdown__item',
+                'selector' => '{{WRAPPER}} .pressiq-countdown__item',
             )
         );
 
         $this->add_responsive_control(
             'box_padding',
             array(
-                'label'      => esc_html__( 'Padding', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Padding', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-countdown__item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-countdown__item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -411,7 +411,7 @@ class Countdown extends Content_Base {
         $this->add_responsive_control(
             'box_min_width',
             array(
-                'label'      => esc_html__( 'Min Width', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Min Width', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -421,7 +421,7 @@ class Countdown extends Content_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-countdown__item' => 'min-width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-countdown__item' => 'min-width: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -432,7 +432,7 @@ class Countdown extends Content_Base {
         $this->start_controls_section(
             'section_style_numbers',
             array(
-                'label' => esc_html__( 'Numbers', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Numbers', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -441,17 +441,17 @@ class Countdown extends Content_Base {
             Group_Control_Typography::get_type(),
             array(
                 'name'     => 'numbers_typography',
-                'selector' => '{{WRAPPER}} .acst-countdown__number',
+                'selector' => '{{WRAPPER}} .pressiq-countdown__number',
             )
         );
 
         $this->add_control(
             'numbers_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-countdown__number' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-countdown__number' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -462,7 +462,7 @@ class Countdown extends Content_Base {
         $this->start_controls_section(
             'section_style_labels',
             array(
-                'label'     => esc_html__( 'Labels', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Labels', 'pressiq-widgets' ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => array(
                     'show_labels' => 'yes',
@@ -474,17 +474,17 @@ class Countdown extends Content_Base {
             Group_Control_Typography::get_type(),
             array(
                 'name'     => 'labels_typography',
-                'selector' => '{{WRAPPER}} .acst-countdown__label',
+                'selector' => '{{WRAPPER}} .pressiq-countdown__label',
             )
         );
 
         $this->add_control(
             'labels_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-countdown__label' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-countdown__label' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -492,11 +492,11 @@ class Countdown extends Content_Base {
         $this->add_responsive_control(
             'labels_margin',
             array(
-                'label'      => esc_html__( 'Margin', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Margin', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-countdown__label' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-countdown__label' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -507,7 +507,7 @@ class Countdown extends Content_Base {
         $this->start_controls_section(
             'section_style_separator',
             array(
-                'label' => esc_html__( 'Separator', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Separator', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -515,11 +515,11 @@ class Countdown extends Content_Base {
         $this->add_control(
             'show_separator',
             array(
-                'label'        => esc_html__( 'Show Separator', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show Separator', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => '',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -527,13 +527,13 @@ class Countdown extends Content_Base {
         $this->add_control(
             'separator_type',
             array(
-                'label'     => esc_html__( 'Type', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Type', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'colon',
                 'options'   => array(
-                    'colon' => esc_html__( 'Colon (:)', 'ac-starter-toolkit' ),
-                    'line'  => esc_html__( 'Line (|)', 'ac-starter-toolkit' ),
-                    'dot'   => esc_html__( 'Dot (\u2022)', 'ac-starter-toolkit' ),
+                    'colon' => esc_html__( 'Colon (:)', 'pressiq-widgets' ),
+                    'line'  => esc_html__( 'Line (|)', 'pressiq-widgets' ),
+                    'dot'   => esc_html__( 'Dot (\u2022)', 'pressiq-widgets' ),
                 ),
                 'condition' => array(
                     'show_separator' => 'yes',
@@ -544,10 +544,10 @@ class Countdown extends Content_Base {
         $this->add_control(
             'separator_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-countdown__separator' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-countdown__separator' => 'color: {{VALUE}};',
                 ),
                 'condition' => array(
                     'show_separator' => 'yes',
@@ -558,7 +558,7 @@ class Countdown extends Content_Base {
         $this->add_responsive_control(
             'separator_size',
             array(
-                'label'      => esc_html__( 'Size', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Size', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -568,7 +568,7 @@ class Countdown extends Content_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-countdown__separator' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-countdown__separator' => 'font-size: {{SIZE}}{{UNIT}};',
                 ),
                 'condition'  => array(
                     'show_separator' => 'yes',
@@ -611,7 +611,7 @@ class Countdown extends Content_Base {
 
         // Build data attributes that match the JavaScript expectations
         $countdown_attrs = array(
-            'class'              => 'acst-countdown',
+            'class'              => 'pressiq-countdown',
             'data-expire-action' => $settings['expire_action'],
         );
 
@@ -641,46 +641,46 @@ class Countdown extends Content_Base {
         ?>
         <div <?php echo $this->get_render_attribute_string( 'countdown' ); ?>>
             <?php if ( $settings['show_days'] === 'yes' ) : ?>
-                <div class="acst-countdown__item" data-unit="days">
-                    <span class="acst-countdown__number" data-countdown="days">00</span>
+                <div class="pressiq-countdown__item" data-unit="days">
+                    <span class="pressiq-countdown__number" data-countdown="days">00</span>
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
-                        <span class="acst-countdown__label"><?php echo esc_html( $settings['label_days'] ); ?></span>
+                        <span class="pressiq-countdown__label"><?php echo esc_html( $settings['label_days'] ); ?></span>
                     <?php endif; ?>
                 </div>
                 <?php if ( $settings['show_separator'] === 'yes' && $settings['show_hours'] === 'yes' ) : ?>
-                    <span class="acst-countdown__separator"><?php echo esc_html( $separator_char ); ?></span>
+                    <span class="pressiq-countdown__separator"><?php echo esc_html( $separator_char ); ?></span>
                 <?php endif; ?>
             <?php endif; ?>
 
             <?php if ( $settings['show_hours'] === 'yes' ) : ?>
-                <div class="acst-countdown__item" data-unit="hours">
-                    <span class="acst-countdown__number" data-countdown="hours">00</span>
+                <div class="pressiq-countdown__item" data-unit="hours">
+                    <span class="pressiq-countdown__number" data-countdown="hours">00</span>
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
-                        <span class="acst-countdown__label"><?php echo esc_html( $settings['label_hours'] ); ?></span>
+                        <span class="pressiq-countdown__label"><?php echo esc_html( $settings['label_hours'] ); ?></span>
                     <?php endif; ?>
                 </div>
                 <?php if ( $settings['show_separator'] === 'yes' && $settings['show_minutes'] === 'yes' ) : ?>
-                    <span class="acst-countdown__separator"><?php echo esc_html( $separator_char ); ?></span>
+                    <span class="pressiq-countdown__separator"><?php echo esc_html( $separator_char ); ?></span>
                 <?php endif; ?>
             <?php endif; ?>
 
             <?php if ( $settings['show_minutes'] === 'yes' ) : ?>
-                <div class="acst-countdown__item" data-unit="minutes">
-                    <span class="acst-countdown__number" data-countdown="minutes">00</span>
+                <div class="pressiq-countdown__item" data-unit="minutes">
+                    <span class="pressiq-countdown__number" data-countdown="minutes">00</span>
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
-                        <span class="acst-countdown__label"><?php echo esc_html( $settings['label_minutes'] ); ?></span>
+                        <span class="pressiq-countdown__label"><?php echo esc_html( $settings['label_minutes'] ); ?></span>
                     <?php endif; ?>
                 </div>
                 <?php if ( $settings['show_separator'] === 'yes' && $settings['show_seconds'] === 'yes' ) : ?>
-                    <span class="acst-countdown__separator"><?php echo esc_html( $separator_char ); ?></span>
+                    <span class="pressiq-countdown__separator"><?php echo esc_html( $separator_char ); ?></span>
                 <?php endif; ?>
             <?php endif; ?>
 
             <?php if ( $settings['show_seconds'] === 'yes' ) : ?>
-                <div class="acst-countdown__item" data-unit="seconds">
-                    <span class="acst-countdown__number" data-countdown="seconds">00</span>
+                <div class="pressiq-countdown__item" data-unit="seconds">
+                    <span class="pressiq-countdown__number" data-countdown="seconds">00</span>
                     <?php if ( $settings['show_labels'] === 'yes' ) : ?>
-                        <span class="acst-countdown__label"><?php echo esc_html( $settings['label_seconds'] ); ?></span>
+                        <span class="pressiq-countdown__label"><?php echo esc_html( $settings['label_seconds'] ); ?></span>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>

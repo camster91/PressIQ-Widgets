@@ -2,10 +2,10 @@
 /**
  * Radio Filter Widget
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Filters\Widgets;
+namespace PressIQ_Widgets\Modules\Filters\Widgets;
 
 use Elementor\Controls_Manager;
 
@@ -27,7 +27,7 @@ class Radio_Filter extends Filter_Base {
      * @return string
      */
     public function get_name() {
-        return 'acst-radio-filter';
+        return 'pressiq-radio-filter';
     }
 
     /**
@@ -36,7 +36,7 @@ class Radio_Filter extends Filter_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__( 'Radio Filter', 'ac-starter-toolkit' );
+        return esc_html__( 'Radio Filter', 'pressiq-widgets' );
     }
 
     /**
@@ -71,7 +71,7 @@ class Radio_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_radio_options',
             array(
-                'label' => esc_html__( 'Radio Options', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Radio Options', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -79,13 +79,13 @@ class Radio_Filter extends Filter_Base {
         $this->add_control(
             'layout',
             array(
-                'label'   => esc_html__( 'Layout', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Layout', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'vertical',
                 'options' => array(
-                    'vertical'   => esc_html__( 'Vertical', 'ac-starter-toolkit' ),
-                    'horizontal' => esc_html__( 'Horizontal', 'ac-starter-toolkit' ),
-                    'button'     => esc_html__( 'Button Style', 'ac-starter-toolkit' ),
+                    'vertical'   => esc_html__( 'Vertical', 'pressiq-widgets' ),
+                    'horizontal' => esc_html__( 'Horizontal', 'pressiq-widgets' ),
+                    'button'     => esc_html__( 'Button Style', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -93,11 +93,11 @@ class Radio_Filter extends Filter_Base {
         $this->add_control(
             'show_all_option',
             array(
-                'label'        => esc_html__( 'Show "All" Option', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show "All" Option', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -105,9 +105,9 @@ class Radio_Filter extends Filter_Base {
         $this->add_control(
             'all_option_label',
             array(
-                'label'     => esc_html__( '"All" Option Label', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( '"All" Option Label', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::TEXT,
-                'default'   => esc_html__( 'All', 'ac-starter-toolkit' ),
+                'default'   => esc_html__( 'All', 'pressiq-widgets' ),
                 'condition' => array(
                     'show_all_option' => 'yes',
                 ),
@@ -123,7 +123,7 @@ class Radio_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_radio_style',
             array(
-                'label' => esc_html__( 'Radio Buttons', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Radio Buttons', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -131,7 +131,7 @@ class Radio_Filter extends Filter_Base {
         $this->add_responsive_control(
             'item_spacing',
             array(
-                'label'      => esc_html__( 'Item Spacing', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Item Spacing', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -145,8 +145,8 @@ class Radio_Filter extends Filter_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__option' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .acst-filter__options--horizontal .acst-filter__option' => 'margin-right: {{SIZE}}{{UNIT}}; margin-bottom: 0;',
+                    '{{WRAPPER}} .pressiq-filter__option' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__options--horizontal .pressiq-filter__option' => 'margin-right: {{SIZE}}{{UNIT}}; margin-bottom: 0;',
                 ),
             )
         );
@@ -154,7 +154,7 @@ class Radio_Filter extends Filter_Base {
         $this->add_control(
             'radio_size',
             array(
-                'label'      => esc_html__( 'Radio Size', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Radio Size', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -168,7 +168,7 @@ class Radio_Filter extends Filter_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__radio' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__radio' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
                 ),
                 'condition'  => array(
                     'layout!' => 'button',
@@ -182,18 +182,18 @@ class Radio_Filter extends Filter_Base {
         $this->start_controls_tab(
             'radio_style_normal',
             array(
-                'label' => esc_html__( 'Normal', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Normal', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'radio_border_color',
             array(
-                'label'     => esc_html__( 'Border Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Border Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__radio' => 'border-color: {{VALUE}};',
-                    '{{WRAPPER}} .acst-filter__options--button .acst-filter__option' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__radio' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__options--button .pressiq-filter__option' => 'border-color: {{VALUE}};',
                 ),
             )
         );
@@ -201,11 +201,11 @@ class Radio_Filter extends Filter_Base {
         $this->add_control(
             'radio_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__radio' => 'background-color: {{VALUE}};',
-                    '{{WRAPPER}} .acst-filter__options--button .acst-filter__option' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__radio' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__options--button .pressiq-filter__option' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -216,18 +216,18 @@ class Radio_Filter extends Filter_Base {
         $this->start_controls_tab(
             'radio_style_selected',
             array(
-                'label' => esc_html__( 'Selected', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Selected', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'radio_selected_border_color',
             array(
-                'label'     => esc_html__( 'Border Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Border Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__radio:checked' => 'border-color: {{VALUE}};',
-                    '{{WRAPPER}} .acst-filter__options--button .acst-filter__option.is-active' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__radio:checked' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__options--button .pressiq-filter__option.is-active' => 'border-color: {{VALUE}};',
                 ),
             )
         );
@@ -235,11 +235,11 @@ class Radio_Filter extends Filter_Base {
         $this->add_control(
             'radio_selected_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__radio:checked::after' => 'background-color: {{VALUE}};',
-                    '{{WRAPPER}} .acst-filter__options--button .acst-filter__option.is-active' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__radio:checked::after' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__options--button .pressiq-filter__option.is-active' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -247,10 +247,10 @@ class Radio_Filter extends Filter_Base {
         $this->add_control(
             'radio_selected_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__options--button .acst-filter__option.is-active' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__options--button .pressiq-filter__option.is-active' => 'color: {{VALUE}};',
                 ),
                 'condition' => array(
                     'layout' => 'button',
@@ -266,12 +266,12 @@ class Radio_Filter extends Filter_Base {
         $this->add_responsive_control(
             'button_padding',
             array(
-                'label'      => esc_html__( 'Padding', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Padding', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em' ),
                 'separator'  => 'before',
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__options--button .acst-filter__option' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__options--button .pressiq-filter__option' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
                 'condition'  => array(
                     'layout' => 'button',
@@ -282,11 +282,11 @@ class Radio_Filter extends Filter_Base {
         $this->add_responsive_control(
             'button_border_radius',
             array(
-                'label'      => esc_html__( 'Border Radius', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Radius', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', '%' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__options--button .acst-filter__option' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__options--button .pressiq-filter__option' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
                 'condition'  => array(
                     'layout' => 'button',
@@ -300,7 +300,7 @@ class Radio_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_option_label_style',
             array(
-                'label' => esc_html__( 'Option Labels', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Option Labels', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -309,17 +309,17 @@ class Radio_Filter extends Filter_Base {
             \Elementor\Group_Control_Typography::get_type(),
             array(
                 'name'     => 'option_typography',
-                'selector' => '{{WRAPPER}} .acst-filter__option-label',
+                'selector' => '{{WRAPPER}} .pressiq-filter__option-label',
             )
         );
 
         $this->add_control(
             'option_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__option-label' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__option-label' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -337,40 +337,40 @@ class Radio_Filter extends Filter_Base {
         $filter_id  = $this->get_filter_id( $settings );
         $layout     = $settings['layout'];
 
-        $layout_class = 'acst-filter__options--' . $layout;
+        $layout_class = 'pressiq-filter__options--' . $layout;
         ?>
-        <div class="acst-filter acst-filter--radio"<?php echo $this->render_data_attrs( $data_attrs ); ?>>
+        <div class="pressiq-filter pressiq-filter--radio"<?php echo $this->render_data_attrs( $data_attrs ); ?>>
             <?php $this->render_label( $settings ); ?>
 
-            <div class="acst-filter__options <?php echo esc_attr( $layout_class ); ?>">
+            <div class="pressiq-filter__options <?php echo esc_attr( $layout_class ); ?>">
                 <?php if ( $settings['show_all_option'] === 'yes' ) : ?>
-                    <label class="acst-filter__option<?php echo $layout === 'button' ? ' is-active' : ''; ?>">
+                    <label class="pressiq-filter__option<?php echo $layout === 'button' ? ' is-active' : ''; ?>">
                         <?php if ( $layout !== 'button' ) : ?>
                             <input type="radio"
-                                   class="acst-filter__radio"
+                                   class="pressiq-filter__radio"
                                    name="<?php echo esc_attr( $filter_id ); ?>"
                                    value=""
                                    checked>
                         <?php endif; ?>
-                        <span class="acst-filter__option-label">
+                        <span class="pressiq-filter__option-label">
                             <?php echo esc_html( $settings['all_option_label'] ); ?>
                         </span>
                     </label>
                 <?php endif; ?>
 
                 <?php foreach ( $options as $option ) : ?>
-                    <label class="acst-filter__option" data-value="<?php echo esc_attr( $option['value'] ); ?>">
+                    <label class="pressiq-filter__option" data-value="<?php echo esc_attr( $option['value'] ); ?>">
                         <?php if ( $layout !== 'button' ) : ?>
                             <input type="radio"
-                                   class="acst-filter__radio"
+                                   class="pressiq-filter__radio"
                                    name="<?php echo esc_attr( $filter_id ); ?>"
                                    value="<?php echo esc_attr( $option['value'] ); ?>">
                         <?php endif; ?>
-                        <span class="acst-filter__option-label">
+                        <span class="pressiq-filter__option-label">
                             <?php echo esc_html( $option['label'] ); ?>
                         </span>
                         <?php if ( isset( $option['count'] ) && $settings['show_count'] === 'yes' ) : ?>
-                            <span class="acst-filter__option-count">(<?php echo esc_html( $option['count'] ); ?>)</span>
+                            <span class="pressiq-filter__option-count">(<?php echo esc_html( $option['count'] ); ?>)</span>
                         <?php endif; ?>
                     </label>
                 <?php endforeach; ?>
@@ -385,33 +385,33 @@ class Radio_Filter extends Filter_Base {
     protected function content_template() {
         ?>
         <#
-        var layoutClass = 'acst-filter__options--' + settings.layout;
+        var layoutClass = 'pressiq-filter__options--' + settings.layout;
         #>
-        <div class="acst-filter acst-filter--radio">
+        <div class="pressiq-filter pressiq-filter--radio">
             <# if ( settings.show_label === 'yes' && settings.filter_label ) { #>
-                <label class="acst-filter__label">{{{ settings.filter_label }}}</label>
+                <label class="pressiq-filter__label">{{{ settings.filter_label }}}</label>
             <# } #>
 
-            <div class="acst-filter__options {{{ layoutClass }}}">
+            <div class="pressiq-filter__options {{{ layoutClass }}}">
                 <# if ( settings.show_all_option === 'yes' ) { #>
-                    <label class="acst-filter__option<# if ( settings.layout === 'button' ) { #> is-active<# } #>">
+                    <label class="pressiq-filter__option<# if ( settings.layout === 'button' ) { #> is-active<# } #>">
                         <# if ( settings.layout !== 'button' ) { #>
-                            <input type="radio" class="acst-filter__radio" checked>
+                            <input type="radio" class="pressiq-filter__radio" checked>
                         <# } #>
-                        <span class="acst-filter__option-label">{{{ settings.all_option_label }}}</span>
+                        <span class="pressiq-filter__option-label">{{{ settings.all_option_label }}}</span>
                     </label>
                 <# } #>
-                <label class="acst-filter__option">
+                <label class="pressiq-filter__option">
                     <# if ( settings.layout !== 'button' ) { #>
-                        <input type="radio" class="acst-filter__radio">
+                        <input type="radio" class="pressiq-filter__radio">
                     <# } #>
-                    <span class="acst-filter__option-label"><?php esc_html_e( 'Option 1', 'ac-starter-toolkit' ); ?></span>
+                    <span class="pressiq-filter__option-label"><?php esc_html_e( 'Option 1', 'pressiq-widgets' ); ?></span>
                 </label>
-                <label class="acst-filter__option">
+                <label class="pressiq-filter__option">
                     <# if ( settings.layout !== 'button' ) { #>
-                        <input type="radio" class="acst-filter__radio">
+                        <input type="radio" class="pressiq-filter__radio">
                     <# } #>
-                    <span class="acst-filter__option-label"><?php esc_html_e( 'Option 2', 'ac-starter-toolkit' ); ?></span>
+                    <span class="pressiq-filter__option-label"><?php esc_html_e( 'Option 2', 'pressiq-widgets' ); ?></span>
                 </label>
             </div>
         </div>

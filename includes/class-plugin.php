@@ -2,10 +2,10 @@
 /**
  * Core Plugin Class
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit;
+namespace PressIQ_Widgets;
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -65,7 +65,7 @@ final class Plugin {
      * Load plugin options
      */
     private function load_options() {
-        $this->options = get_option( 'acst_options', array(
+        $this->options = get_option( 'pressiq_options', array(
             'modules' => array(
                 'filters' => true,
                 'content' => true,
@@ -88,12 +88,12 @@ final class Plugin {
      */
     public function autoload( $class_name ) {
         // Check if class is in our namespace
-        if ( strpos( $class_name, 'AC_Starter_Toolkit\\' ) !== 0 ) {
+        if ( strpos( $class_name, 'PressIQ_Widgets\\' ) !== 0 ) {
             return;
         }
 
         // Remove namespace prefix
-        $class_name = str_replace( 'AC_Starter_Toolkit\\', '', $class_name );
+        $class_name = str_replace( 'PressIQ_Widgets\\', '', $class_name );
 
         // Convert class name to file path
         $class_file = strtolower( str_replace( '_', '-', $class_name ) );
@@ -101,14 +101,14 @@ final class Plugin {
 
         // Build possible file paths
         $paths = array(
-            ACST_PLUGIN_DIR . 'includes/class-' . $class_file . '.php',
-            ACST_PLUGIN_DIR . 'modules/' . $class_file . '.php',
+            PRESSIQ_PLUGIN_DIR . 'includes/class-' . $class_file . '.php',
+            PRESSIQ_PLUGIN_DIR . 'modules/' . $class_file . '.php',
         );
 
         // Handle widget classes
         if ( strpos( $class_name, 'Widgets\\' ) !== false ) {
             $widget_path = str_replace( 'Widgets\\', 'widgets/class-', $class_file );
-            $paths[] = ACST_PLUGIN_DIR . 'modules/' . $widget_path . '.php';
+            $paths[] = PRESSIQ_PLUGIN_DIR . 'modules/' . $widget_path . '.php';
         }
 
         // Handle module classes
@@ -117,12 +117,12 @@ final class Plugin {
             if ( count( $parts ) >= 2 ) {
                 $module_name = strtolower( str_replace( '_', '-', $parts[1] ) );
                 $class_part  = strtolower( str_replace( '_', '-', end( $parts ) ) );
-                $paths[] = ACST_PLUGIN_DIR . 'modules/' . $module_name . '/class-' . $class_part . '.php';
+                $paths[] = PRESSIQ_PLUGIN_DIR . 'modules/' . $module_name . '/class-' . $class_part . '.php';
 
                 // Widget files within modules
                 if ( strpos( $class_name, 'Widgets\\' ) !== false && count( $parts ) >= 4 ) {
                     $widget_name = strtolower( str_replace( '_', '-', $parts[3] ) );
-                    $paths[] = ACST_PLUGIN_DIR . 'modules/' . $module_name . '/widgets/class-' . $widget_name . '.php';
+                    $paths[] = PRESSIQ_PLUGIN_DIR . 'modules/' . $module_name . '/widgets/class-' . $widget_name . '.php';
                 }
             }
         }
@@ -145,7 +145,7 @@ final class Plugin {
             Admin::instance();
         }
 
-        $has_elementor = function_exists( 'acst_has_elementor' ) && acst_has_elementor();
+        $has_elementor = function_exists( 'pressiq_has_elementor' ) && pressiq_has_elementor();
 
         // Elementor-specific hooks (only when Elementor is active)
         if ( $has_elementor ) {
@@ -191,7 +191,7 @@ final class Plugin {
          *
          * @param Plugin $this Plugin instance.
          */
-        do_action( 'acst/init', $this );
+        do_action( 'pressiq/init', $this );
     }
 
     /**
@@ -210,12 +210,12 @@ final class Plugin {
                 continue;
             }
 
-            $module_file = ACST_PLUGIN_DIR . 'modules/' . $module_slug . '/class-' . $module_slug . '-module.php';
+            $module_file = PRESSIQ_PLUGIN_DIR . 'modules/' . $module_slug . '/class-' . $module_slug . '-module.php';
 
             if ( file_exists( $module_file ) ) {
                 require_once $module_file;
 
-                $module_class = 'AC_Starter_Toolkit\\Modules\\' . ucfirst( $module_slug ) . '\\' . ucfirst( $module_slug ) . '_Module';
+                $module_class = 'PressIQ_Widgets\\Modules\\' . ucfirst( $module_slug ) . '\\' . ucfirst( $module_slug ) . '_Module';
 
                 if ( class_exists( $module_class ) ) {
                     $this->modules[ $module_slug ] = new $module_class();
@@ -228,11 +228,11 @@ final class Plugin {
      * Initialize the blocks module for FSE / block theme support
      */
     public function init_blocks_module() {
-        $module_file = ACST_PLUGIN_DIR . 'modules/blocks/class-blocks-module.php';
+        $module_file = PRESSIQ_PLUGIN_DIR . 'modules/blocks/class-blocks-module.php';
 
         if ( file_exists( $module_file ) ) {
             require_once $module_file;
-            $this->modules['blocks'] = new \AC_Starter_Toolkit\Modules\Blocks\Blocks_Module();
+            $this->modules['blocks'] = new \PressIQ_Widgets\Modules\Blocks\Blocks_Module();
         }
     }
 
@@ -241,19 +241,19 @@ final class Plugin {
      */
     public function enqueue_block_content_assets() {
         wp_enqueue_style(
-            'acst-content',
-            ACST_PLUGIN_URL . 'assets/css/content.css',
+            'pressiq-content',
+            PRESSIQ_PLUGIN_URL . 'assets/css/content.css',
             array(),
-            ACST_VERSION
+            PRESSIQ_VERSION
         );
 
         // Also load filters CSS if filters module is active
         if ( $this->is_module_active( 'filters' ) ) {
             wp_enqueue_style(
-                'acst-filters',
-                ACST_PLUGIN_URL . 'assets/css/filters.css',
+                'pressiq-filters',
+                PRESSIQ_PLUGIN_URL . 'assets/css/filters.css',
                 array(),
-                ACST_VERSION
+                PRESSIQ_VERSION
             );
         }
     }
@@ -265,9 +265,9 @@ final class Plugin {
      */
     public function register_widget_categories( $elements_manager ) {
         $elements_manager->add_category(
-            'ac-starter-toolkit',
+            'pressiq-widgets',
             array(
-                'title' => esc_html__( 'AC Starter Toolkit', 'ac-starter-toolkit' ),
+                'title' => esc_html__( 'AC Starter Toolkit', 'pressiq-widgets' ),
                 'icon'  => 'fa fa-plug',
             )
         );
@@ -275,7 +275,7 @@ final class Plugin {
         $elements_manager->add_category(
             'ac-filters',
             array(
-                'title' => esc_html__( 'AC Smart Filters', 'ac-starter-toolkit' ),
+                'title' => esc_html__( 'AC Smart Filters', 'pressiq-widgets' ),
                 'icon'  => 'fa fa-filter',
             )
         );
@@ -302,28 +302,28 @@ final class Plugin {
         // Filters module assets
         if ( $this->is_module_active( 'filters' ) ) {
             wp_enqueue_style(
-                'acst-filters',
-                ACST_PLUGIN_URL . 'assets/css/filters.css',
+                'pressiq-filters',
+                PRESSIQ_PLUGIN_URL . 'assets/css/filters.css',
                 array(),
-                ACST_VERSION
+                PRESSIQ_VERSION
             );
 
             wp_enqueue_script(
-                'acst-filters',
-                ACST_PLUGIN_URL . 'assets/js/filters.js',
+                'pressiq-filters',
+                PRESSIQ_PLUGIN_URL . 'assets/js/filters.js',
                 array(),
-                ACST_VERSION,
+                PRESSIQ_VERSION,
                 true
             );
 
             // Localize script with AJAX URL and other data
-            wp_localize_script( 'acst-filters', 'acstFilters', array(
+            wp_localize_script( 'pressiq-filters', 'pressiqFilters', array(
                 'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
-                'nonce'     => wp_create_nonce( 'acst_filter_nonce' ),
+                'nonce'     => wp_create_nonce( 'pressiq_filter_nonce' ),
                 'i18n'      => array(
-                    'loading'   => esc_html__( 'Loading...', 'ac-starter-toolkit' ),
-                    'noResults' => esc_html__( 'No results found.', 'ac-starter-toolkit' ),
-                    'error'     => esc_html__( 'An error occurred.', 'ac-starter-toolkit' ),
+                    'loading'   => esc_html__( 'Loading...', 'pressiq-widgets' ),
+                    'noResults' => esc_html__( 'No results found.', 'pressiq-widgets' ),
+                    'error'     => esc_html__( 'An error occurred.', 'pressiq-widgets' ),
                 ),
             ) );
         }
@@ -331,17 +331,17 @@ final class Plugin {
         // Content module assets
         if ( $this->is_module_active( 'content' ) ) {
             wp_enqueue_style(
-                'acst-content',
-                ACST_PLUGIN_URL . 'assets/css/content.css',
+                'pressiq-content',
+                PRESSIQ_PLUGIN_URL . 'assets/css/content.css',
                 array(),
-                ACST_VERSION
+                PRESSIQ_VERSION
             );
 
             wp_enqueue_script(
-                'acst-content',
-                ACST_PLUGIN_URL . 'assets/js/content.js',
+                'pressiq-content',
+                PRESSIQ_PLUGIN_URL . 'assets/js/content.js',
                 array(),
-                ACST_VERSION,
+                PRESSIQ_VERSION,
                 true
             );
         }
@@ -352,10 +352,10 @@ final class Plugin {
      */
     public function enqueue_editor_assets() {
         wp_enqueue_style(
-            'acst-editor',
-            ACST_PLUGIN_URL . 'assets/css/admin.css',
+            'pressiq-editor',
+            PRESSIQ_PLUGIN_URL . 'assets/css/admin.css',
             array(),
-            ACST_VERSION
+            PRESSIQ_VERSION
         );
     }
 
@@ -364,7 +364,7 @@ final class Plugin {
      */
     public function init_ajax_handlers() {
         if ( $this->is_module_active( 'filters' ) ) {
-            $ajax_handler_file = ACST_PLUGIN_DIR . 'modules/filters/class-ajax-handler.php';
+            $ajax_handler_file = PRESSIQ_PLUGIN_DIR . 'modules/filters/class-ajax-handler.php';
             if ( file_exists( $ajax_handler_file ) ) {
                 require_once $ajax_handler_file;
                 new Modules\Filters\Ajax_Handler();
