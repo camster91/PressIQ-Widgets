@@ -8,25 +8,25 @@
    General / Base Styles
    ========================================================================== */
 
-.acst-widget-box {
+.pressiq-widget-box {
     position: relative;
 }
 
-.acst-widget-title {
+.pressiq-widget-title {
     margin: 0 0 10px;
 }
 
-.acst-widget-description {
+.pressiq-widget-description {
     margin: 0;
 }
 
-.acst-button {
+.pressiq-button {
     display: inline-block;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.acst-icon {
+.pressiq-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -36,106 +36,106 @@
    Team Member Widget
    ========================================================================== */
 
-.acst-team-member {
+.pressiq-team-member {
     position: relative;
     text-align: center;
 }
 
 /* Card Layout */
-.acst-team-member--card {
+.pressiq-team-member--card {
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
 }
 
-.acst-team-member--card .acst-team-member__image {
+.pressiq-team-member--card .pressiq-team-member__image {
     margin-bottom: 20px;
 }
 
-.acst-team-member--card .acst-team-member__image img {
+.pressiq-team-member--card .pressiq-team-member__image img {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.acst-team-member--card .acst-team-member__content {
+.pressiq-team-member--card .pressiq-team-member__content {
     padding: 0 20px 20px;
 }
 
 /* Horizontal Layout */
-.acst-team-member--horizontal {
+.pressiq-team-member--horizontal {
     display: flex;
     align-items: center;
     text-align: left;
 }
 
-.acst-team-member--horizontal .acst-team-member__image {
+.pressiq-team-member--horizontal .pressiq-team-member__image {
     flex-shrink: 0;
     margin-right: 20px;
 }
 
-.acst-team-member--horizontal .acst-team-member__image img {
+.pressiq-team-member--horizontal .pressiq-team-member__image img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.acst-team-member--horizontal .acst-team-member__content {
+.pressiq-team-member--horizontal .pressiq-team-member__content {
     flex: 1;
 }
 
 /* Overlay Layout */
-.acst-team-member--overlay {
+.pressiq-team-member--overlay {
     overflow: hidden;
 }
 
-.acst-team-member--overlay .acst-team-member__image {
+.pressiq-team-member--overlay .pressiq-team-member__image {
     position: relative;
 }
 
-.acst-team-member--overlay .acst-team-member__image img {
+.pressiq-team-member--overlay .pressiq-team-member__image img {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.acst-team-member--overlay .acst-team-member__content {
+.pressiq-team-member--overlay .pressiq-team-member__content {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     padding: 20px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    background: linear-gradient(transparent, rgb(0 0 0 / 0.8));
     color: #fff;
     transform: translateY(100%);
     transition: transform 0.3s ease;
 }
 
-.acst-team-member--overlay:hover .acst-team-member__content {
+.pressiq-team-member--overlay:hover .pressiq-team-member__content {
     transform: translateY(0);
 }
 
-.acst-team-member--overlay .acst-team-member__name,
-.acst-team-member--overlay .acst-team-member__role {
+.pressiq-team-member--overlay .pressiq-team-member__name,
+.pressiq-team-member--overlay .pressiq-team-member__role {
     color: #fff;
 }
 
 /* Team Member Elements */
-.acst-team-member__name {
+.pressiq-team-member__name {
     font-size: 1.25em;
     font-weight: 600;
     margin: 0 0 5px;
     color: #333;
 }
 
-.acst-team-member__role {
+.pressiq-team-member__role {
     font-size: 0.9em;
     color: #666;
     margin: 0 0 10px;
 }
 
-.acst-team-member__bio {
+.pressiq-team-member__bio {
     font-size: 0.95em;
     color: #555;
     margin: 0 0 15px;
@@ -143,18 +143,18 @@
 }
 
 /* Social Links */
-.acst-team-member__social {
+.pressiq-team-member__social {
     display: flex;
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
 }
 
-.acst-team-member--horizontal .acst-team-member__social {
+.pressiq-team-member--horizontal .pressiq-team-member__social {
     justify-content: flex-start;
 }
 
-.acst-team-member__social a {
+.pressiq-team-member__social a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -167,7 +167,7 @@
     transition: all 0.3s ease;
 }
 
-.acst-team-member__social a:hover {
+.pressiq-team-member__social a:hover {
     background: #333;
     color: #fff;
 }
@@ -176,7 +176,7 @@
    Pricing Table Widget
    ========================================================================== */
 
-.acst-pricing-table {
+.pressiq-pricing-table {
     position: relative;
     background: #fff;
     border-radius: 8px;
@@ -185,12 +185,12 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.acst-pricing-table:hover {
+.pressiq-pricing-table:hover {
     transform: translateY(-5px);
 }
 
 /* Ribbon */
-.acst-pricing-table__ribbon {
+.pressiq-pricing-table__ribbon {
     position: absolute;
     top: 15px;
     right: -35px;
@@ -205,44 +205,44 @@
 }
 
 /* Header */
-.acst-pricing-table__header {
+.pressiq-pricing-table__header {
     padding: 30px 20px;
     background: #f8f9fa;
 }
 
-.acst-pricing-table__icon {
+.pressiq-pricing-table__icon {
     margin-bottom: 15px;
     font-size: 48px;
     color: #333;
 }
 
-.acst-pricing-table__title {
+.pressiq-pricing-table__title {
     font-size: 1.5em;
     font-weight: 600;
     margin: 0 0 10px;
     color: #333;
 }
 
-.acst-pricing-table__description {
+.pressiq-pricing-table__description {
     font-size: 0.9em;
     color: #666;
     margin: 0;
 }
 
 /* Price */
-.acst-pricing-table__price {
+.pressiq-pricing-table__price {
     padding: 20px;
     border-bottom: 1px solid #eee;
 }
 
-.acst-pricing-table__price-wrapper {
+.pressiq-pricing-table__price-wrapper {
     display: flex;
     align-items: flex-start;
     justify-content: center;
     gap: 2px;
 }
 
-.acst-pricing-table__currency {
+.pressiq-pricing-table__currency {
     font-size: 1.25em;
     font-weight: 500;
     color: #333;
@@ -250,20 +250,20 @@
     margin-top: 5px;
 }
 
-.acst-pricing-table__amount {
+.pressiq-pricing-table__amount {
     font-size: 3em;
     font-weight: 700;
     color: #333;
     line-height: 1;
 }
 
-.acst-pricing-table__period {
+.pressiq-pricing-table__period {
     font-size: 0.9em;
     color: #666;
     margin-top: 5px;
 }
 
-.acst-pricing-table__original-price {
+.pressiq-pricing-table__original-price {
     text-decoration: line-through;
     color: #999;
     font-size: 1.25em;
@@ -271,17 +271,17 @@
 }
 
 /* Features */
-.acst-pricing-table__features {
+.pressiq-pricing-table__features {
     padding: 20px;
 }
 
-.acst-pricing-table__features-list {
+.pressiq-pricing-table__features-list {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.acst-pricing-table__feature {
+.pressiq-pricing-table__feature {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -290,30 +290,30 @@
     color: #555;
 }
 
-.acst-pricing-table__feature:last-child {
+.pressiq-pricing-table__feature:last-child {
     border-bottom: none;
 }
 
-.acst-pricing-table__feature-icon {
+.pressiq-pricing-table__feature-icon {
     margin-right: 10px;
     color: #4caf50;
 }
 
-.acst-pricing-table__feature--excluded {
+.pressiq-pricing-table__feature--excluded {
     color: #999;
     text-decoration: line-through;
 }
 
-.acst-pricing-table__feature--excluded .acst-pricing-table__feature-icon {
+.pressiq-pricing-table__feature--excluded .pressiq-pricing-table__feature-icon {
     color: #f44336;
 }
 
 /* Footer / Button */
-.acst-pricing-table__footer {
+.pressiq-pricing-table__footer {
     padding: 20px;
 }
 
-.acst-pricing-table__button {
+.pressiq-pricing-table__button {
     display: inline-block;
     padding: 12px 30px;
     background: #333;
@@ -324,7 +324,7 @@
     transition: all 0.3s ease;
 }
 
-.acst-pricing-table__button:hover {
+.pressiq-pricing-table__button:hover {
     background: #555;
     color: #fff;
 }
@@ -333,14 +333,14 @@
    Countdown Timer Widget
    ========================================================================== */
 
-.acst-countdown {
+.pressiq-countdown {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
 }
 
-.acst-countdown__item {
+.pressiq-countdown__item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -350,21 +350,21 @@
     border-radius: 8px;
 }
 
-.acst-countdown__number {
+.pressiq-countdown__number {
     font-size: 2.5em;
     font-weight: 700;
     line-height: 1;
     color: #333;
 }
 
-.acst-countdown__label {
+.pressiq-countdown__label {
     font-size: 0.85em;
     color: #666;
     text-transform: uppercase;
     margin-top: 5px;
 }
 
-.acst-countdown__separator {
+.pressiq-countdown__separator {
     display: flex;
     align-items: center;
     font-size: 2em;
@@ -373,11 +373,11 @@
 }
 
 /* Expired State */
-.acst-countdown--expired .acst-countdown__number {
+.pressiq-countdown--expired .pressiq-countdown__number {
     color: #999;
 }
 
-.acst-countdown__message {
+.pressiq-countdown__message {
     text-align: center;
     padding: 20px;
     font-size: 1.1em;
@@ -388,17 +388,17 @@
    Tabs Widget
    ========================================================================== */
 
-.acst-tabs {
+.pressiq-tabs {
     display: flex;
     flex-direction: column;
 }
 
-.acst-tabs--vertical {
+.pressiq-tabs--vertical {
     flex-direction: row;
 }
 
 /* Tab Navigation */
-.acst-tabs__nav {
+.pressiq-tabs__nav {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
@@ -407,7 +407,7 @@
     border-bottom: 2px solid #e0e0e0;
 }
 
-.acst-tabs--vertical .acst-tabs__nav {
+.pressiq-tabs--vertical .pressiq-tabs__nav {
     flex-direction: column;
     border-bottom: none;
     border-right: 2px solid #e0e0e0;
@@ -415,16 +415,16 @@
     width: 200px;
 }
 
-.acst-tabs__nav-item {
+.pressiq-tabs__nav-item {
     margin-bottom: -2px;
 }
 
-.acst-tabs--vertical .acst-tabs__nav-item {
+.pressiq-tabs--vertical .pressiq-tabs__nav-item {
     margin-bottom: 0;
     margin-right: -2px;
 }
 
-.acst-tabs__nav-link {
+.pressiq-tabs__nav-link {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -439,57 +439,57 @@
     white-space: nowrap;
 }
 
-.acst-tabs--vertical .acst-tabs__nav-link {
+.pressiq-tabs--vertical .pressiq-tabs__nav-link {
     border-bottom: none;
     border-right: 2px solid transparent;
     width: 100%;
     justify-content: flex-start;
 }
 
-.acst-tabs__nav-link:hover {
+.pressiq-tabs__nav-link:hover {
     color: #333;
     background: #f8f9fa;
 }
 
-.acst-tabs__nav-link[aria-selected="true"] {
+.pressiq-tabs__nav-link[aria-selected="true"] {
     color: #333;
     border-bottom-color: #333;
     font-weight: 600;
 }
 
-.acst-tabs--vertical .acst-tabs__nav-link[aria-selected="true"] {
+.pressiq-tabs--vertical .pressiq-tabs__nav-link[aria-selected="true"] {
     border-bottom-color: transparent;
     border-right-color: #333;
 }
 
 /* Tab Icon Positions */
-.acst-tabs__nav-link--icon-after {
+.pressiq-tabs__nav-link--icon-after {
     flex-direction: row-reverse;
 }
 
-.acst-tabs__nav-link--icon-above {
+.pressiq-tabs__nav-link--icon-above {
     flex-direction: column;
 }
 
-.acst-tabs__nav-icon {
+.pressiq-tabs__nav-icon {
     font-size: 1.2em;
 }
 
 /* Tab Content */
-.acst-tabs__content {
+.pressiq-tabs__content {
     flex: 1;
 }
 
-.acst-tabs__panel {
+.pressiq-tabs__panel {
     display: none;
     padding: 20px;
 }
 
-.acst-tabs__panel[aria-hidden="false"] {
+.pressiq-tabs__panel[aria-hidden="false"] {
     display: block;
 }
 
-.acst-tabs--vertical .acst-tabs__panel {
+.pressiq-tabs--vertical .pressiq-tabs__panel {
     padding: 20px;
 }
 
@@ -497,19 +497,19 @@
    Accordion Widget
    ========================================================================== */
 
-.acst-accordion {
+.pressiq-accordion {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.acst-accordion__item {
+.pressiq-accordion__item {
     border: 1px solid #e0e0e0;
     border-radius: 4px;
     overflow: hidden;
 }
 
-.acst-accordion__header {
+.pressiq-accordion__header {
     display: flex;
     align-items: center;
     width: 100%;
@@ -522,36 +522,36 @@
     gap: 10px;
 }
 
-.acst-accordion__header:hover {
+.pressiq-accordion__header:hover {
     background: #e9ecef;
 }
 
-.acst-accordion__header[aria-expanded="true"] {
+.pressiq-accordion__header[aria-expanded="true"] {
     background: #e9ecef;
 }
 
 /* Icon Positions */
-.acst-accordion__header--icon-right {
+.pressiq-accordion__header--icon-right {
     flex-direction: row;
 }
 
-.acst-accordion__header--icon-left {
+.pressiq-accordion__header--icon-left {
     flex-direction: row-reverse;
 }
 
-.acst-accordion__header--icon-left .acst-accordion__toggle {
+.pressiq-accordion__header--icon-left .pressiq-accordion__toggle {
     margin-right: 0;
     margin-left: auto;
 }
 
 /* Title Icon */
-.acst-accordion__title-icon {
+.pressiq-accordion__title-icon {
     font-size: 1.1em;
     color: #666;
 }
 
 /* Title */
-.acst-accordion__title-text {
+.pressiq-accordion__title-text {
     flex: 1;
     font-size: 1em;
     font-weight: 600;
@@ -559,7 +559,7 @@
 }
 
 /* Toggle Icon */
-.acst-accordion__toggle {
+.pressiq-accordion__toggle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -568,31 +568,31 @@
     transition: transform 0.3s ease;
 }
 
-.acst-accordion__header[aria-expanded="true"] .acst-accordion__toggle {
+.pressiq-accordion__header[aria-expanded="true"] .pressiq-accordion__toggle {
     transform: rotate(180deg);
 }
 
-.acst-accordion__toggle-active {
+.pressiq-accordion__toggle-active {
     display: none;
 }
 
-.acst-accordion__header[aria-expanded="true"] .acst-accordion__toggle-inactive {
+.pressiq-accordion__header[aria-expanded="true"] .pressiq-accordion__toggle-inactive {
     display: none;
 }
 
-.acst-accordion__header[aria-expanded="true"] .acst-accordion__toggle-active {
+.pressiq-accordion__header[aria-expanded="true"] .pressiq-accordion__toggle-active {
     display: block;
 }
 
 /* Content */
-.acst-accordion__content {
+.pressiq-accordion__content {
     display: none;
     padding: 20px;
     background: #fff;
     border-top: 1px solid #e0e0e0;
 }
 
-.acst-accordion__content[aria-hidden="false"] {
+.pressiq-accordion__content[aria-hidden="false"] {
     display: block;
 }
 
@@ -600,7 +600,7 @@
    Testimonial Widget
    ========================================================================== */
 
-.acst-testimonial {
+.pressiq-testimonial {
     position: relative;
     padding: 30px;
     background: #fff;
@@ -608,7 +608,7 @@
 }
 
 /* Quote Icon */
-.acst-testimonial__quote {
+.pressiq-testimonial__quote {
     position: absolute;
     font-size: 40px;
     color: #333;
@@ -616,27 +616,27 @@
     line-height: 1;
 }
 
-.acst-testimonial__quote--top-left {
+.pressiq-testimonial__quote--top-left {
     top: 20px;
     left: 20px;
 }
 
-.acst-testimonial__quote--top-right {
+.pressiq-testimonial__quote--top-right {
     top: 20px;
     right: 20px;
 }
 
-.acst-testimonial__quote--bottom-left {
+.pressiq-testimonial__quote--bottom-left {
     bottom: 20px;
     left: 20px;
 }
 
-.acst-testimonial__quote--bottom-right {
+.pressiq-testimonial__quote--bottom-right {
     bottom: 20px;
     right: 20px;
 }
 
-.acst-testimonial__quote--inline {
+.pressiq-testimonial__quote--inline {
     position: relative;
     display: inline;
     vertical-align: top;
@@ -645,11 +645,11 @@
 }
 
 /* Image */
-.acst-testimonial__image {
+.pressiq-testimonial__image {
     margin-bottom: 20px;
 }
 
-.acst-testimonial__image img {
+.pressiq-testimonial__image img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -657,22 +657,22 @@
 }
 
 /* Content */
-.acst-testimonial__content-wrap {
+.pressiq-testimonial__content-wrap {
     margin-bottom: 20px;
 }
 
-.acst-testimonial__content {
+.pressiq-testimonial__content {
     font-size: 1.1em;
     line-height: 1.7;
     color: #555;
 }
 
 /* Author */
-.acst-testimonial__author {
+.pressiq-testimonial__author {
     margin-top: 15px;
 }
 
-.acst-testimonial__name {
+.pressiq-testimonial__name {
     font-size: 1.1em;
     font-weight: 600;
     color: #333;
@@ -680,42 +680,42 @@
     text-decoration: none;
 }
 
-a.acst-testimonial__name:hover {
+a.pressiq-testimonial__name:hover {
     color: #555;
 }
 
-.acst-testimonial__title {
+.pressiq-testimonial__title {
     font-size: 0.9em;
     color: #666;
 }
 
 /* Rating */
-.acst-testimonial__rating {
+.pressiq-testimonial__rating {
     display: flex;
     justify-content: center;
     gap: 2px;
     margin-bottom: 10px;
 }
 
-.acst-star {
+.pressiq-star {
     font-size: 1em;
     line-height: 1;
 }
 
-.acst-star--filled {
+.pressiq-star--filled {
     color: #ffc107;
 }
 
-.acst-star--empty {
+.pressiq-star--empty {
     color: #e0e0e0;
 }
 
-.acst-star--half {
+.pressiq-star--half {
     position: relative;
     color: #e0e0e0;
 }
 
-.acst-star--half::before {
+.pressiq-star--half::before {
     content: '\2605';
     position: absolute;
     left: 0;
@@ -727,27 +727,27 @@ a.acst-testimonial__name:hover {
 /* Layouts */
 
 /* Default Layout */
-.acst-testimonial--default {
+.pressiq-testimonial--default {
     text-align: center;
 }
 
-.acst-testimonial--default .acst-testimonial__image {
+.pressiq-testimonial--default .pressiq-testimonial__image {
     display: flex;
     justify-content: center;
 }
 
 /* Centered Layout */
-.acst-testimonial--centered {
+.pressiq-testimonial--centered {
     text-align: center;
 }
 
-.acst-testimonial--centered .acst-testimonial__image {
+.pressiq-testimonial--centered .pressiq-testimonial__image {
     display: flex;
     justify-content: center;
 }
 
 /* Bubble Layout */
-.acst-testimonial--bubble .acst-testimonial__content-wrap {
+.pressiq-testimonial--bubble .pressiq-testimonial__content-wrap {
     position: relative;
     background: #f8f9fa;
     padding: 25px;
@@ -755,7 +755,7 @@ a.acst-testimonial__name:hover {
     margin-bottom: 30px;
 }
 
-.acst-testimonial--bubble .acst-testimonial__content-wrap::after {
+.pressiq-testimonial--bubble .pressiq-testimonial__content-wrap::after {
     content: '';
     position: absolute;
     bottom: -15px;
@@ -767,47 +767,47 @@ a.acst-testimonial__name:hover {
     border-top: 15px solid #f8f9fa;
 }
 
-.acst-testimonial--bubble .acst-testimonial__author-wrap {
+.pressiq-testimonial--bubble .pressiq-testimonial__author-wrap {
     display: flex;
     align-items: center;
     gap: 15px;
     padding-left: 10px;
 }
 
-.acst-testimonial--bubble .acst-testimonial__image {
+.pressiq-testimonial--bubble .pressiq-testimonial__image {
     margin-bottom: 0;
 }
 
-.acst-testimonial--bubble .acst-testimonial__author {
+.pressiq-testimonial--bubble .pressiq-testimonial__author {
     margin-top: 0;
     text-align: left;
 }
 
-.acst-testimonial--bubble .acst-testimonial__rating {
+.pressiq-testimonial--bubble .pressiq-testimonial__rating {
     justify-content: flex-start;
 }
 
 /* Side Layout */
-.acst-testimonial--side {
+.pressiq-testimonial--side {
     display: flex;
     text-align: left;
     align-items: flex-start;
 }
 
-.acst-testimonial--side .acst-testimonial__aside {
+.pressiq-testimonial--side .pressiq-testimonial__aside {
     flex-shrink: 0;
     margin-right: 25px;
 }
 
-.acst-testimonial--side .acst-testimonial__image {
+.pressiq-testimonial--side .pressiq-testimonial__image {
     margin-bottom: 0;
 }
 
-.acst-testimonial--side .acst-testimonial__main {
+.pressiq-testimonial--side .pressiq-testimonial__main {
     flex: 1;
 }
 
-.acst-testimonial--side .acst-testimonial__rating {
+.pressiq-testimonial--side .pressiq-testimonial__rating {
     justify-content: flex-start;
 }
 
@@ -815,38 +815,38 @@ a.acst-testimonial__name:hover {
    Responsive Styles
    ========================================================================== */
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
     /* Team Member */
-    .acst-team-member--horizontal {
+    .pressiq-team-member--horizontal {
         flex-direction: column;
         text-align: center;
     }
 
-    .acst-team-member--horizontal .acst-team-member__image {
+    .pressiq-team-member--horizontal .pressiq-team-member__image {
         margin-right: 0;
         margin-bottom: 20px;
     }
 
-    .acst-team-member--horizontal .acst-team-member__social {
+    .pressiq-team-member--horizontal .pressiq-team-member__social {
         justify-content: center;
     }
 
     /* Countdown */
-    .acst-countdown__item {
+    .pressiq-countdown__item {
         min-width: 60px;
         padding: 10px;
     }
 
-    .acst-countdown__number {
+    .pressiq-countdown__number {
         font-size: 1.75em;
     }
 
     /* Tabs */
-    .acst-tabs--vertical {
+    .pressiq-tabs--vertical {
         flex-direction: column;
     }
 
-    .acst-tabs--vertical .acst-tabs__nav {
+    .pressiq-tabs--vertical .pressiq-tabs__nav {
         flex-direction: row;
         width: 100%;
         border-right: none;
@@ -854,50 +854,50 @@ a.acst-testimonial__name:hover {
         overflow-x: auto;
     }
 
-    .acst-tabs--vertical .acst-tabs__nav-item {
+    .pressiq-tabs--vertical .pressiq-tabs__nav-item {
         margin-right: 0;
         margin-bottom: -2px;
     }
 
-    .acst-tabs--vertical .acst-tabs__nav-link {
+    .pressiq-tabs--vertical .pressiq-tabs__nav-link {
         border-right: none;
         border-bottom: 2px solid transparent;
     }
 
-    .acst-tabs--vertical .acst-tabs__nav-link[aria-selected="true"] {
+    .pressiq-tabs--vertical .pressiq-tabs__nav-link[aria-selected="true"] {
         border-right-color: transparent;
         border-bottom-color: #333;
     }
 
     /* Testimonial */
-    .acst-testimonial--side {
+    .pressiq-testimonial--side {
         flex-direction: column;
         text-align: center;
     }
 
-    .acst-testimonial--side .acst-testimonial__aside {
+    .pressiq-testimonial--side .pressiq-testimonial__aside {
         margin-right: 0;
         margin-bottom: 20px;
     }
 
-    .acst-testimonial--side .acst-testimonial__rating {
+    .pressiq-testimonial--side .pressiq-testimonial__rating {
         justify-content: center;
     }
 
-    .acst-testimonial--bubble .acst-testimonial__author-wrap {
+    .pressiq-testimonial--bubble .pressiq-testimonial__author-wrap {
         flex-direction: column;
         text-align: center;
     }
 
-    .acst-testimonial--bubble .acst-testimonial__author {
+    .pressiq-testimonial--bubble .pressiq-testimonial__author {
         text-align: center;
     }
 
-    .acst-testimonial--bubble .acst-testimonial__rating {
+    .pressiq-testimonial--bubble .pressiq-testimonial__rating {
         justify-content: center;
     }
 
-    .acst-testimonial--bubble .acst-testimonial__content-wrap::after {
+    .pressiq-testimonial--bubble .pressiq-testimonial__content-wrap::after {
         left: 50%;
         transform: translateX(-50%);
     }

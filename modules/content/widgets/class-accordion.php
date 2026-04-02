@@ -2,10 +2,10 @@
 /**
  * Accordion Widget
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Content\Widgets;
+namespace PressIQ_Widgets\Modules\Content\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
@@ -33,7 +33,7 @@ class Accordion extends Content_Base {
      * @return string
      */
     public function get_name() {
-        return 'acst-accordion';
+        return 'pressiq-accordion';
     }
 
     /**
@@ -42,7 +42,7 @@ class Accordion extends Content_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__( 'Accordion', 'ac-starter-toolkit' );
+        return esc_html__( 'Accordion', 'pressiq-widgets' );
     }
 
     /**
@@ -71,7 +71,7 @@ class Accordion extends Content_Base {
         $this->start_controls_section(
             'section_accordion',
             array(
-                'label' => esc_html__( 'Accordion', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Accordion', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -81,9 +81,9 @@ class Accordion extends Content_Base {
         $repeater->add_control(
             'item_title',
             array(
-                'label'   => esc_html__( 'Title', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Title', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Accordion Title', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Accordion Title', 'pressiq-widgets' ),
                 'dynamic' => array( 'active' => true ),
             )
         );
@@ -91,7 +91,7 @@ class Accordion extends Content_Base {
         $repeater->add_control(
             'item_icon',
             array(
-                'label' => esc_html__( 'Icon', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Icon', 'pressiq-widgets' ),
                 'type'  => Controls_Manager::ICONS,
             )
         );
@@ -99,20 +99,20 @@ class Accordion extends Content_Base {
         $repeater->add_control(
             'item_content',
             array(
-                'label'   => esc_html__( 'Content', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Content', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::WYSIWYG,
-                'default' => esc_html__( 'Accordion content goes here.', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Accordion content goes here.', 'pressiq-widgets' ),
             )
         );
 
         $repeater->add_control(
             'item_open',
             array(
-                'label'        => esc_html__( 'Open by Default', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Open by Default', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => '',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -120,22 +120,22 @@ class Accordion extends Content_Base {
         $this->add_control(
             'items',
             array(
-                'label'       => esc_html__( 'Accordion Items', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Accordion Items', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::REPEATER,
                 'fields'      => $repeater->get_controls(),
                 'default'     => array(
                     array(
-                        'item_title'   => esc_html__( 'Accordion Item 1', 'ac-starter-toolkit' ),
-                        'item_content' => esc_html__( 'Content for accordion item 1.', 'ac-starter-toolkit' ),
+                        'item_title'   => esc_html__( 'Accordion Item 1', 'pressiq-widgets' ),
+                        'item_content' => esc_html__( 'Content for accordion item 1.', 'pressiq-widgets' ),
                         'item_open'    => 'yes',
                     ),
                     array(
-                        'item_title'   => esc_html__( 'Accordion Item 2', 'ac-starter-toolkit' ),
-                        'item_content' => esc_html__( 'Content for accordion item 2.', 'ac-starter-toolkit' ),
+                        'item_title'   => esc_html__( 'Accordion Item 2', 'pressiq-widgets' ),
+                        'item_content' => esc_html__( 'Content for accordion item 2.', 'pressiq-widgets' ),
                     ),
                     array(
-                        'item_title'   => esc_html__( 'Accordion Item 3', 'ac-starter-toolkit' ),
-                        'item_content' => esc_html__( 'Content for accordion item 3.', 'ac-starter-toolkit' ),
+                        'item_title'   => esc_html__( 'Accordion Item 3', 'pressiq-widgets' ),
+                        'item_content' => esc_html__( 'Content for accordion item 3.', 'pressiq-widgets' ),
                     ),
                 ),
                 'title_field' => '{{{ item_title }}}',
@@ -148,7 +148,7 @@ class Accordion extends Content_Base {
         $this->start_controls_section(
             'section_settings',
             array(
-                'label' => esc_html__( 'Settings', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Settings', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -156,20 +156,20 @@ class Accordion extends Content_Base {
         $this->add_control(
             'collapse_others',
             array(
-                'label'        => esc_html__( 'Collapse Others', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Collapse Others', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
-                'description'  => esc_html__( 'Close other accordion items when one is opened.', 'ac-starter-toolkit' ),
+                'description'  => esc_html__( 'Close other accordion items when one is opened.', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'title_tag',
             array(
-                'label'   => esc_html__( 'Title HTML Tag', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Title HTML Tag', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'div',
                 'options' => array(
@@ -186,7 +186,7 @@ class Accordion extends Content_Base {
         $this->add_control(
             'toggle_icon_active',
             array(
-                'label'   => esc_html__( 'Active Icon', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Active Icon', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::ICONS,
                 'default' => array(
                     'value'   => 'fas fa-minus',
@@ -198,7 +198,7 @@ class Accordion extends Content_Base {
         $this->add_control(
             'toggle_icon_inactive',
             array(
-                'label'   => esc_html__( 'Inactive Icon', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Inactive Icon', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::ICONS,
                 'default' => array(
                     'value'   => 'fas fa-plus',
@@ -210,12 +210,12 @@ class Accordion extends Content_Base {
         $this->add_control(
             'toggle_icon_position',
             array(
-                'label'   => esc_html__( 'Toggle Icon Position', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Toggle Icon Position', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'right',
                 'options' => array(
-                    'left'  => esc_html__( 'Left', 'ac-starter-toolkit' ),
-                    'right' => esc_html__( 'Right', 'ac-starter-toolkit' ),
+                    'left'  => esc_html__( 'Left', 'pressiq-widgets' ),
+                    'right' => esc_html__( 'Right', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -226,7 +226,7 @@ class Accordion extends Content_Base {
         $this->start_controls_section(
             'section_style_items',
             array(
-                'label' => esc_html__( 'Items', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Items', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -234,7 +234,7 @@ class Accordion extends Content_Base {
         $this->add_responsive_control(
             'items_spacing',
             array(
-                'label'      => esc_html__( 'Spacing', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Spacing', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -248,7 +248,7 @@ class Accordion extends Content_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-accordion__item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-accordion__item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -257,18 +257,18 @@ class Accordion extends Content_Base {
             Group_Control_Border::get_type(),
             array(
                 'name'     => 'item_border',
-                'selector' => '{{WRAPPER}} .acst-accordion__item',
+                'selector' => '{{WRAPPER}} .pressiq-accordion__item',
             )
         );
 
         $this->add_responsive_control(
             'item_border_radius',
             array(
-                'label'      => esc_html__( 'Border Radius', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Radius', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', '%' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-accordion__item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-accordion__item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -277,7 +277,7 @@ class Accordion extends Content_Base {
             Group_Control_Box_Shadow::get_type(),
             array(
                 'name'     => 'item_shadow',
-                'selector' => '{{WRAPPER}} .acst-accordion__item',
+                'selector' => '{{WRAPPER}} .pressiq-accordion__item',
             )
         );
 
@@ -287,7 +287,7 @@ class Accordion extends Content_Base {
         $this->start_controls_section(
             'section_style_header',
             array(
-                'label' => esc_html__( 'Header', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Header', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -296,7 +296,7 @@ class Accordion extends Content_Base {
             Group_Control_Typography::get_type(),
             array(
                 'name'     => 'header_typography',
-                'selector' => '{{WRAPPER}} .acst-accordion__header',
+                'selector' => '{{WRAPPER}} .pressiq-accordion__header',
             )
         );
 
@@ -306,17 +306,17 @@ class Accordion extends Content_Base {
         $this->start_controls_tab(
             'header_style_normal',
             array(
-                'label' => esc_html__( 'Normal', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Normal', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'header_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-accordion__header' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-accordion__header' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -324,10 +324,10 @@ class Accordion extends Content_Base {
         $this->add_control(
             'header_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-accordion__header' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-accordion__header' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -338,17 +338,17 @@ class Accordion extends Content_Base {
         $this->start_controls_tab(
             'header_style_hover',
             array(
-                'label' => esc_html__( 'Hover', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Hover', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'header_hover_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-accordion__header:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-accordion__header:hover' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -356,10 +356,10 @@ class Accordion extends Content_Base {
         $this->add_control(
             'header_hover_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-accordion__header:hover' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-accordion__header:hover' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -370,17 +370,17 @@ class Accordion extends Content_Base {
         $this->start_controls_tab(
             'header_style_active',
             array(
-                'label' => esc_html__( 'Active', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Active', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'header_active_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-accordion__item.is-active .acst-accordion__header' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-accordion__item.is-active .pressiq-accordion__header' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -388,10 +388,10 @@ class Accordion extends Content_Base {
         $this->add_control(
             'header_active_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-accordion__item.is-active .acst-accordion__header' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-accordion__item.is-active .pressiq-accordion__header' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -403,12 +403,12 @@ class Accordion extends Content_Base {
         $this->add_responsive_control(
             'header_padding',
             array(
-                'label'      => esc_html__( 'Padding', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Padding', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em' ),
                 'separator'  => 'before',
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-accordion__header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-accordion__header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -416,7 +416,7 @@ class Accordion extends Content_Base {
         $this->add_responsive_control(
             'header_icon_size',
             array(
-                'label'      => esc_html__( 'Title Icon Size', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Title Icon Size', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -426,8 +426,8 @@ class Accordion extends Content_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-accordion__title-icon' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .acst-accordion__title-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-accordion__title-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-accordion__title-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -435,7 +435,7 @@ class Accordion extends Content_Base {
         $this->add_responsive_control(
             'header_icon_spacing',
             array(
-                'label'      => esc_html__( 'Title Icon Spacing', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Title Icon Spacing', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -445,7 +445,7 @@ class Accordion extends Content_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-accordion__title-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-accordion__title-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -456,7 +456,7 @@ class Accordion extends Content_Base {
         $this->start_controls_section(
             'section_style_toggle',
             array(
-                'label' => esc_html__( 'Toggle Icon', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Toggle Icon', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -464,10 +464,10 @@ class Accordion extends Content_Base {
         $this->add_control(
             'toggle_icon_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-accordion__toggle' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-accordion__toggle' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -475,10 +475,10 @@ class Accordion extends Content_Base {
         $this->add_control(
             'toggle_icon_active_color',
             array(
-                'label'     => esc_html__( 'Active Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Active Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-accordion__item.is-active .acst-accordion__toggle' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-accordion__item.is-active .pressiq-accordion__toggle' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -486,7 +486,7 @@ class Accordion extends Content_Base {
         $this->add_responsive_control(
             'toggle_icon_size',
             array(
-                'label'      => esc_html__( 'Size', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Size', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -496,8 +496,8 @@ class Accordion extends Content_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-accordion__toggle' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .acst-accordion__toggle svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-accordion__toggle' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-accordion__toggle svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -508,7 +508,7 @@ class Accordion extends Content_Base {
         $this->start_controls_section(
             'section_style_content',
             array(
-                'label' => esc_html__( 'Content', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Content', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -518,18 +518,18 @@ class Accordion extends Content_Base {
             array(
                 'name'     => 'content_background',
                 'types'    => array( 'classic', 'gradient' ),
-                'selector' => '{{WRAPPER}} .acst-accordion__content',
+                'selector' => '{{WRAPPER}} .pressiq-accordion__content',
             )
         );
 
         $this->add_responsive_control(
             'content_padding',
             array(
-                'label'      => esc_html__( 'Padding', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Padding', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-accordion__content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-accordion__content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -538,17 +538,17 @@ class Accordion extends Content_Base {
             Group_Control_Typography::get_type(),
             array(
                 'name'     => 'content_typography',
-                'selector' => '{{WRAPPER}} .acst-accordion__content',
+                'selector' => '{{WRAPPER}} .pressiq-accordion__content',
             )
         );
 
         $this->add_control(
             'content_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-accordion__content' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-accordion__content' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -572,7 +572,7 @@ class Accordion extends Content_Base {
         }
 
         $this->add_render_attribute( 'wrapper', array(
-            'class'                => 'acst-accordion',
+            'class'                => 'pressiq-accordion',
             'data-collapse-others' => $collapse_others ? 'true' : 'false',
         ) );
         ?>
@@ -581,42 +581,42 @@ class Accordion extends Content_Base {
                 $item_count = $index + 1;
                 $is_open    = $item['item_open'] === 'yes';
                 $has_icon   = ! empty( $item['item_icon']['value'] );
-                $header_id  = 'acst-accordion-header-' . $widget_id . '-' . $item_count;
-                $content_id = 'acst-accordion-content-' . $widget_id . '-' . $item_count;
+                $header_id  = 'pressiq-accordion-header-' . $widget_id . '-' . $item_count;
+                $content_id = 'pressiq-accordion-content-' . $widget_id . '-' . $item_count;
             ?>
-                <div class="acst-accordion__item<?php echo $is_open ? ' is-active' : ''; ?>">
-                    <<?php echo esc_attr( $title_tag ); ?> class="acst-accordion__header-wrapper">
+                <div class="pressiq-accordion__item<?php echo $is_open ? ' is-active' : ''; ?>">
+                    <<?php echo esc_attr( $title_tag ); ?> class="pressiq-accordion__header-wrapper">
                         <button type="button"
-                                class="acst-accordion__header"
+                                class="pressiq-accordion__header"
                                 id="<?php echo esc_attr( $header_id ); ?>"
                                 aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>"
                                 aria-controls="<?php echo esc_attr( $content_id ); ?>">
 
                             <?php if ( $toggle_position === 'left' ) : ?>
-                                <span class="acst-accordion__toggle acst-accordion__toggle--left">
-                                    <span class="acst-accordion__toggle-icon acst-accordion__toggle-icon--inactive">
+                                <span class="pressiq-accordion__toggle pressiq-accordion__toggle--left">
+                                    <span class="pressiq-accordion__toggle-icon pressiq-accordion__toggle-icon--inactive">
                                         <?php Icons_Manager::render_icon( $settings['toggle_icon_inactive'], array( 'aria-hidden' => 'true' ) ); ?>
                                     </span>
-                                    <span class="acst-accordion__toggle-icon acst-accordion__toggle-icon--active">
+                                    <span class="pressiq-accordion__toggle-icon pressiq-accordion__toggle-icon--active">
                                         <?php Icons_Manager::render_icon( $settings['toggle_icon_active'], array( 'aria-hidden' => 'true' ) ); ?>
                                     </span>
                                 </span>
                             <?php endif; ?>
 
                             <?php if ( $has_icon ) : ?>
-                                <span class="acst-accordion__title-icon">
+                                <span class="pressiq-accordion__title-icon">
                                     <?php Icons_Manager::render_icon( $item['item_icon'], array( 'aria-hidden' => 'true' ) ); ?>
                                 </span>
                             <?php endif; ?>
 
-                            <span class="acst-accordion__title"><?php echo esc_html( $item['item_title'] ); ?></span>
+                            <span class="pressiq-accordion__title"><?php echo esc_html( $item['item_title'] ); ?></span>
 
                             <?php if ( $toggle_position === 'right' ) : ?>
-                                <span class="acst-accordion__toggle acst-accordion__toggle--right">
-                                    <span class="acst-accordion__toggle-icon acst-accordion__toggle-icon--inactive">
+                                <span class="pressiq-accordion__toggle pressiq-accordion__toggle--right">
+                                    <span class="pressiq-accordion__toggle-icon pressiq-accordion__toggle-icon--inactive">
                                         <?php Icons_Manager::render_icon( $settings['toggle_icon_inactive'], array( 'aria-hidden' => 'true' ) ); ?>
                                     </span>
-                                    <span class="acst-accordion__toggle-icon acst-accordion__toggle-icon--active">
+                                    <span class="pressiq-accordion__toggle-icon pressiq-accordion__toggle-icon--active">
                                         <?php Icons_Manager::render_icon( $settings['toggle_icon_active'], array( 'aria-hidden' => 'true' ) ); ?>
                                     </span>
                                 </span>
@@ -624,12 +624,12 @@ class Accordion extends Content_Base {
                         </button>
                     </<?php echo esc_attr( $title_tag ); ?>>
 
-                    <div class="acst-accordion__content"
+                    <div class="pressiq-accordion__content"
                          id="<?php echo esc_attr( $content_id ); ?>"
                          role="region"
                          aria-labelledby="<?php echo esc_attr( $header_id ); ?>"
                          <?php echo ! $is_open ? 'hidden' : ''; ?>>
-                        <div class="acst-accordion__content-inner">
+                        <div class="pressiq-accordion__content-inner">
                             <?php echo wp_kses_post( $item['item_content'] ); ?>
                         </div>
                     </div>

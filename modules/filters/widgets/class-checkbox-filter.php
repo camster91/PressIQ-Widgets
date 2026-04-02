@@ -2,10 +2,10 @@
 /**
  * Checkbox Filter Widget
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Filters\Widgets;
+namespace PressIQ_Widgets\Modules\Filters\Widgets;
 
 use Elementor\Controls_Manager;
 
@@ -27,7 +27,7 @@ class Checkbox_Filter extends Filter_Base {
      * @return string
      */
     public function get_name() {
-        return 'acst-checkbox-filter';
+        return 'pressiq-checkbox-filter';
     }
 
     /**
@@ -36,7 +36,7 @@ class Checkbox_Filter extends Filter_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__( 'Checkbox Filter', 'ac-starter-toolkit' );
+        return esc_html__( 'Checkbox Filter', 'pressiq-widgets' );
     }
 
     /**
@@ -71,7 +71,7 @@ class Checkbox_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_checkbox_options',
             array(
-                'label' => esc_html__( 'Checkbox Options', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Checkbox Options', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -79,13 +79,13 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_control(
             'layout',
             array(
-                'label'   => esc_html__( 'Layout', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Layout', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'vertical',
                 'options' => array(
-                    'vertical'   => esc_html__( 'Vertical', 'ac-starter-toolkit' ),
-                    'horizontal' => esc_html__( 'Horizontal', 'ac-starter-toolkit' ),
-                    'columns'    => esc_html__( 'Columns', 'ac-starter-toolkit' ),
+                    'vertical'   => esc_html__( 'Vertical', 'pressiq-widgets' ),
+                    'horizontal' => esc_html__( 'Horizontal', 'pressiq-widgets' ),
+                    'columns'    => esc_html__( 'Columns', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -93,7 +93,7 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_responsive_control(
             'columns',
             array(
-                'label'     => esc_html__( 'Columns', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Columns', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => '2',
                 'options'   => array(
@@ -105,7 +105,7 @@ class Checkbox_Filter extends Filter_Base {
                     'layout' => 'columns',
                 ),
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__options--columns' => 'grid-template-columns: repeat({{VALUE}}, 1fr);',
+                    '{{WRAPPER}} .pressiq-filter__options--columns' => 'grid-template-columns: repeat({{VALUE}}, 1fr);',
                 ),
             )
         );
@@ -113,11 +113,11 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_control(
             'collapsible',
             array(
-                'label'        => esc_html__( 'Collapsible', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Collapsible', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => '',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -125,11 +125,11 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_control(
             'collapsed_default',
             array(
-                'label'        => esc_html__( 'Collapsed by Default', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Collapsed by Default', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => '',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
                 'condition'    => array(
                     'collapsible' => 'yes',
@@ -140,20 +140,20 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_control(
             'max_visible',
             array(
-                'label'       => esc_html__( 'Max Visible Items', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Max Visible Items', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::NUMBER,
                 'default'     => 0,
                 'min'         => 0,
-                'description' => esc_html__( 'Set to 0 to show all items. Otherwise, remaining items will be hidden behind a "Show more" link.', 'ac-starter-toolkit' ),
+                'description' => esc_html__( 'Set to 0 to show all items. Otherwise, remaining items will be hidden behind a "Show more" link.', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'show_more_text',
             array(
-                'label'     => esc_html__( 'Show More Text', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Show More Text', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::TEXT,
-                'default'   => esc_html__( 'Show more', 'ac-starter-toolkit' ),
+                'default'   => esc_html__( 'Show more', 'pressiq-widgets' ),
                 'condition' => array(
                     'max_visible!' => 0,
                 ),
@@ -163,9 +163,9 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_control(
             'show_less_text',
             array(
-                'label'     => esc_html__( 'Show Less Text', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Show Less Text', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::TEXT,
-                'default'   => esc_html__( 'Show less', 'ac-starter-toolkit' ),
+                'default'   => esc_html__( 'Show less', 'pressiq-widgets' ),
                 'condition' => array(
                     'max_visible!' => 0,
                 ),
@@ -175,22 +175,22 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_control(
             'search_enabled',
             array(
-                'label'        => esc_html__( 'Enable Search', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Enable Search', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => '',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
-                'description'  => esc_html__( 'Add a search box to filter the checkbox options.', 'ac-starter-toolkit' ),
+                'description'  => esc_html__( 'Add a search box to filter the checkbox options.', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'search_placeholder',
             array(
-                'label'     => esc_html__( 'Search Placeholder', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Search Placeholder', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::TEXT,
-                'default'   => esc_html__( 'Search...', 'ac-starter-toolkit' ),
+                'default'   => esc_html__( 'Search...', 'pressiq-widgets' ),
                 'condition' => array(
                     'search_enabled' => 'yes',
                 ),
@@ -206,7 +206,7 @@ class Checkbox_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_checkbox_style',
             array(
-                'label' => esc_html__( 'Checkboxes', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Checkboxes', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -214,7 +214,7 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_responsive_control(
             'item_spacing',
             array(
-                'label'      => esc_html__( 'Item Spacing', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Item Spacing', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -228,9 +228,9 @@ class Checkbox_Filter extends Filter_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__option' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .acst-filter__options--horizontal .acst-filter__option' => 'margin-right: {{SIZE}}{{UNIT}}; margin-bottom: 0;',
-                    '{{WRAPPER}} .acst-filter__options--columns' => 'gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__option' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__options--horizontal .pressiq-filter__option' => 'margin-right: {{SIZE}}{{UNIT}}; margin-bottom: 0;',
+                    '{{WRAPPER}} .pressiq-filter__options--columns' => 'gap: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -238,7 +238,7 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_control(
             'checkbox_size',
             array(
-                'label'      => esc_html__( 'Checkbox Size', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Checkbox Size', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -252,7 +252,7 @@ class Checkbox_Filter extends Filter_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__checkbox' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__checkbox' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -263,17 +263,17 @@ class Checkbox_Filter extends Filter_Base {
         $this->start_controls_tab(
             'checkbox_style_normal',
             array(
-                'label' => esc_html__( 'Normal', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Normal', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'checkbox_border_color',
             array(
-                'label'     => esc_html__( 'Border Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Border Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__checkbox' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__checkbox' => 'border-color: {{VALUE}};',
                 ),
             )
         );
@@ -281,10 +281,10 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_control(
             'checkbox_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__checkbox' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__checkbox' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -295,17 +295,17 @@ class Checkbox_Filter extends Filter_Base {
         $this->start_controls_tab(
             'checkbox_style_checked',
             array(
-                'label' => esc_html__( 'Checked', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Checked', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'checkbox_checked_border_color',
             array(
-                'label'     => esc_html__( 'Border Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Border Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__checkbox:checked' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__checkbox:checked' => 'border-color: {{VALUE}};',
                 ),
             )
         );
@@ -313,10 +313,10 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_control(
             'checkbox_checked_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__checkbox:checked' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__checkbox:checked' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -324,10 +324,10 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_control(
             'checkbox_checkmark_color',
             array(
-                'label'     => esc_html__( 'Checkmark Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Checkmark Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__checkbox:checked::after' => 'border-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__checkbox:checked::after' => 'border-color: {{VALUE}};',
                 ),
             )
         );
@@ -339,7 +339,7 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_control(
             'checkbox_border_radius',
             array(
-                'label'      => esc_html__( 'Border Radius', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Radius', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px', '%' ),
                 'range'      => array(
@@ -350,7 +350,7 @@ class Checkbox_Filter extends Filter_Base {
                 ),
                 'separator'  => 'before',
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__checkbox' => 'border-radius: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__checkbox' => 'border-radius: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -361,7 +361,7 @@ class Checkbox_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_option_label_style',
             array(
-                'label' => esc_html__( 'Option Labels', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Option Labels', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -370,17 +370,17 @@ class Checkbox_Filter extends Filter_Base {
             \Elementor\Group_Control_Typography::get_type(),
             array(
                 'name'     => 'option_typography',
-                'selector' => '{{WRAPPER}} .acst-filter__option-label',
+                'selector' => '{{WRAPPER}} .pressiq-filter__option-label',
             )
         );
 
         $this->add_control(
             'option_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__option-label' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__option-label' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -388,10 +388,10 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_control(
             'option_hover_color',
             array(
-                'label'     => esc_html__( 'Hover Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Hover Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__option:hover .acst-filter__option-label' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__option:hover .pressiq-filter__option-label' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -399,10 +399,10 @@ class Checkbox_Filter extends Filter_Base {
         $this->add_control(
             'count_color',
             array(
-                'label'     => esc_html__( 'Count Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Count Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-filter__option-count' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-filter__option-count' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -420,53 +420,53 @@ class Checkbox_Filter extends Filter_Base {
         $filter_id   = $this->get_filter_id( $settings );
         $max_visible = intval( $settings['max_visible'] );
 
-        $layout_class = 'acst-filter__options--' . $settings['layout'];
+        $layout_class = 'pressiq-filter__options--' . $settings['layout'];
         $collapsed    = $settings['collapsible'] === 'yes' && $settings['collapsed_default'] === 'yes';
         ?>
-        <div class="acst-filter acst-filter--checkbox"<?php echo $this->render_data_attrs( $data_attrs ); ?>>
+        <div class="pressiq-filter pressiq-filter--checkbox"<?php echo $this->render_data_attrs( $data_attrs ); ?>>
             <?php if ( $settings['collapsible'] === 'yes' ) : ?>
-                <div class="acst-filter__header" data-collapsed="<?php echo $collapsed ? 'true' : 'false'; ?>">
+                <div class="pressiq-filter__header" data-collapsed="<?php echo $collapsed ? 'true' : 'false'; ?>">
                     <?php $this->render_label( $settings ); ?>
-                    <button type="button" class="acst-filter__toggle" aria-expanded="<?php echo $collapsed ? 'false' : 'true'; ?>">
-                        <span class="acst-filter__toggle-icon"></span>
+                    <button type="button" class="pressiq-filter__toggle" aria-expanded="<?php echo $collapsed ? 'false' : 'true'; ?>">
+                        <span class="pressiq-filter__toggle-icon"></span>
                     </button>
                 </div>
             <?php else : ?>
                 <?php $this->render_label( $settings ); ?>
             <?php endif; ?>
 
-            <div class="acst-filter__body"<?php echo $collapsed ? ' style="display: none;"' : ''; ?>>
+            <div class="pressiq-filter__body"<?php echo $collapsed ? ' style="display: none;"' : ''; ?>>
                 <?php if ( $settings['search_enabled'] === 'yes' ) : ?>
-                    <div class="acst-filter__search">
+                    <div class="pressiq-filter__search">
                         <input type="text"
-                               class="acst-filter__search-input"
+                               class="pressiq-filter__search-input"
                                placeholder="<?php echo esc_attr( $settings['search_placeholder'] ); ?>"
                                data-search-target="<?php echo esc_attr( $filter_id ); ?>">
                     </div>
                 <?php endif; ?>
 
-                <div class="acst-filter__options <?php echo esc_attr( $layout_class ); ?>">
+                <div class="pressiq-filter__options <?php echo esc_attr( $layout_class ); ?>">
                     <?php foreach ( $options as $index => $option ) :
                         $hidden = $max_visible > 0 && $index >= $max_visible;
                     ?>
-                        <label class="acst-filter__option<?php echo $hidden ? ' acst-filter__option--hidden' : ''; ?>"
+                        <label class="pressiq-filter__option<?php echo $hidden ? ' pressiq-filter__option--hidden' : ''; ?>"
                                data-value="<?php echo esc_attr( $option['value'] ); ?>">
                             <input type="checkbox"
-                                   class="acst-filter__checkbox"
+                                   class="pressiq-filter__checkbox"
                                    name="<?php echo esc_attr( $filter_id ); ?>[]"
                                    value="<?php echo esc_attr( $option['value'] ); ?>">
-                            <span class="acst-filter__option-label">
+                            <span class="pressiq-filter__option-label">
                                 <?php echo esc_html( $option['label'] ); ?>
                             </span>
                             <?php if ( isset( $option['count'] ) && $settings['show_count'] === 'yes' ) : ?>
-                                <span class="acst-filter__option-count">(<?php echo esc_html( $option['count'] ); ?>)</span>
+                                <span class="pressiq-filter__option-count">(<?php echo esc_html( $option['count'] ); ?>)</span>
                             <?php endif; ?>
                         </label>
                     <?php endforeach; ?>
                 </div>
 
                 <?php if ( $max_visible > 0 && count( $options ) > $max_visible ) : ?>
-                    <button type="button" class="acst-filter__show-more"
+                    <button type="button" class="pressiq-filter__show-more"
                             data-show-more-text="<?php echo esc_attr( $settings['show_more_text'] ); ?>"
                             data-show-less-text="<?php echo esc_attr( $settings['show_less_text'] ); ?>">
                         <?php echo esc_html( $settings['show_more_text'] ); ?>
@@ -483,43 +483,43 @@ class Checkbox_Filter extends Filter_Base {
     protected function content_template() {
         ?>
         <#
-        var layoutClass = 'acst-filter__options--' + settings.layout;
+        var layoutClass = 'pressiq-filter__options--' + settings.layout;
         #>
-        <div class="acst-filter acst-filter--checkbox">
+        <div class="pressiq-filter pressiq-filter--checkbox">
             <# if ( settings.collapsible === 'yes' ) { #>
-                <div class="acst-filter__header">
+                <div class="pressiq-filter__header">
                     <# if ( settings.show_label === 'yes' && settings.filter_label ) { #>
-                        <label class="acst-filter__label">{{{ settings.filter_label }}}</label>
+                        <label class="pressiq-filter__label">{{{ settings.filter_label }}}</label>
                     <# } #>
-                    <button type="button" class="acst-filter__toggle">
-                        <span class="acst-filter__toggle-icon"></span>
+                    <button type="button" class="pressiq-filter__toggle">
+                        <span class="pressiq-filter__toggle-icon"></span>
                     </button>
                 </div>
             <# } else { #>
                 <# if ( settings.show_label === 'yes' && settings.filter_label ) { #>
-                    <label class="acst-filter__label">{{{ settings.filter_label }}}</label>
+                    <label class="pressiq-filter__label">{{{ settings.filter_label }}}</label>
                 <# } #>
             <# } #>
 
-            <div class="acst-filter__body">
+            <div class="pressiq-filter__body">
                 <# if ( settings.search_enabled === 'yes' ) { #>
-                    <div class="acst-filter__search">
-                        <input type="text" class="acst-filter__search-input" placeholder="{{{ settings.search_placeholder }}}">
+                    <div class="pressiq-filter__search">
+                        <input type="text" class="pressiq-filter__search-input" placeholder="{{{ settings.search_placeholder }}}">
                     </div>
                 <# } #>
 
-                <div class="acst-filter__options {{{ layoutClass }}}">
-                    <label class="acst-filter__option">
-                        <input type="checkbox" class="acst-filter__checkbox">
-                        <span class="acst-filter__option-label"><?php esc_html_e( 'Option 1', 'ac-starter-toolkit' ); ?></span>
+                <div class="pressiq-filter__options {{{ layoutClass }}}">
+                    <label class="pressiq-filter__option">
+                        <input type="checkbox" class="pressiq-filter__checkbox">
+                        <span class="pressiq-filter__option-label"><?php esc_html_e( 'Option 1', 'pressiq-widgets' ); ?></span>
                     </label>
-                    <label class="acst-filter__option">
-                        <input type="checkbox" class="acst-filter__checkbox">
-                        <span class="acst-filter__option-label"><?php esc_html_e( 'Option 2', 'ac-starter-toolkit' ); ?></span>
+                    <label class="pressiq-filter__option">
+                        <input type="checkbox" class="pressiq-filter__checkbox">
+                        <span class="pressiq-filter__option-label"><?php esc_html_e( 'Option 2', 'pressiq-widgets' ); ?></span>
                     </label>
-                    <label class="acst-filter__option">
-                        <input type="checkbox" class="acst-filter__checkbox">
-                        <span class="acst-filter__option-label"><?php esc_html_e( 'Option 3', 'ac-starter-toolkit' ); ?></span>
+                    <label class="pressiq-filter__option">
+                        <input type="checkbox" class="pressiq-filter__checkbox">
+                        <span class="pressiq-filter__option-label"><?php esc_html_e( 'Option 3', 'pressiq-widgets' ); ?></span>
                     </label>
                 </div>
             </div>

@@ -2,10 +2,10 @@
 /**
  * Sorting Filter Widget
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Filters\Widgets;
+namespace PressIQ_Widgets\Modules\Filters\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
@@ -28,7 +28,7 @@ class Sorting_Filter extends Filter_Base {
      * @return string
      */
     public function get_name() {
-        return 'acst-sorting-filter';
+        return 'pressiq-sorting-filter';
     }
 
     /**
@@ -37,7 +37,7 @@ class Sorting_Filter extends Filter_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__( 'Sorting Filter', 'ac-starter-toolkit' );
+        return esc_html__( 'Sorting Filter', 'pressiq-widgets' );
     }
 
     /**
@@ -69,7 +69,7 @@ class Sorting_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_sorting_options',
             array(
-                'label' => esc_html__( 'Sorting Options', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Sorting Options', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -77,22 +77,22 @@ class Sorting_Filter extends Filter_Base {
         $this->add_control(
             'placeholder',
             array(
-                'label'   => esc_html__( 'Placeholder', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Placeholder', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Sort by', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Sort by', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'sorting_preset',
             array(
-                'label'   => esc_html__( 'Options Preset', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Options Preset', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'posts',
                 'options' => array(
-                    'posts'    => esc_html__( 'Posts', 'ac-starter-toolkit' ),
-                    'products' => esc_html__( 'WooCommerce Products', 'ac-starter-toolkit' ),
-                    'custom'   => esc_html__( 'Custom', 'ac-starter-toolkit' ),
+                    'posts'    => esc_html__( 'Posts', 'pressiq-widgets' ),
+                    'products' => esc_html__( 'WooCommerce Products', 'pressiq-widgets' ),
+                    'custom'   => esc_html__( 'Custom', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -103,31 +103,31 @@ class Sorting_Filter extends Filter_Base {
         $repeater->add_control(
             'option_label',
             array(
-                'label'   => esc_html__( 'Label', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Label', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Sort Option', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Sort Option', 'pressiq-widgets' ),
             )
         );
 
         $repeater->add_control(
             'orderby',
             array(
-                'label'   => esc_html__( 'Order By', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Order By', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'date',
                 'options' => array(
-                    'date'           => esc_html__( 'Date', 'ac-starter-toolkit' ),
-                    'title'          => esc_html__( 'Title', 'ac-starter-toolkit' ),
-                    'modified'       => esc_html__( 'Modified Date', 'ac-starter-toolkit' ),
-                    'comment_count'  => esc_html__( 'Comment Count', 'ac-starter-toolkit' ),
-                    'rand'           => esc_html__( 'Random', 'ac-starter-toolkit' ),
-                    'menu_order'     => esc_html__( 'Menu Order', 'ac-starter-toolkit' ),
-                    'meta_value'     => esc_html__( 'Meta Value (Text)', 'ac-starter-toolkit' ),
-                    'meta_value_num' => esc_html__( 'Meta Value (Numeric)', 'ac-starter-toolkit' ),
+                    'date'           => esc_html__( 'Date', 'pressiq-widgets' ),
+                    'title'          => esc_html__( 'Title', 'pressiq-widgets' ),
+                    'modified'       => esc_html__( 'Modified Date', 'pressiq-widgets' ),
+                    'comment_count'  => esc_html__( 'Comment Count', 'pressiq-widgets' ),
+                    'rand'           => esc_html__( 'Random', 'pressiq-widgets' ),
+                    'menu_order'     => esc_html__( 'Menu Order', 'pressiq-widgets' ),
+                    'meta_value'     => esc_html__( 'Meta Value (Text)', 'pressiq-widgets' ),
+                    'meta_value_num' => esc_html__( 'Meta Value (Numeric)', 'pressiq-widgets' ),
                     // WooCommerce specific
-                    'price'          => esc_html__( 'Price (WooCommerce)', 'ac-starter-toolkit' ),
-                    'popularity'     => esc_html__( 'Popularity (WooCommerce)', 'ac-starter-toolkit' ),
-                    'rating'         => esc_html__( 'Rating (WooCommerce)', 'ac-starter-toolkit' ),
+                    'price'          => esc_html__( 'Price (WooCommerce)', 'pressiq-widgets' ),
+                    'popularity'     => esc_html__( 'Popularity (WooCommerce)', 'pressiq-widgets' ),
+                    'rating'         => esc_html__( 'Rating (WooCommerce)', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -135,12 +135,12 @@ class Sorting_Filter extends Filter_Base {
         $repeater->add_control(
             'order',
             array(
-                'label'   => esc_html__( 'Order', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Order', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'DESC',
                 'options' => array(
-                    'ASC'  => esc_html__( 'Ascending', 'ac-starter-toolkit' ),
-                    'DESC' => esc_html__( 'Descending', 'ac-starter-toolkit' ),
+                    'ASC'  => esc_html__( 'Ascending', 'pressiq-widgets' ),
+                    'DESC' => esc_html__( 'Descending', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -148,40 +148,40 @@ class Sorting_Filter extends Filter_Base {
         $repeater->add_control(
             'meta_key',
             array(
-                'label'       => esc_html__( 'Meta Key', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Meta Key', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::TEXT,
                 'default'     => '',
                 'condition'   => array(
                     'orderby' => array( 'meta_value', 'meta_value_num' ),
                 ),
-                'description' => esc_html__( 'Enter the meta key to sort by.', 'ac-starter-toolkit' ),
+                'description' => esc_html__( 'Enter the meta key to sort by.', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'custom_options',
             array(
-                'label'       => esc_html__( 'Sorting Options', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Sorting Options', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::REPEATER,
                 'fields'      => $repeater->get_controls(),
                 'default'     => array(
                     array(
-                        'option_label' => esc_html__( 'Newest First', 'ac-starter-toolkit' ),
+                        'option_label' => esc_html__( 'Newest First', 'pressiq-widgets' ),
                         'orderby'      => 'date',
                         'order'        => 'DESC',
                     ),
                     array(
-                        'option_label' => esc_html__( 'Oldest First', 'ac-starter-toolkit' ),
+                        'option_label' => esc_html__( 'Oldest First', 'pressiq-widgets' ),
                         'orderby'      => 'date',
                         'order'        => 'ASC',
                     ),
                     array(
-                        'option_label' => esc_html__( 'Title A-Z', 'ac-starter-toolkit' ),
+                        'option_label' => esc_html__( 'Title A-Z', 'pressiq-widgets' ),
                         'orderby'      => 'title',
                         'order'        => 'ASC',
                     ),
                     array(
-                        'option_label' => esc_html__( 'Title Z-A', 'ac-starter-toolkit' ),
+                        'option_label' => esc_html__( 'Title Z-A', 'pressiq-widgets' ),
                         'orderby'      => 'title',
                         'order'        => 'DESC',
                     ),
@@ -203,7 +203,7 @@ class Sorting_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_select_style',
             array(
-                'label' => esc_html__( 'Dropdown', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Dropdown', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -211,7 +211,7 @@ class Sorting_Filter extends Filter_Base {
         $this->add_responsive_control(
             'select_width',
             array(
-                'label'      => esc_html__( 'Width', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Width', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px', '%' ),
                 'range'      => array(
@@ -229,7 +229,7 @@ class Sorting_Filter extends Filter_Base {
                     'size' => 100,
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__select' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__select' => 'width: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -251,27 +251,27 @@ class Sorting_Filter extends Filter_Base {
                 return array(
                     array(
                         'value' => 'date|DESC',
-                        'label' => esc_html__( 'Newest First', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Newest First', 'pressiq-widgets' ),
                     ),
                     array(
                         'value' => 'date|ASC',
-                        'label' => esc_html__( 'Oldest First', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Oldest First', 'pressiq-widgets' ),
                     ),
                     array(
                         'value' => 'title|ASC',
-                        'label' => esc_html__( 'Title A-Z', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Title A-Z', 'pressiq-widgets' ),
                     ),
                     array(
                         'value' => 'title|DESC',
-                        'label' => esc_html__( 'Title Z-A', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Title Z-A', 'pressiq-widgets' ),
                     ),
                     array(
                         'value' => 'comment_count|DESC',
-                        'label' => esc_html__( 'Most Comments', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Most Comments', 'pressiq-widgets' ),
                     ),
                     array(
                         'value' => 'rand|DESC',
-                        'label' => esc_html__( 'Random', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Random', 'pressiq-widgets' ),
                     ),
                 );
 
@@ -279,35 +279,35 @@ class Sorting_Filter extends Filter_Base {
                 $options = array(
                     array(
                         'value' => 'menu_order|ASC',
-                        'label' => esc_html__( 'Default', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Default', 'pressiq-widgets' ),
                     ),
                     array(
                         'value' => 'popularity|DESC',
-                        'label' => esc_html__( 'Popularity', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Popularity', 'pressiq-widgets' ),
                     ),
                     array(
                         'value' => 'rating|DESC',
-                        'label' => esc_html__( 'Average Rating', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Average Rating', 'pressiq-widgets' ),
                     ),
                     array(
                         'value' => 'date|DESC',
-                        'label' => esc_html__( 'Latest', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Latest', 'pressiq-widgets' ),
                     ),
                     array(
                         'value' => 'price|ASC',
-                        'label' => esc_html__( 'Price: Low to High', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Price: Low to High', 'pressiq-widgets' ),
                     ),
                     array(
                         'value' => 'price|DESC',
-                        'label' => esc_html__( 'Price: High to Low', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Price: High to Low', 'pressiq-widgets' ),
                     ),
                     array(
                         'value' => 'title|ASC',
-                        'label' => esc_html__( 'Name A-Z', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Name A-Z', 'pressiq-widgets' ),
                     ),
                     array(
                         'value' => 'title|DESC',
-                        'label' => esc_html__( 'Name Z-A', 'ac-starter-toolkit' ),
+                        'label' => esc_html__( 'Name Z-A', 'pressiq-widgets' ),
                     ),
                 );
                 return $options;
@@ -349,10 +349,10 @@ class Sorting_Filter extends Filter_Base {
         $data_attrs['data-filter-type'] = 'sorting';
         $data_attrs['data-filter-id']   = '_sort';
         ?>
-        <div class="acst-filter acst-filter--sorting"<?php echo $this->render_data_attrs( $data_attrs ); ?>>
+        <div class="pressiq-filter pressiq-filter--sorting"<?php echo $this->render_data_attrs( $data_attrs ); ?>>
             <?php $this->render_label( $settings ); ?>
 
-            <select class="acst-filter__select acst-filter__input" name="_sort">
+            <select class="pressiq-filter__select pressiq-filter__input" name="_sort">
                 <?php if ( ! empty( $settings['placeholder'] ) ) : ?>
                     <option value=""><?php echo esc_html( $settings['placeholder'] ); ?></option>
                 <?php endif; ?>
@@ -372,18 +372,18 @@ class Sorting_Filter extends Filter_Base {
      */
     protected function content_template() {
         ?>
-        <div class="acst-filter acst-filter--sorting">
+        <div class="pressiq-filter pressiq-filter--sorting">
             <# if ( settings.show_label === 'yes' && settings.filter_label ) { #>
-                <label class="acst-filter__label">{{{ settings.filter_label }}}</label>
+                <label class="pressiq-filter__label">{{{ settings.filter_label }}}</label>
             <# } #>
 
-            <select class="acst-filter__select acst-filter__input">
+            <select class="pressiq-filter__select pressiq-filter__input">
                 <# if ( settings.placeholder ) { #>
                     <option value="">{{{ settings.placeholder }}}</option>
                 <# } #>
-                <option value="date|DESC"><?php esc_html_e( 'Newest First', 'ac-starter-toolkit' ); ?></option>
-                <option value="date|ASC"><?php esc_html_e( 'Oldest First', 'ac-starter-toolkit' ); ?></option>
-                <option value="title|ASC"><?php esc_html_e( 'Title A-Z', 'ac-starter-toolkit' ); ?></option>
+                <option value="date|DESC"><?php esc_html_e( 'Newest First', 'pressiq-widgets' ); ?></option>
+                <option value="date|ASC"><?php esc_html_e( 'Oldest First', 'pressiq-widgets' ); ?></option>
+                <option value="title|ASC"><?php esc_html_e( 'Title A-Z', 'pressiq-widgets' ); ?></option>
             </select>
         </div>
         <?php

@@ -2,10 +2,10 @@
 /**
  * Filters Module
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Filters;
+namespace PressIQ_Widgets\Modules\Filters;
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -46,7 +46,7 @@ class Filters_Module {
      */
     private function init() {
         // Load Query Manager
-        require_once ACST_PLUGIN_DIR . 'modules/filters/class-query-manager.php';
+        require_once PRESSIQ_PLUGIN_DIR . 'modules/filters/class-query-manager.php';
         $this->query_manager = new Query_Manager();
 
         // Add hooks
@@ -69,7 +69,7 @@ class Filters_Module {
      */
     public function register_widgets( $widgets_manager ) {
         // Load base class first
-        require_once ACST_PLUGIN_DIR . 'modules/filters/widgets/class-filter-base.php';
+        require_once PRESSIQ_PLUGIN_DIR . 'modules/filters/widgets/class-filter-base.php';
 
         // Load and register individual widgets
         $widgets = array(
@@ -82,12 +82,12 @@ class Filters_Module {
         );
 
         foreach ( $widgets as $file => $class ) {
-            $widget_file = ACST_PLUGIN_DIR . 'modules/filters/widgets/class-' . $file . '.php';
+            $widget_file = PRESSIQ_PLUGIN_DIR . 'modules/filters/widgets/class-' . $file . '.php';
 
             if ( file_exists( $widget_file ) ) {
                 require_once $widget_file;
 
-                $widget_class = 'AC_Starter_Toolkit\\Modules\\Filters\\Widgets\\' . $class;
+                $widget_class = 'PressIQ_Widgets\\Modules\\Filters\\Widgets\\' . $class;
 
                 if ( class_exists( $widget_class ) ) {
                     $widgets_manager->register( new $widget_class() );
@@ -101,7 +101,7 @@ class Filters_Module {
      */
     public function render_filter_state_container() {
         ?>
-        <div id="acst-filter-state" style="display: none;" data-filters="{}"></div>
+        <div id="pressiq-filter-state" style="display: none;" data-filters="{}"></div>
         <?php
     }
 
@@ -136,7 +136,7 @@ class Filters_Module {
 
         // Add WooCommerce products if available
         if ( class_exists( 'WooCommerce' ) && ! isset( $options['product'] ) ) {
-            $options['product'] = __( 'Products', 'ac-starter-toolkit' );
+            $options['product'] = __( 'Products', 'pressiq-widgets' );
         }
 
         return $options;

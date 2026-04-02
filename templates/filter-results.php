@@ -4,9 +4,9 @@
  *
  * This template is used to render filtered results via AJAX.
  * You can override this template by copying it to your theme:
- * your-theme/ac-starter-toolkit/filter-results.php
+ * your-theme/pressiq-widgets/filter-results.php
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  * @var array $posts Array of WP_Post objects
  * @var array $filter_data Active filter data
  */
@@ -23,11 +23,11 @@ if ( empty( $posts ) ) {
      * @param string $message Default no results message.
      */
     $no_results_message = apply_filters(
-        'acst/no_results_message',
-        __( 'No results found matching your criteria.', 'ac-starter-toolkit' )
+        'pressiq/no_results_message',
+        __( 'No results found matching your criteria.', 'pressiq-widgets' )
     );
     ?>
-    <div class="acst-no-results">
+    <div class="pressiq-no-results">
         <p><?php echo esc_html( $no_results_message ); ?></p>
     </div>
     <?php
@@ -46,8 +46,8 @@ foreach ( $posts as $post ) :
     if ( $post_type === 'product' && function_exists( 'wc_get_product' ) ) :
         $product = wc_get_product( $post );
         ?>
-        <article <?php post_class( 'acst-filter-item acst-filter-item--product' ); ?>>
-            <div class="acst-filter-item__image">
+        <article <?php post_class( 'pressiq-filter-item pressiq-filter-item--product' ); ?>>
+            <div class="pressiq-filter-item__image">
                 <a href="<?php the_permalink(); ?>">
                     <?php
                     if ( has_post_thumbnail() ) {
@@ -58,16 +58,16 @@ foreach ( $posts as $post ) :
                     ?>
                 </a>
             </div>
-            <div class="acst-filter-item__content">
-                <h3 class="acst-filter-item__title">
+            <div class="pressiq-filter-item__content">
+                <h3 class="pressiq-filter-item__title">
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                 </h3>
                 <?php if ( $product ) : ?>
-                    <div class="acst-filter-item__price">
+                    <div class="pressiq-filter-item__price">
                         <?php echo wp_kses_post( $product->get_price_html() ); ?>
                     </div>
                     <?php if ( $product->get_average_rating() ) : ?>
-                        <div class="acst-filter-item__rating">
+                        <div class="pressiq-filter-item__rating">
                             <?php echo wp_kses_post( wc_get_rating_html( $product->get_average_rating(), $product->get_rating_count() ) ); ?>
                         </div>
                     <?php endif; ?>
@@ -78,20 +78,20 @@ foreach ( $posts as $post ) :
     else :
         // Standard post template
         ?>
-        <article <?php post_class( 'acst-filter-item' ); ?>>
+        <article <?php post_class( 'pressiq-filter-item' ); ?>>
             <?php if ( has_post_thumbnail() ) : ?>
-                <div class="acst-filter-item__image">
+                <div class="pressiq-filter-item__image">
                     <a href="<?php the_permalink(); ?>">
                         <?php the_post_thumbnail( 'medium' ); ?>
                     </a>
                 </div>
             <?php endif; ?>
-            <div class="acst-filter-item__content">
-                <h3 class="acst-filter-item__title">
+            <div class="pressiq-filter-item__content">
+                <h3 class="pressiq-filter-item__title">
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                 </h3>
                 <?php if ( has_excerpt() || get_the_content() ) : ?>
-                    <div class="acst-filter-item__excerpt">
+                    <div class="pressiq-filter-item__excerpt">
                         <?php
                         if ( has_excerpt() ) {
                             echo wp_kses_post( get_the_excerpt() );
@@ -101,15 +101,15 @@ foreach ( $posts as $post ) :
                         ?>
                     </div>
                 <?php endif; ?>
-                <div class="acst-filter-item__meta">
-                    <span class="acst-filter-item__date">
+                <div class="pressiq-filter-item__meta">
+                    <span class="pressiq-filter-item__date">
                         <?php echo get_the_date(); ?>
                     </span>
                     <?php
                     $categories = get_the_category();
                     if ( ! empty( $categories ) ) :
                     ?>
-                        <span class="acst-filter-item__categories">
+                        <span class="pressiq-filter-item__categories">
                             <?php
                             $cat_links = array();
                             foreach ( array_slice( $categories, 0, 2 ) as $cat ) {

@@ -2,10 +2,10 @@
 /**
  * Testimonial Widget
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Content\Widgets;
+namespace PressIQ_Widgets\Modules\Content\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
@@ -28,7 +28,7 @@ class Testimonial extends Content_Base {
      * @return string
      */
     public function get_name() {
-        return 'acst-testimonial';
+        return 'pressiq-testimonial';
     }
 
     /**
@@ -37,7 +37,7 @@ class Testimonial extends Content_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__( 'Testimonial', 'ac-starter-toolkit' );
+        return esc_html__( 'Testimonial', 'pressiq-widgets' );
     }
 
     /**
@@ -74,21 +74,21 @@ class Testimonial extends Content_Base {
         $this->start_controls_section(
             'section_testimonial',
             array(
-                'label' => esc_html__( 'Testimonial', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Testimonial', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'layout',
             array(
-                'label'   => esc_html__( 'Layout', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Layout', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'default',
                 'options' => array(
-                    'default'   => esc_html__( 'Default', 'ac-starter-toolkit' ),
-                    'bubble'    => esc_html__( 'Speech Bubble', 'ac-starter-toolkit' ),
-                    'centered'  => esc_html__( 'Centered', 'ac-starter-toolkit' ),
-                    'side'      => esc_html__( 'Side by Side', 'ac-starter-toolkit' ),
+                    'default'   => esc_html__( 'Default', 'pressiq-widgets' ),
+                    'bubble'    => esc_html__( 'Speech Bubble', 'pressiq-widgets' ),
+                    'centered'  => esc_html__( 'Centered', 'pressiq-widgets' ),
+                    'side'      => esc_html__( 'Side by Side', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -96,7 +96,7 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'image',
             array(
-                'label'   => esc_html__( 'Image', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Image', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::MEDIA,
                 'default' => array(
                     'url' => Utils::get_placeholder_image_src(),
@@ -115,9 +115,9 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'name',
             array(
-                'label'   => esc_html__( 'Name', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Name', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'John Doe', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'John Doe', 'pressiq-widgets' ),
                 'dynamic' => array( 'active' => true ),
             )
         );
@@ -125,9 +125,9 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'title',
             array(
-                'label'   => esc_html__( 'Title/Position', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Title/Position', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'CEO, Company Name', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'CEO, Company Name', 'pressiq-widgets' ),
                 'dynamic' => array( 'active' => true ),
             )
         );
@@ -135,9 +135,9 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'content',
             array(
-                'label'   => esc_html__( 'Content', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Content', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXTAREA,
-                'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'pressiq-widgets' ),
                 'rows'    => 5,
                 'dynamic' => array( 'active' => true ),
             )
@@ -146,10 +146,10 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'show_rating',
             array(
-                'label'        => esc_html__( 'Show Rating', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show Rating', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             )
@@ -158,7 +158,7 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'rating',
             array(
-                'label'     => esc_html__( 'Rating', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Rating', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::NUMBER,
                 'min'       => 0,
                 'max'       => 5,
@@ -173,14 +173,14 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'rating_position',
             array(
-                'label'     => esc_html__( 'Rating Position', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Rating Position', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'before_content',
                 'options'   => array(
-                    'before_content' => esc_html__( 'Before Content', 'ac-starter-toolkit' ),
-                    'after_content'  => esc_html__( 'After Content', 'ac-starter-toolkit' ),
-                    'before_name'    => esc_html__( 'Before Name', 'ac-starter-toolkit' ),
-                    'after_name'     => esc_html__( 'After Name', 'ac-starter-toolkit' ),
+                    'before_content' => esc_html__( 'Before Content', 'pressiq-widgets' ),
+                    'after_content'  => esc_html__( 'After Content', 'pressiq-widgets' ),
+                    'before_name'    => esc_html__( 'Before Name', 'pressiq-widgets' ),
+                    'after_name'     => esc_html__( 'After Name', 'pressiq-widgets' ),
                 ),
                 'condition' => array(
                     'show_rating' => 'yes',
@@ -191,10 +191,10 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'show_quote_icon',
             array(
-                'label'        => esc_html__( 'Show Quote Icon', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show Quote Icon', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             )
@@ -203,7 +203,7 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'quote_icon',
             array(
-                'label'     => esc_html__( 'Quote Icon', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Quote Icon', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::ICONS,
                 'default'   => array(
                     'value'   => 'fas fa-quote-left',
@@ -221,20 +221,20 @@ class Testimonial extends Content_Base {
         $this->start_controls_section(
             'section_link',
             array(
-                'label' => esc_html__( 'Link', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Link', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'link_type',
             array(
-                'label'   => esc_html__( 'Link Type', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Link Type', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'none',
                 'options' => array(
-                    'none'   => esc_html__( 'None', 'ac-starter-toolkit' ),
-                    'box'    => esc_html__( 'Whole Box', 'ac-starter-toolkit' ),
-                    'name'   => esc_html__( 'Name Only', 'ac-starter-toolkit' ),
+                    'none'   => esc_html__( 'None', 'pressiq-widgets' ),
+                    'box'    => esc_html__( 'Whole Box', 'pressiq-widgets' ),
+                    'name'   => esc_html__( 'Name Only', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -242,9 +242,9 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'link',
             array(
-                'label'       => esc_html__( 'Link', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Link', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://your-link.com', 'ac-starter-toolkit' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'pressiq-widgets' ),
                 'default'     => array(
                     'url' => '',
                 ),
@@ -265,34 +265,34 @@ class Testimonial extends Content_Base {
         $this->start_controls_section(
             'section_style_box',
             array(
-                'label' => esc_html__( 'Box', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Box', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
 
-        $this->register_box_style_controls( 'box', '{{WRAPPER}} .acst-testimonial' );
+        $this->register_box_style_controls( 'box', '{{WRAPPER}} .pressiq-testimonial' );
 
         $this->add_responsive_control(
             'box_alignment',
             array(
-                'label'     => esc_html__( 'Alignment', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Alignment', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::CHOOSE,
                 'options'   => array(
                     'left'   => array(
-                        'title' => esc_html__( 'Left', 'ac-starter-toolkit' ),
+                        'title' => esc_html__( 'Left', 'pressiq-widgets' ),
                         'icon'  => 'eicon-text-align-left',
                     ),
                     'center' => array(
-                        'title' => esc_html__( 'Center', 'ac-starter-toolkit' ),
+                        'title' => esc_html__( 'Center', 'pressiq-widgets' ),
                         'icon'  => 'eicon-text-align-center',
                     ),
                     'right'  => array(
-                        'title' => esc_html__( 'Right', 'ac-starter-toolkit' ),
+                        'title' => esc_html__( 'Right', 'pressiq-widgets' ),
                         'icon'  => 'eicon-text-align-right',
                     ),
                 ),
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-testimonial' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-testimonial' => 'text-align: {{VALUE}};',
                 ),
             )
         );
@@ -303,7 +303,7 @@ class Testimonial extends Content_Base {
         $this->start_controls_section(
             'section_style_image',
             array(
-                'label' => esc_html__( 'Image', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Image', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -311,7 +311,7 @@ class Testimonial extends Content_Base {
         $this->add_responsive_control(
             'image_size',
             array(
-                'label'      => esc_html__( 'Size', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Size', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px', 'em', 'rem' ),
                 'range'      => array(
@@ -325,7 +325,7 @@ class Testimonial extends Content_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-testimonial__image img' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-testimonial__image img' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -333,7 +333,7 @@ class Testimonial extends Content_Base {
         $this->add_responsive_control(
             'image_border_radius',
             array(
-                'label'      => esc_html__( 'Border Radius', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Radius', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', '%' ),
                 'default'    => array(
@@ -344,7 +344,7 @@ class Testimonial extends Content_Base {
                     'unit'   => '%',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-testimonial__image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-testimonial__image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -352,7 +352,7 @@ class Testimonial extends Content_Base {
         $this->add_responsive_control(
             'image_spacing',
             array(
-                'label'      => esc_html__( 'Spacing', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Spacing', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px', 'em' ),
                 'range'      => array(
@@ -362,8 +362,8 @@ class Testimonial extends Content_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-testimonial__image' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .acst-testimonial--side .acst-testimonial__image' => 'margin-right: {{SIZE}}{{UNIT}}; margin-bottom: 0;',
+                    '{{WRAPPER}} .pressiq-testimonial__image' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-testimonial--side .pressiq-testimonial__image' => 'margin-right: {{SIZE}}{{UNIT}}; margin-bottom: 0;',
                 ),
             )
         );
@@ -374,25 +374,25 @@ class Testimonial extends Content_Base {
         $this->start_controls_section(
             'section_style_content',
             array(
-                'label' => esc_html__( 'Content', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Content', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
 
-        $this->register_description_style_controls( 'content', '{{WRAPPER}} .acst-testimonial__content' );
+        $this->register_description_style_controls( 'content', '{{WRAPPER}} .pressiq-testimonial__content' );
 
         $this->add_control(
             'content_font_style',
             array(
-                'label'     => esc_html__( 'Font Style', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Font Style', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'normal',
                 'options'   => array(
-                    'normal' => esc_html__( 'Normal', 'ac-starter-toolkit' ),
-                    'italic' => esc_html__( 'Italic', 'ac-starter-toolkit' ),
+                    'normal' => esc_html__( 'Normal', 'pressiq-widgets' ),
+                    'italic' => esc_html__( 'Italic', 'pressiq-widgets' ),
                 ),
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-testimonial__content' => 'font-style: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-testimonial__content' => 'font-style: {{VALUE}};',
                 ),
             )
         );
@@ -403,12 +403,12 @@ class Testimonial extends Content_Base {
         $this->start_controls_section(
             'section_style_name',
             array(
-                'label' => esc_html__( 'Name', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Name', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
 
-        $this->register_title_style_controls( 'name', '{{WRAPPER}} .acst-testimonial__name' );
+        $this->register_title_style_controls( 'name', '{{WRAPPER}} .pressiq-testimonial__name' );
 
         $this->end_controls_section();
 
@@ -416,12 +416,12 @@ class Testimonial extends Content_Base {
         $this->start_controls_section(
             'section_style_title',
             array(
-                'label' => esc_html__( 'Title/Position', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Title/Position', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
 
-        $this->register_description_style_controls( 'title', '{{WRAPPER}} .acst-testimonial__title' );
+        $this->register_description_style_controls( 'title', '{{WRAPPER}} .pressiq-testimonial__title' );
 
         $this->end_controls_section();
 
@@ -429,7 +429,7 @@ class Testimonial extends Content_Base {
         $this->start_controls_section(
             'section_style_rating',
             array(
-                'label'     => esc_html__( 'Rating', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Rating', 'pressiq-widgets' ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => array(
                     'show_rating' => 'yes',
@@ -440,7 +440,7 @@ class Testimonial extends Content_Base {
         $this->add_responsive_control(
             'rating_size',
             array(
-                'label'      => esc_html__( 'Size', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Size', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px', 'em' ),
                 'range'      => array(
@@ -450,7 +450,7 @@ class Testimonial extends Content_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-testimonial__rating' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-testimonial__rating' => 'font-size: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -458,11 +458,11 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'rating_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#ffc107',
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-testimonial__rating .acst-star--filled' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-testimonial__rating .pressiq-star--filled' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -470,11 +470,11 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'rating_unmarked_color',
             array(
-                'label'     => esc_html__( 'Unmarked Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Unmarked Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'default'   => '#e0e0e0',
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-testimonial__rating .acst-star--empty' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-testimonial__rating .pressiq-star--empty' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -482,7 +482,7 @@ class Testimonial extends Content_Base {
         $this->add_responsive_control(
             'rating_spacing',
             array(
-                'label'      => esc_html__( 'Spacing', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Spacing', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px', 'em' ),
                 'range'      => array(
@@ -492,7 +492,7 @@ class Testimonial extends Content_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-testimonial__rating' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-testimonial__rating' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -503,7 +503,7 @@ class Testimonial extends Content_Base {
         $this->start_controls_section(
             'section_style_quote',
             array(
-                'label'     => esc_html__( 'Quote Icon', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Quote Icon', 'pressiq-widgets' ),
                 'tab'       => Controls_Manager::TAB_STYLE,
                 'condition' => array(
                     'show_quote_icon' => 'yes',
@@ -514,7 +514,7 @@ class Testimonial extends Content_Base {
         $this->add_responsive_control(
             'quote_size',
             array(
-                'label'      => esc_html__( 'Size', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Size', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px', 'em' ),
                 'range'      => array(
@@ -528,7 +528,7 @@ class Testimonial extends Content_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-testimonial__quote' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-testimonial__quote' => 'font-size: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -536,10 +536,10 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'quote_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-testimonial__quote' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-testimonial__quote' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -547,7 +547,7 @@ class Testimonial extends Content_Base {
         $this->add_control(
             'quote_opacity',
             array(
-                'label'     => esc_html__( 'Opacity', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Opacity', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::SLIDER,
                 'range'     => array(
                     'px' => array(
@@ -560,7 +560,7 @@ class Testimonial extends Content_Base {
                     'size' => 0.2,
                 ),
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-testimonial__quote' => 'opacity: {{SIZE}};',
+                    '{{WRAPPER}} .pressiq-testimonial__quote' => 'opacity: {{SIZE}};',
                 ),
             )
         );
@@ -568,15 +568,15 @@ class Testimonial extends Content_Base {
         $this->add_responsive_control(
             'quote_position',
             array(
-                'label'     => esc_html__( 'Position', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Position', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::SELECT,
                 'default'   => 'top-left',
                 'options'   => array(
-                    'top-left'     => esc_html__( 'Top Left', 'ac-starter-toolkit' ),
-                    'top-right'    => esc_html__( 'Top Right', 'ac-starter-toolkit' ),
-                    'bottom-left'  => esc_html__( 'Bottom Left', 'ac-starter-toolkit' ),
-                    'bottom-right' => esc_html__( 'Bottom Right', 'ac-starter-toolkit' ),
-                    'inline'       => esc_html__( 'Inline (Before Content)', 'ac-starter-toolkit' ),
+                    'top-left'     => esc_html__( 'Top Left', 'pressiq-widgets' ),
+                    'top-right'    => esc_html__( 'Top Right', 'pressiq-widgets' ),
+                    'bottom-left'  => esc_html__( 'Bottom Left', 'pressiq-widgets' ),
+                    'bottom-right' => esc_html__( 'Bottom Right', 'pressiq-widgets' ),
+                    'inline'       => esc_html__( 'Inline (Before Content)', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -593,8 +593,8 @@ class Testimonial extends Content_Base {
         $layout = $settings['layout'];
 
         $this->add_render_attribute( 'wrapper', 'class', array(
-            'acst-testimonial',
-            'acst-testimonial--' . $layout,
+            'pressiq-testimonial',
+            'pressiq-testimonial--' . $layout,
         ) );
 
         // Box link.
@@ -609,16 +609,16 @@ class Testimonial extends Content_Base {
         <<?php echo esc_attr( $link_tag ); ?> <?php $this->print_render_attribute_string( 'wrapper' ); ?>>
 
             <?php if ( 'yes' === $settings['show_quote_icon'] && 'inline' !== $quote_position ) : ?>
-                <div class="acst-testimonial__quote acst-testimonial__quote--<?php echo esc_attr( $quote_position ); ?>">
+                <div class="pressiq-testimonial__quote pressiq-testimonial__quote--<?php echo esc_attr( $quote_position ); ?>">
                     <?php \Elementor\Icons_Manager::render_icon( $settings['quote_icon'], array( 'aria-hidden' => 'true' ) ); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ( 'side' === $layout ) : ?>
-                <div class="acst-testimonial__aside">
+                <div class="pressiq-testimonial__aside">
                     <?php $this->render_image( $settings ); ?>
                 </div>
-                <div class="acst-testimonial__main">
+                <div class="pressiq-testimonial__main">
                     <?php $this->render_content_section( $settings ); ?>
                     <?php $this->render_author_section( $settings ); ?>
                 </div>
@@ -630,7 +630,7 @@ class Testimonial extends Content_Base {
                 <?php $this->render_content_section( $settings ); ?>
 
                 <?php if ( 'bubble' === $layout ) : ?>
-                    <div class="acst-testimonial__author-wrap">
+                    <div class="pressiq-testimonial__author-wrap">
                         <?php $this->render_image( $settings ); ?>
                         <?php $this->render_author_section( $settings ); ?>
                     </div>
@@ -653,7 +653,7 @@ class Testimonial extends Content_Base {
             return;
         }
         ?>
-        <div class="acst-testimonial__image">
+        <div class="pressiq-testimonial__image">
             <?php
             echo wp_kses_post(
                 \Elementor\Group_Control_Image_Size::get_attachment_image_html( $settings, 'image', 'image' )
@@ -672,14 +672,14 @@ class Testimonial extends Content_Base {
         $rating_position = $settings['rating_position'];
         $quote_position  = $settings['quote_position'] ?? 'top-left';
         ?>
-        <div class="acst-testimonial__content-wrap">
+        <div class="pressiq-testimonial__content-wrap">
             <?php if ( 'yes' === $settings['show_rating'] && 'before_content' === $rating_position ) : ?>
                 <?php $this->render_rating( $settings ); ?>
             <?php endif; ?>
 
-            <div class="acst-testimonial__content">
+            <div class="pressiq-testimonial__content">
                 <?php if ( 'yes' === $settings['show_quote_icon'] && 'inline' === $quote_position ) : ?>
-                    <span class="acst-testimonial__quote acst-testimonial__quote--inline">
+                    <span class="pressiq-testimonial__quote pressiq-testimonial__quote--inline">
                         <?php \Elementor\Icons_Manager::render_icon( $settings['quote_icon'], array( 'aria-hidden' => 'true' ) ); ?>
                     </span>
                 <?php endif; ?>
@@ -701,7 +701,7 @@ class Testimonial extends Content_Base {
     protected function render_author_section( $settings ) {
         $rating_position = $settings['rating_position'];
         ?>
-        <div class="acst-testimonial__author">
+        <div class="pressiq-testimonial__author">
             <?php if ( 'yes' === $settings['show_rating'] && 'before_name' === $rating_position ) : ?>
                 <?php $this->render_rating( $settings ); ?>
             <?php endif; ?>
@@ -714,13 +714,13 @@ class Testimonial extends Content_Base {
                     $this->add_link_attributes( 'name_link', $settings['link'] );
                 }
                 ?>
-                <<?php echo esc_attr( $name_tag ); ?> class="acst-testimonial__name" <?php echo ( 'a' === $name_tag ) ? $this->get_render_attribute_string( 'name_link' ) : ''; ?>>
+                <<?php echo esc_attr( $name_tag ); ?> class="pressiq-testimonial__name" <?php echo ( 'a' === $name_tag ) ? $this->get_render_attribute_string( 'name_link' ) : ''; ?>>
                     <?php echo esc_html( $settings['name'] ); ?>
                 </<?php echo esc_attr( $name_tag ); ?>>
             <?php endif; ?>
 
             <?php if ( ! empty( $settings['title'] ) ) : ?>
-                <div class="acst-testimonial__title">
+                <div class="pressiq-testimonial__title">
                     <?php echo esc_html( $settings['title'] ); ?>
                 </div>
             <?php endif; ?>
@@ -740,15 +740,15 @@ class Testimonial extends Content_Base {
     protected function render_rating( $settings ) {
         $rating = floatval( $settings['rating'] );
         ?>
-        <div class="acst-testimonial__rating" role="img" aria-label="<?php echo esc_attr( sprintf( __( 'Rated %s out of 5', 'ac-starter-toolkit' ), $rating ) ); ?>">
+        <div class="pressiq-testimonial__rating" role="img" aria-label="<?php echo esc_attr( sprintf( __( 'Rated %s out of 5', 'pressiq-widgets' ), $rating ) ); ?>">
             <?php
             for ( $i = 1; $i <= 5; $i++ ) {
                 if ( $i <= $rating ) {
-                    echo '<span class="acst-star acst-star--filled">&#9733;</span>';
+                    echo '<span class="pressiq-star pressiq-star--filled">&#9733;</span>';
                 } elseif ( $i - 0.5 <= $rating ) {
-                    echo '<span class="acst-star acst-star--half">&#9733;</span>';
+                    echo '<span class="pressiq-star pressiq-star--half">&#9733;</span>';
                 } else {
-                    echo '<span class="acst-star acst-star--empty">&#9734;</span>';
+                    echo '<span class="pressiq-star pressiq-star--empty">&#9734;</span>';
                 }
             }
             ?>
@@ -773,7 +773,7 @@ class Testimonial extends Content_Base {
         function renderImage() {
             if ( ! settings.image.url ) return '';
 
-            var imageHtml = '<div class="acst-testimonial__image">';
+            var imageHtml = '<div class="pressiq-testimonial__image">';
             var image = {
                 id: settings.image.id,
                 url: settings.image.url,
@@ -789,14 +789,14 @@ class Testimonial extends Content_Base {
 
         function renderRating() {
             var rating = parseFloat( settings.rating );
-            var html = '<div class="acst-testimonial__rating">';
+            var html = '<div class="pressiq-testimonial__rating">';
             for ( var i = 1; i <= 5; i++ ) {
                 if ( i <= rating ) {
-                    html += '<span class="acst-star acst-star--filled">&#9733;</span>';
+                    html += '<span class="pressiq-star pressiq-star--filled">&#9733;</span>';
                 } else if ( i - 0.5 <= rating ) {
-                    html += '<span class="acst-star acst-star--half">&#9733;</span>';
+                    html += '<span class="pressiq-star pressiq-star--half">&#9733;</span>';
                 } else {
-                    html += '<span class="acst-star acst-star--empty">&#9734;</span>';
+                    html += '<span class="pressiq-star pressiq-star--empty">&#9734;</span>';
                 }
             }
             html += '</div>';
@@ -810,23 +810,23 @@ class Testimonial extends Content_Base {
 
             var iconHtml = elementor.helpers.renderIcon( view, settings.quote_icon, { 'aria-hidden': 'true' }, 'i', 'object' );
             var posClass = position === 'inline' ? 'inline' : quotePosition;
-            return '<div class="acst-testimonial__quote acst-testimonial__quote--' + posClass + '">' + ( iconHtml.value || '' ) + '</div>';
+            return '<div class="pressiq-testimonial__quote pressiq-testimonial__quote--' + posClass + '">' + ( iconHtml.value || '' ) + '</div>';
         }
         #>
-        <{{{ linkTag }}} class="acst-testimonial acst-testimonial--{{{ layout }}}">
+        <{{{ linkTag }}} class="pressiq-testimonial pressiq-testimonial--{{{ layout }}}">
 
             {{{ renderQuoteIcon( 'positioned' ) }}}
 
             <# if ( 'side' === layout ) { #>
-                <div class="acst-testimonial__aside">
+                <div class="pressiq-testimonial__aside">
                     {{{ renderImage() }}}
                 </div>
-                <div class="acst-testimonial__main">
-                    <div class="acst-testimonial__content-wrap">
+                <div class="pressiq-testimonial__main">
+                    <div class="pressiq-testimonial__content-wrap">
                         <# if ( 'yes' === settings.show_rating && 'before_content' === settings.rating_position ) { #>
                             {{{ renderRating() }}}
                         <# } #>
-                        <div class="acst-testimonial__content">
+                        <div class="pressiq-testimonial__content">
                             {{{ renderQuoteIcon( 'inline' ) }}}
                             {{{ settings.content }}}
                         </div>
@@ -834,15 +834,15 @@ class Testimonial extends Content_Base {
                             {{{ renderRating() }}}
                         <# } #>
                     </div>
-                    <div class="acst-testimonial__author">
+                    <div class="pressiq-testimonial__author">
                         <# if ( 'yes' === settings.show_rating && 'before_name' === settings.rating_position ) { #>
                             {{{ renderRating() }}}
                         <# } #>
                         <# if ( settings.name ) { #>
-                            <div class="acst-testimonial__name">{{{ settings.name }}}</div>
+                            <div class="pressiq-testimonial__name">{{{ settings.name }}}</div>
                         <# } #>
                         <# if ( settings.title ) { #>
-                            <div class="acst-testimonial__title">{{{ settings.title }}}</div>
+                            <div class="pressiq-testimonial__title">{{{ settings.title }}}</div>
                         <# } #>
                         <# if ( 'yes' === settings.show_rating && 'after_name' === settings.rating_position ) { #>
                             {{{ renderRating() }}}
@@ -854,11 +854,11 @@ class Testimonial extends Content_Base {
                     {{{ renderImage() }}}
                 <# } #>
 
-                <div class="acst-testimonial__content-wrap">
+                <div class="pressiq-testimonial__content-wrap">
                     <# if ( 'yes' === settings.show_rating && 'before_content' === settings.rating_position ) { #>
                         {{{ renderRating() }}}
                     <# } #>
-                    <div class="acst-testimonial__content">
+                    <div class="pressiq-testimonial__content">
                         {{{ renderQuoteIcon( 'inline' ) }}}
                         {{{ settings.content }}}
                     </div>
@@ -868,17 +868,17 @@ class Testimonial extends Content_Base {
                 </div>
 
                 <# if ( 'bubble' === layout ) { #>
-                    <div class="acst-testimonial__author-wrap">
+                    <div class="pressiq-testimonial__author-wrap">
                         {{{ renderImage() }}}
-                        <div class="acst-testimonial__author">
+                        <div class="pressiq-testimonial__author">
                             <# if ( 'yes' === settings.show_rating && 'before_name' === settings.rating_position ) { #>
                                 {{{ renderRating() }}}
                             <# } #>
                             <# if ( settings.name ) { #>
-                                <div class="acst-testimonial__name">{{{ settings.name }}}</div>
+                                <div class="pressiq-testimonial__name">{{{ settings.name }}}</div>
                             <# } #>
                             <# if ( settings.title ) { #>
-                                <div class="acst-testimonial__title">{{{ settings.title }}}</div>
+                                <div class="pressiq-testimonial__title">{{{ settings.title }}}</div>
                             <# } #>
                             <# if ( 'yes' === settings.show_rating && 'after_name' === settings.rating_position ) { #>
                                 {{{ renderRating() }}}
@@ -886,15 +886,15 @@ class Testimonial extends Content_Base {
                         </div>
                     </div>
                 <# } else { #>
-                    <div class="acst-testimonial__author">
+                    <div class="pressiq-testimonial__author">
                         <# if ( 'yes' === settings.show_rating && 'before_name' === settings.rating_position ) { #>
                             {{{ renderRating() }}}
                         <# } #>
                         <# if ( settings.name ) { #>
-                            <div class="acst-testimonial__name">{{{ settings.name }}}</div>
+                            <div class="pressiq-testimonial__name">{{{ settings.name }}}</div>
                         <# } #>
                         <# if ( settings.title ) { #>
-                            <div class="acst-testimonial__title">{{{ settings.title }}}</div>
+                            <div class="pressiq-testimonial__title">{{{ settings.title }}}</div>
                         <# } #>
                         <# if ( 'yes' === settings.show_rating && 'after_name' === settings.rating_position ) { #>
                             {{{ renderRating() }}}

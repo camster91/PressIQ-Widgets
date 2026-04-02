@@ -2,10 +2,10 @@
 /**
  * AJAX Handler for Filters
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Filters;
+namespace PressIQ_Widgets\Modules\Filters;
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -30,7 +30,7 @@ class Ajax_Handler {
      * Constructor
      */
     public function __construct() {
-        require_once ACST_PLUGIN_DIR . 'modules/filters/class-query-manager.php';
+        require_once PRESSIQ_PLUGIN_DIR . 'modules/filters/class-query-manager.php';
         $this->query_manager = new Query_Manager();
 
         $this->register_ajax_actions();
@@ -41,12 +41,12 @@ class Ajax_Handler {
      */
     private function register_ajax_actions() {
         // Public AJAX action for filtering
-        add_action( 'wp_ajax_acst_filter', array( $this, 'handle_filter_request' ) );
-        add_action( 'wp_ajax_nopriv_acst_filter', array( $this, 'handle_filter_request' ) );
+        add_action( 'wp_ajax_pressiq_filter', array( $this, 'handle_filter_request' ) );
+        add_action( 'wp_ajax_nopriv_pressiq_filter', array( $this, 'handle_filter_request' ) );
 
         // Get filter options (for dynamic selects)
-        add_action( 'wp_ajax_acst_get_filter_options', array( $this, 'get_filter_options' ) );
-        add_action( 'wp_ajax_nopriv_acst_get_filter_options', array( $this, 'get_filter_options' ) );
+        add_action( 'wp_ajax_pressiq_get_filter_options', array( $this, 'get_filter_options' ) );
+        add_action( 'wp_ajax_nopriv_pressiq_get_filter_options', array( $this, 'get_filter_options' ) );
     }
 
     /**
@@ -54,9 +54,9 @@ class Ajax_Handler {
      */
     public function handle_filter_request() {
         // Verify nonce
-        if ( ! check_ajax_referer( 'acst_filter_nonce', 'nonce', false ) ) {
+        if ( ! check_ajax_referer( 'pressiq_filter_nonce', 'nonce', false ) ) {
             wp_send_json_error( array(
-                'message' => __( 'Security check failed.', 'ac-starter-toolkit' ),
+                'message' => __( 'Security check failed.', 'pressiq-widgets' ),
             ) );
         }
 
@@ -172,8 +172,8 @@ class Ajax_Handler {
          * @param array  $filter_data   Filter data.
          */
         $template = apply_filters(
-            'acst/filter_results_template',
-            ACST_PLUGIN_DIR . 'templates/filter-results.php',
+            'pressiq/filter_results_template',
+            PRESSIQ_PLUGIN_DIR . 'templates/filter-results.php',
             $posts,
             $filter_data
         );
@@ -197,21 +197,21 @@ class Ajax_Handler {
      */
     private function render_post_item( $post ) {
         ?>
-        <article class="acst-filter-item" data-post-id="<?php echo esc_attr( $post->ID ); ?>">
+        <article class="pressiq-filter-item" data-post-id="<?php echo esc_attr( $post->ID ); ?>">
             <?php if ( has_post_thumbnail( $post ) ) : ?>
-                <div class="acst-filter-item__image">
+                <div class="pressiq-filter-item__image">
                     <a href="<?php echo esc_url( get_permalink( $post ) ); ?>">
                         <?php echo get_the_post_thumbnail( $post, 'medium' ); ?>
                     </a>
                 </div>
             <?php endif; ?>
-            <div class="acst-filter-item__content">
-                <h3 class="acst-filter-item__title">
+            <div class="pressiq-filter-item__content">
+                <h3 class="pressiq-filter-item__title">
                     <a href="<?php echo esc_url( get_permalink( $post ) ); ?>">
                         <?php echo esc_html( get_the_title( $post ) ); ?>
                     </a>
                 </h3>
-                <div class="acst-filter-item__excerpt">
+                <div class="pressiq-filter-item__excerpt">
                     <?php echo wp_kses_post( wp_trim_words( $post->post_excerpt ?: $post->post_content, 20 ) ); ?>
                 </div>
             </div>
@@ -226,12 +226,12 @@ class Ajax_Handler {
      */
     private function render_no_results() {
         $message = apply_filters(
-            'acst/no_results_message',
-            __( 'No results found matching your criteria.', 'ac-starter-toolkit' )
+            'pressiq/no_results_message',
+            __( 'No results found matching your criteria.', 'pressiq-widgets' )
         );
 
         return sprintf(
-            '<div class="acst-no-results"><p>%s</p></div>',
+            '<div class="pressiq-no-results"><p>%s</p></div>',
             esc_html( $message )
         );
     }
@@ -241,9 +241,9 @@ class Ajax_Handler {
      */
     public function get_filter_options() {
         // Verify nonce
-        if ( ! check_ajax_referer( 'acst_filter_nonce', 'nonce', false ) ) {
+        if ( ! check_ajax_referer( 'pressiq_filter_nonce', 'nonce', false ) ) {
             wp_send_json_error( array(
-                'message' => __( 'Security check failed.', 'ac-starter-toolkit' ),
+                'message' => __( 'Security check failed.', 'pressiq-widgets' ),
             ) );
         }
 

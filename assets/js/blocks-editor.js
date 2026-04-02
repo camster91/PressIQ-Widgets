@@ -89,7 +89,7 @@
        Block: Accordion
        ========================================================================= */
 
-    registerBlockType( 'acst/accordion', {
+    registerBlockType( 'pressiq/accordion', {
         edit: function( props ) {
             var attributes = props.attributes;
             var setAttributes = props.setAttributes;
@@ -148,7 +148,7 @@
                     )
                 ),
                 el( 'div', useBlockProps(),
-                    el( ServerSideRender, { block: 'acst/accordion', attributes: attributes } )
+                    el( ServerSideRender, { block: 'pressiq/accordion', attributes: attributes } )
                 )
             );
         }
@@ -158,7 +158,7 @@
        Block: Tabs
        ========================================================================= */
 
-    registerBlockType( 'acst/tabs', {
+    registerBlockType( 'pressiq/tabs', {
         edit: function( props ) {
             var attributes = props.attributes;
             var setAttributes = props.setAttributes;
@@ -210,7 +210,7 @@
                     )
                 ),
                 el( 'div', useBlockProps(),
-                    el( ServerSideRender, { block: 'acst/tabs', attributes: attributes } )
+                    el( ServerSideRender, { block: 'pressiq/tabs', attributes: attributes } )
                 )
             );
         }
@@ -220,7 +220,7 @@
        Block: Team Member
        ========================================================================= */
 
-    registerBlockType( 'acst/team-member', {
+    registerBlockType( 'pressiq/team-member', {
         edit: function( props ) {
             var attributes = props.attributes;
             var setAttributes = props.setAttributes;
@@ -338,7 +338,7 @@
                     )
                 ),
                 el( 'div', useBlockProps(),
-                    el( ServerSideRender, { block: 'acst/team-member', attributes: attributes } )
+                    el( ServerSideRender, { block: 'pressiq/team-member', attributes: attributes } )
                 )
             );
         }
@@ -348,7 +348,7 @@
        Block: Pricing Table
        ========================================================================= */
 
-    registerBlockType( 'acst/pricing-table', {
+    registerBlockType( 'pressiq/pricing-table', {
         edit: function( props ) {
             var attributes = props.attributes;
             var setAttributes = props.setAttributes;
@@ -447,7 +447,7 @@
                     )
                 ),
                 el( 'div', useBlockProps(),
-                    el( ServerSideRender, { block: 'acst/pricing-table', attributes: attributes } )
+                    el( ServerSideRender, { block: 'pressiq/pricing-table', attributes: attributes } )
                 )
             );
         }
@@ -457,7 +457,7 @@
        Block: Testimonial
        ========================================================================= */
 
-    registerBlockType( 'acst/testimonial', {
+    registerBlockType( 'pressiq/testimonial', {
         edit: function( props ) {
             var attributes = props.attributes;
             var setAttributes = props.setAttributes;
@@ -529,7 +529,7 @@
                     )
                 ),
                 el( 'div', useBlockProps(),
-                    el( ServerSideRender, { block: 'acst/testimonial', attributes: attributes } )
+                    el( ServerSideRender, { block: 'pressiq/testimonial', attributes: attributes } )
                 )
             );
         }
@@ -539,7 +539,7 @@
        Block: Countdown Timer
        ========================================================================= */
 
-    registerBlockType( 'acst/countdown', {
+    registerBlockType( 'pressiq/countdown', {
         edit: function( props ) {
             var attributes = props.attributes;
             var setAttributes = props.setAttributes;
@@ -609,7 +609,7 @@
                     )
                 ),
                 el( 'div', useBlockProps(),
-                    el( ServerSideRender, { block: 'acst/countdown', attributes: attributes } )
+                    el( ServerSideRender, { block: 'pressiq/countdown', attributes: attributes } )
                 )
             );
         }
@@ -619,7 +619,7 @@
        Block: Post Filter
        ========================================================================= */
 
-    registerBlockType( 'acst/post-filter', {
+    registerBlockType( 'pressiq/post-filter', {
         edit: function( props ) {
             var attributes = props.attributes;
             var setAttributes = props.setAttributes;
@@ -691,7 +691,7 @@
                     )
                 ),
                 el( 'div', useBlockProps(),
-                    el( ServerSideRender, { block: 'acst/post-filter', attributes: attributes } )
+                    el( ServerSideRender, { block: 'pressiq/post-filter', attributes: attributes } )
                 )
             );
         }

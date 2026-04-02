@@ -41,7 +41,7 @@
         }
 
         initEvergreen() {
-            const storageKey = 'acst_countdown_' + this.element.id;
+            const storageKey = 'pressiq_countdown_' + this.element.id;
             const stored = localStorage.getItem(storageKey);
 
             if (stored) {
@@ -92,7 +92,7 @@
 
         onExpire() {
             clearInterval(this.interval);
-            this.element.classList.add('acst-countdown--expired');
+            this.element.classList.add('pressiq-countdown--expired');
 
             switch (this.expireAction) {
                 case 'hide':
@@ -100,7 +100,7 @@
                     break;
 
                 case 'message':
-                    this.element.innerHTML = '<div class="acst-countdown__message">' +
+                    this.element.innerHTML = '<div class="pressiq-countdown__message">' +
                         this.escapeHtml(this.expireMessage) + '</div>';
                     break;
 
@@ -173,7 +173,7 @@
 
         onTabKeydown(event, index) {
             let newIndex;
-            const isVertical = this.element.classList.contains('acst-tabs--vertical');
+            const isVertical = this.element.classList.contains('pressiq-tabs--vertical');
 
             switch (event.key) {
                 case 'ArrowRight':
@@ -237,7 +237,7 @@
     class Accordion {
         constructor(element) {
             this.element = element;
-            this.items = Array.from(element.querySelectorAll('.acst-accordion__item'));
+            this.items = Array.from(element.querySelectorAll('.pressiq-accordion__item'));
             this.collapseOthers = element.dataset.collapseOthers === 'yes';
 
             this.init();
@@ -245,8 +245,8 @@
 
         init() {
             this.items.forEach((item, index) => {
-                const header = item.querySelector('.acst-accordion__header');
-                const content = item.querySelector('.acst-accordion__content');
+                const header = item.querySelector('.pressiq-accordion__header');
+                const content = item.querySelector('.pressiq-accordion__content');
 
                 if (header && content) {
                     header.addEventListener('click', () => this.toggle(index));
@@ -257,8 +257,8 @@
 
         toggle(index) {
             const item = this.items[index];
-            const header = item.querySelector('.acst-accordion__header');
-            const content = item.querySelector('.acst-accordion__content');
+            const header = item.querySelector('.pressiq-accordion__header');
+            const content = item.querySelector('.pressiq-accordion__content');
             const isExpanded = header.getAttribute('aria-expanded') === 'true';
 
             if (this.collapseOthers && !isExpanded) {
@@ -271,8 +271,8 @@
 
         collapseAll() {
             this.items.forEach(item => {
-                const header = item.querySelector('.acst-accordion__header');
-                const content = item.querySelector('.acst-accordion__content');
+                const header = item.querySelector('.pressiq-accordion__header');
+                const content = item.querySelector('.pressiq-accordion__content');
 
                 if (header && content) {
                     header.setAttribute('aria-expanded', 'false');
@@ -312,7 +312,7 @@
         }
 
         focusItem(index) {
-            const header = this.items[index].querySelector('.acst-accordion__header');
+            const header = this.items[index].querySelector('.pressiq-accordion__header');
             if (header) {
                 header.focus();
             }
@@ -324,7 +324,7 @@
      */
     function initContentWidgets() {
         // Initialize Countdown Timers
-        document.querySelectorAll('.acst-countdown').forEach(element => {
+        document.querySelectorAll('.pressiq-countdown').forEach(element => {
             if (!element.dataset.initialized) {
                 new CountdownTimer(element);
                 element.dataset.initialized = 'true';
@@ -332,7 +332,7 @@
         });
 
         // Initialize Tabs
-        document.querySelectorAll('.acst-tabs').forEach(element => {
+        document.querySelectorAll('.pressiq-tabs').forEach(element => {
             if (!element.dataset.initialized) {
                 new Tabs(element);
                 element.dataset.initialized = 'true';
@@ -340,7 +340,7 @@
         });
 
         // Initialize Accordions
-        document.querySelectorAll('.acst-accordion').forEach(element => {
+        document.querySelectorAll('.pressiq-accordion').forEach(element => {
             if (!element.dataset.initialized) {
                 new Accordion(element);
                 element.dataset.initialized = 'true';
@@ -358,24 +358,24 @@
     // Re-initialize when Elementor editor updates content
     if (typeof elementorFrontend !== 'undefined') {
         jQuery(window).on('elementor/frontend/init', function() {
-            elementorFrontend.hooks.addAction('frontend/element_ready/acst-countdown.default', function($element) {
-                const element = $element[0].querySelector('.acst-countdown');
+            elementorFrontend.hooks.addAction('frontend/element_ready/pressiq-countdown.default', function($element) {
+                const element = $element[0].querySelector('.pressiq-countdown');
                 if (element && !element.dataset.initialized) {
                     new CountdownTimer(element);
                     element.dataset.initialized = 'true';
                 }
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/acst-tabs.default', function($element) {
-                const element = $element[0].querySelector('.acst-tabs');
+            elementorFrontend.hooks.addAction('frontend/element_ready/pressiq-tabs.default', function($element) {
+                const element = $element[0].querySelector('.pressiq-tabs');
                 if (element && !element.dataset.initialized) {
                     new Tabs(element);
                     element.dataset.initialized = 'true';
                 }
             });
 
-            elementorFrontend.hooks.addAction('frontend/element_ready/acst-accordion.default', function($element) {
-                const element = $element[0].querySelector('.acst-accordion');
+            elementorFrontend.hooks.addAction('frontend/element_ready/pressiq-accordion.default', function($element) {
+                const element = $element[0].querySelector('.pressiq-accordion');
                 if (element && !element.dataset.initialized) {
                     new Accordion(element);
                     element.dataset.initialized = 'true';
@@ -385,10 +385,10 @@
     }
 
     // Expose classes for external use
-    window.ACST = window.ACST || {};
-    window.ACST.CountdownTimer = CountdownTimer;
-    window.ACST.Tabs = Tabs;
-    window.ACST.Accordion = Accordion;
-    window.ACST.initContentWidgets = initContentWidgets;
+    window.PRESSIQ = window.PRESSIQ || {};
+    window.PRESSIQ.CountdownTimer = CountdownTimer;
+    window.PRESSIQ.Tabs = Tabs;
+    window.PRESSIQ.Accordion = Accordion;
+    window.PRESSIQ.initContentWidgets = initContentWidgets;
 
 })();

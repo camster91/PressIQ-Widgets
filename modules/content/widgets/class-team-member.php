@@ -2,10 +2,10 @@
 /**
  * Team Member Widget
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Content\Widgets;
+namespace PressIQ_Widgets\Modules\Content\Widgets;
 
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
@@ -33,7 +33,7 @@ class Team_Member extends Content_Base {
      * @return string
      */
     public function get_name() {
-        return 'acst-team-member';
+        return 'pressiq-team-member';
     }
 
     /**
@@ -42,7 +42,7 @@ class Team_Member extends Content_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__( 'Team Member', 'ac-starter-toolkit' );
+        return esc_html__( 'Team Member', 'pressiq-widgets' );
     }
 
     /**
@@ -71,7 +71,7 @@ class Team_Member extends Content_Base {
         $this->start_controls_section(
             'section_content',
             array(
-                'label' => esc_html__( 'Content', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Content', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -79,7 +79,7 @@ class Team_Member extends Content_Base {
         $this->add_control(
             'image',
             array(
-                'label'   => esc_html__( 'Photo', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Photo', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::MEDIA,
                 'default' => array(
                     'url' => Utils::get_placeholder_image_src(),
@@ -98,9 +98,9 @@ class Team_Member extends Content_Base {
         $this->add_control(
             'name',
             array(
-                'label'   => esc_html__( 'Name', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Name', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'John Doe', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'John Doe', 'pressiq-widgets' ),
                 'dynamic' => array( 'active' => true ),
             )
         );
@@ -108,7 +108,7 @@ class Team_Member extends Content_Base {
         $this->add_control(
             'name_tag',
             array(
-                'label'   => esc_html__( 'Name HTML Tag', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Name HTML Tag', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'h3',
                 'options' => array(
@@ -127,9 +127,9 @@ class Team_Member extends Content_Base {
         $this->add_control(
             'role',
             array(
-                'label'   => esc_html__( 'Role / Position', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Role / Position', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Designer', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Designer', 'pressiq-widgets' ),
                 'dynamic' => array( 'active' => true ),
             )
         );
@@ -137,9 +137,9 @@ class Team_Member extends Content_Base {
         $this->add_control(
             'bio',
             array(
-                'label'   => esc_html__( 'Bio / Description', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Bio / Description', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXTAREA,
-                'default' => esc_html__( 'A short description about this team member.', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'A short description about this team member.', 'pressiq-widgets' ),
                 'rows'    => 4,
                 'dynamic' => array( 'active' => true ),
             )
@@ -148,9 +148,9 @@ class Team_Member extends Content_Base {
         $this->add_control(
             'link',
             array(
-                'label'       => esc_html__( 'Link', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Link', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://your-link.com', 'ac-starter-toolkit' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'pressiq-widgets' ),
                 'dynamic'     => array( 'active' => true ),
             )
         );
@@ -161,7 +161,7 @@ class Team_Member extends Content_Base {
         $this->start_controls_section(
             'section_social',
             array(
-                'label' => esc_html__( 'Social Links', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Social Links', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -171,22 +171,22 @@ class Team_Member extends Content_Base {
         $repeater->add_control(
             'social_network',
             array(
-                'label'   => esc_html__( 'Network', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Network', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'facebook',
                 'options' => array(
-                    'facebook'  => esc_html__( 'Facebook', 'ac-starter-toolkit' ),
-                    'twitter'   => esc_html__( 'Twitter/X', 'ac-starter-toolkit' ),
-                    'instagram' => esc_html__( 'Instagram', 'ac-starter-toolkit' ),
-                    'linkedin'  => esc_html__( 'LinkedIn', 'ac-starter-toolkit' ),
-                    'youtube'   => esc_html__( 'YouTube', 'ac-starter-toolkit' ),
-                    'tiktok'    => esc_html__( 'TikTok', 'ac-starter-toolkit' ),
-                    'pinterest' => esc_html__( 'Pinterest', 'ac-starter-toolkit' ),
-                    'github'    => esc_html__( 'GitHub', 'ac-starter-toolkit' ),
-                    'dribbble'  => esc_html__( 'Dribbble', 'ac-starter-toolkit' ),
-                    'behance'   => esc_html__( 'Behance', 'ac-starter-toolkit' ),
-                    'email'     => esc_html__( 'Email', 'ac-starter-toolkit' ),
-                    'website'   => esc_html__( 'Website', 'ac-starter-toolkit' ),
+                    'facebook'  => esc_html__( 'Facebook', 'pressiq-widgets' ),
+                    'twitter'   => esc_html__( 'Twitter/X', 'pressiq-widgets' ),
+                    'instagram' => esc_html__( 'Instagram', 'pressiq-widgets' ),
+                    'linkedin'  => esc_html__( 'LinkedIn', 'pressiq-widgets' ),
+                    'youtube'   => esc_html__( 'YouTube', 'pressiq-widgets' ),
+                    'tiktok'    => esc_html__( 'TikTok', 'pressiq-widgets' ),
+                    'pinterest' => esc_html__( 'Pinterest', 'pressiq-widgets' ),
+                    'github'    => esc_html__( 'GitHub', 'pressiq-widgets' ),
+                    'dribbble'  => esc_html__( 'Dribbble', 'pressiq-widgets' ),
+                    'behance'   => esc_html__( 'Behance', 'pressiq-widgets' ),
+                    'email'     => esc_html__( 'Email', 'pressiq-widgets' ),
+                    'website'   => esc_html__( 'Website', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -194,9 +194,9 @@ class Team_Member extends Content_Base {
         $repeater->add_control(
             'social_link',
             array(
-                'label'       => esc_html__( 'Link', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Link', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://your-link.com', 'ac-starter-toolkit' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'pressiq-widgets' ),
                 'dynamic'     => array( 'active' => true ),
             )
         );
@@ -204,7 +204,7 @@ class Team_Member extends Content_Base {
         $this->add_control(
             'social_links',
             array(
-                'label'       => esc_html__( 'Social Links', 'ac-starter-toolkit' ),
+                'label'       => esc_html__( 'Social Links', 'pressiq-widgets' ),
                 'type'        => Controls_Manager::REPEATER,
                 'fields'      => $repeater->get_controls(),
                 'default'     => array(
@@ -231,7 +231,7 @@ class Team_Member extends Content_Base {
         $this->start_controls_section(
             'section_layout',
             array(
-                'label' => esc_html__( 'Layout', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Layout', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -239,13 +239,13 @@ class Team_Member extends Content_Base {
         $this->add_control(
             'layout',
             array(
-                'label'   => esc_html__( 'Layout', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Layout', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::SELECT,
                 'default' => 'card',
                 'options' => array(
-                    'card'       => esc_html__( 'Card (Stacked)', 'ac-starter-toolkit' ),
-                    'horizontal' => esc_html__( 'Horizontal', 'ac-starter-toolkit' ),
-                    'overlay'    => esc_html__( 'Image Overlay', 'ac-starter-toolkit' ),
+                    'card'       => esc_html__( 'Card (Stacked)', 'pressiq-widgets' ),
+                    'horizontal' => esc_html__( 'Horizontal', 'pressiq-widgets' ),
+                    'overlay'    => esc_html__( 'Image Overlay', 'pressiq-widgets' ),
                 ),
             )
         );
@@ -253,25 +253,25 @@ class Team_Member extends Content_Base {
         $this->add_responsive_control(
             'alignment',
             array(
-                'label'     => esc_html__( 'Alignment', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Alignment', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::CHOOSE,
                 'options'   => array(
                     'left'   => array(
-                        'title' => esc_html__( 'Left', 'ac-starter-toolkit' ),
+                        'title' => esc_html__( 'Left', 'pressiq-widgets' ),
                         'icon'  => 'eicon-text-align-left',
                     ),
                     'center' => array(
-                        'title' => esc_html__( 'Center', 'ac-starter-toolkit' ),
+                        'title' => esc_html__( 'Center', 'pressiq-widgets' ),
                         'icon'  => 'eicon-text-align-center',
                     ),
                     'right'  => array(
-                        'title' => esc_html__( 'Right', 'ac-starter-toolkit' ),
+                        'title' => esc_html__( 'Right', 'pressiq-widgets' ),
                         'icon'  => 'eicon-text-align-right',
                     ),
                 ),
                 'default'   => 'center',
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-team-member' => 'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-team-member' => 'text-align: {{VALUE}};',
                 ),
             )
         );
@@ -282,12 +282,12 @@ class Team_Member extends Content_Base {
         $this->start_controls_section(
             'section_style_box',
             array(
-                'label' => esc_html__( 'Box', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Box', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
 
-        $this->register_box_style_controls( 'box', '{{WRAPPER}} .acst-team-member' );
+        $this->register_box_style_controls( 'box', '{{WRAPPER}} .pressiq-team-member' );
 
         $this->end_controls_section();
 
@@ -295,7 +295,7 @@ class Team_Member extends Content_Base {
         $this->start_controls_section(
             'section_style_image',
             array(
-                'label' => esc_html__( 'Image', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Image', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -303,7 +303,7 @@ class Team_Member extends Content_Base {
         $this->add_responsive_control(
             'image_width',
             array(
-                'label'      => esc_html__( 'Width', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Width', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px', '%' ),
                 'range'      => array(
@@ -317,7 +317,7 @@ class Team_Member extends Content_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-team-member__image img' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-team-member__image img' => 'width: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -325,7 +325,7 @@ class Team_Member extends Content_Base {
         $this->add_responsive_control(
             'image_height',
             array(
-                'label'      => esc_html__( 'Height', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Height', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -335,7 +335,7 @@ class Team_Member extends Content_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-team-member__image img' => 'height: {{SIZE}}{{UNIT}}; object-fit: cover;',
+                    '{{WRAPPER}} .pressiq-team-member__image img' => 'height: {{SIZE}}{{UNIT}}; object-fit: cover;',
                 ),
             )
         );
@@ -343,11 +343,11 @@ class Team_Member extends Content_Base {
         $this->add_control(
             'image_border_radius',
             array(
-                'label'      => esc_html__( 'Border Radius', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Radius', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', '%' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-team-member__image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-team-member__image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -356,7 +356,7 @@ class Team_Member extends Content_Base {
             Group_Control_Border::get_type(),
             array(
                 'name'     => 'image_border',
-                'selector' => '{{WRAPPER}} .acst-team-member__image img',
+                'selector' => '{{WRAPPER}} .pressiq-team-member__image img',
             )
         );
 
@@ -364,18 +364,18 @@ class Team_Member extends Content_Base {
             Group_Control_Box_Shadow::get_type(),
             array(
                 'name'     => 'image_shadow',
-                'selector' => '{{WRAPPER}} .acst-team-member__image img',
+                'selector' => '{{WRAPPER}} .pressiq-team-member__image img',
             )
         );
 
         $this->add_responsive_control(
             'image_margin',
             array(
-                'label'      => esc_html__( 'Margin', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Margin', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-team-member__image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-team-member__image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -386,12 +386,12 @@ class Team_Member extends Content_Base {
         $this->start_controls_section(
             'section_style_name',
             array(
-                'label' => esc_html__( 'Name', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Name', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
 
-        $this->register_title_style_controls( 'name', '{{WRAPPER}} .acst-team-member__name' );
+        $this->register_title_style_controls( 'name', '{{WRAPPER}} .pressiq-team-member__name' );
 
         $this->end_controls_section();
 
@@ -399,7 +399,7 @@ class Team_Member extends Content_Base {
         $this->start_controls_section(
             'section_style_role',
             array(
-                'label' => esc_html__( 'Role', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Role', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -408,17 +408,17 @@ class Team_Member extends Content_Base {
             Group_Control_Typography::get_type(),
             array(
                 'name'     => 'role_typography',
-                'selector' => '{{WRAPPER}} .acst-team-member__role',
+                'selector' => '{{WRAPPER}} .pressiq-team-member__role',
             )
         );
 
         $this->add_control(
             'role_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-team-member__role' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-team-member__role' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -426,11 +426,11 @@ class Team_Member extends Content_Base {
         $this->add_responsive_control(
             'role_margin',
             array(
-                'label'      => esc_html__( 'Margin', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Margin', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-team-member__role' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-team-member__role' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -441,12 +441,12 @@ class Team_Member extends Content_Base {
         $this->start_controls_section(
             'section_style_bio',
             array(
-                'label' => esc_html__( 'Bio', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Bio', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
 
-        $this->register_description_style_controls( 'bio', '{{WRAPPER}} .acst-team-member__bio' );
+        $this->register_description_style_controls( 'bio', '{{WRAPPER}} .pressiq-team-member__bio' );
 
         $this->end_controls_section();
 
@@ -454,7 +454,7 @@ class Team_Member extends Content_Base {
         $this->start_controls_section(
             'section_style_social',
             array(
-                'label' => esc_html__( 'Social Links', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Social Links', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -462,7 +462,7 @@ class Team_Member extends Content_Base {
         $this->add_responsive_control(
             'social_icon_size',
             array(
-                'label'      => esc_html__( 'Icon Size', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Icon Size', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -476,8 +476,8 @@ class Team_Member extends Content_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-team-member__social a' => 'font-size: {{SIZE}}{{UNIT}};',
-                    '{{WRAPPER}} .acst-team-member__social svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-team-member__social a' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-team-member__social svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -485,7 +485,7 @@ class Team_Member extends Content_Base {
         $this->add_responsive_control(
             'social_spacing',
             array(
-                'label'      => esc_html__( 'Spacing', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Spacing', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -499,7 +499,7 @@ class Team_Member extends Content_Base {
                     'unit' => 'px',
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-team-member__social a' => 'margin: 0 {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-team-member__social a' => 'margin: 0 {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -509,17 +509,17 @@ class Team_Member extends Content_Base {
         $this->start_controls_tab(
             'social_style_normal',
             array(
-                'label' => esc_html__( 'Normal', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Normal', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'social_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-team-member__social a' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-team-member__social a' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -527,10 +527,10 @@ class Team_Member extends Content_Base {
         $this->add_control(
             'social_bg_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-team-member__social a' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-team-member__social a' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -540,17 +540,17 @@ class Team_Member extends Content_Base {
         $this->start_controls_tab(
             'social_style_hover',
             array(
-                'label' => esc_html__( 'Hover', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Hover', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'social_hover_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-team-member__social a:hover' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-team-member__social a:hover' => 'color: {{VALUE}};',
                 ),
             )
         );
@@ -558,10 +558,10 @@ class Team_Member extends Content_Base {
         $this->add_control(
             'social_hover_bg_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
-                    '{{WRAPPER}} .acst-team-member__social a:hover' => 'background-color: {{VALUE}};',
+                    '{{WRAPPER}} .pressiq-team-member__social a:hover' => 'background-color: {{VALUE}};',
                 ),
             )
         );
@@ -573,12 +573,12 @@ class Team_Member extends Content_Base {
         $this->add_responsive_control(
             'social_padding',
             array(
-                'label'      => esc_html__( 'Padding', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Padding', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px' ),
                 'separator'  => 'before',
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-team-member__social a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-team-member__social a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -586,11 +586,11 @@ class Team_Member extends Content_Base {
         $this->add_control(
             'social_border_radius',
             array(
-                'label'      => esc_html__( 'Border Radius', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Radius', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', '%' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-team-member__social a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-team-member__social a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -598,11 +598,11 @@ class Team_Member extends Content_Base {
         $this->add_responsive_control(
             'social_margin',
             array(
-                'label'      => esc_html__( 'Container Margin', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Container Margin', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em' ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-team-member__social' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-team-member__social' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ),
             )
         );
@@ -644,8 +644,8 @@ class Team_Member extends Content_Base {
         $has_link = ! empty( $settings['link']['url'] );
 
         $this->add_render_attribute( 'wrapper', 'class', array(
-            'acst-team-member',
-            'acst-team-member--' . $layout,
+            'pressiq-team-member',
+            'pressiq-team-member--' . $layout,
         ) );
 
         if ( $has_link ) {
@@ -654,7 +654,7 @@ class Team_Member extends Content_Base {
         ?>
         <div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
             <?php if ( ! empty( $settings['image']['url'] ) ) : ?>
-                <div class="acst-team-member__image">
+                <div class="pressiq-team-member__image">
                     <?php if ( $has_link ) : ?>
                         <a <?php echo $this->get_render_attribute_string( 'link' ); ?>>
                     <?php endif; ?>
@@ -672,7 +672,7 @@ class Team_Member extends Content_Base {
                     <?php endif; ?>
 
                     <?php if ( $layout === 'overlay' ) : ?>
-                        <div class="acst-team-member__overlay">
+                        <div class="pressiq-team-member__overlay">
                             <?php $this->render_content( $settings, $has_link ); ?>
                         </div>
                     <?php endif; ?>
@@ -680,7 +680,7 @@ class Team_Member extends Content_Base {
             <?php endif; ?>
 
             <?php if ( $layout !== 'overlay' ) : ?>
-                <div class="acst-team-member__content">
+                <div class="pressiq-team-member__content">
                     <?php $this->render_content( $settings, $has_link ); ?>
                 </div>
             <?php endif; ?>
@@ -698,7 +698,7 @@ class Team_Member extends Content_Base {
         $name_tag = $settings['name_tag'];
         ?>
         <?php if ( ! empty( $settings['name'] ) ) : ?>
-            <<?php echo esc_attr( $name_tag ); ?> class="acst-team-member__name">
+            <<?php echo esc_attr( $name_tag ); ?> class="pressiq-team-member__name">
                 <?php if ( $has_link ) : ?>
                     <a <?php echo $this->get_render_attribute_string( 'link' ); ?>>
                         <?php echo esc_html( $settings['name'] ); ?>
@@ -710,19 +710,19 @@ class Team_Member extends Content_Base {
         <?php endif; ?>
 
         <?php if ( ! empty( $settings['role'] ) ) : ?>
-            <div class="acst-team-member__role">
+            <div class="pressiq-team-member__role">
                 <?php echo esc_html( $settings['role'] ); ?>
             </div>
         <?php endif; ?>
 
         <?php if ( ! empty( $settings['bio'] ) ) : ?>
-            <div class="acst-team-member__bio">
+            <div class="pressiq-team-member__bio">
                 <?php echo wp_kses_post( $settings['bio'] ); ?>
             </div>
         <?php endif; ?>
 
         <?php if ( ! empty( $settings['social_links'] ) ) : ?>
-            <div class="acst-team-member__social">
+            <div class="pressiq-team-member__social">
                 <?php foreach ( $settings['social_links'] as $social ) :
                     $link = $social['social_link'];
                     $network = $social['social_network'];
@@ -752,7 +752,7 @@ class Team_Member extends Content_Base {
     protected function content_template() {
         ?>
         <#
-        var layoutClass = 'acst-team-member--' + settings.layout;
+        var layoutClass = 'pressiq-team-member--' + settings.layout;
         var nameTag = settings.name_tag || 'h3';
         var hasLink = settings.link && settings.link.url;
 
@@ -774,9 +774,9 @@ class Team_Member extends Content_Base {
             return icons[network] || 'fas fa-link';
         };
         #>
-        <div class="acst-team-member {{ layoutClass }}">
+        <div class="pressiq-team-member {{ layoutClass }}">
             <# if ( settings.image && settings.image.url ) { #>
-                <div class="acst-team-member__image">
+                <div class="pressiq-team-member__image">
                     <# if ( hasLink ) { #>
                         <a href="{{ settings.link.url }}">
                     <# } #>
@@ -788,11 +788,11 @@ class Team_Member extends Content_Base {
             <# } #>
 
             <# if ( settings.layout !== 'overlay' ) { #>
-                <div class="acst-team-member__content">
+                <div class="pressiq-team-member__content">
             <# } #>
 
             <# if ( settings.name ) { #>
-                <{{ nameTag }} class="acst-team-member__name">
+                <{{ nameTag }} class="pressiq-team-member__name">
                     <# if ( hasLink ) { #>
                         <a href="{{ settings.link.url }}">{{{ settings.name }}}</a>
                     <# } else { #>
@@ -802,15 +802,15 @@ class Team_Member extends Content_Base {
             <# } #>
 
             <# if ( settings.role ) { #>
-                <div class="acst-team-member__role">{{{ settings.role }}}</div>
+                <div class="pressiq-team-member__role">{{{ settings.role }}}</div>
             <# } #>
 
             <# if ( settings.bio ) { #>
-                <div class="acst-team-member__bio">{{{ settings.bio }}}</div>
+                <div class="pressiq-team-member__bio">{{{ settings.bio }}}</div>
             <# } #>
 
             <# if ( settings.social_links && settings.social_links.length ) { #>
-                <div class="acst-team-member__social">
+                <div class="pressiq-team-member__social">
                     <# _.each( settings.social_links, function( social ) {
                         var icon = getSocialIcon( social.social_network );
                         var url = social.social_link.url || '#';

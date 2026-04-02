@@ -2,10 +2,10 @@
 /**
  * Content Widget Base
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Content\Widgets;
+namespace PressIQ_Widgets\Modules\Content\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -32,7 +32,7 @@ abstract class Content_Base extends Widget_Base {
      * @return array
      */
     public function get_categories() {
-        return array( 'ac-starter-toolkit' );
+        return array( 'pressiq-widgets' );
     }
 
     /**
@@ -41,7 +41,7 @@ abstract class Content_Base extends Widget_Base {
      * @return array
      */
     public function get_style_depends() {
-        return array( 'acst-content' );
+        return array( 'pressiq-content' );
     }
 
     /**
@@ -50,7 +50,7 @@ abstract class Content_Base extends Widget_Base {
      * @return array
      */
     public function get_script_depends() {
-        return array( 'acst-content' );
+        return array( 'pressiq-content' );
     }
 
     /**
@@ -59,7 +59,7 @@ abstract class Content_Base extends Widget_Base {
      * @param string $prefix Control prefix.
      * @param string $selector CSS selector.
      */
-    protected function register_box_style_controls( $prefix = 'box', $selector = '{{WRAPPER}} .acst-widget-box' ) {
+    protected function register_box_style_controls( $prefix = 'box', $selector = '{{WRAPPER}} .pressiq-widget-box' ) {
         $this->add_group_control(
             Group_Control_Background::get_type(),
             array(
@@ -80,7 +80,7 @@ abstract class Content_Base extends Widget_Base {
         $this->add_responsive_control(
             $prefix . '_border_radius',
             array(
-                'label'      => esc_html__( 'Border Radius', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Radius', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', '%' ),
                 'selectors'  => array(
@@ -100,7 +100,7 @@ abstract class Content_Base extends Widget_Base {
         $this->add_responsive_control(
             $prefix . '_padding',
             array(
-                'label'      => esc_html__( 'Padding', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Padding', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em', '%' ),
                 'selectors'  => array(
@@ -116,7 +116,7 @@ abstract class Content_Base extends Widget_Base {
      * @param string $prefix Control prefix.
      * @param string $selector CSS selector.
      */
-    protected function register_title_style_controls( $prefix = 'title', $selector = '{{WRAPPER}} .acst-widget-title' ) {
+    protected function register_title_style_controls( $prefix = 'title', $selector = '{{WRAPPER}} .pressiq-widget-title' ) {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             array(
@@ -128,7 +128,7 @@ abstract class Content_Base extends Widget_Base {
         $this->add_control(
             $prefix . '_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
                     $selector => 'color: {{VALUE}};',
@@ -139,7 +139,7 @@ abstract class Content_Base extends Widget_Base {
         $this->add_responsive_control(
             $prefix . '_margin',
             array(
-                'label'      => esc_html__( 'Margin', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Margin', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em', '%' ),
                 'selectors'  => array(
@@ -155,7 +155,7 @@ abstract class Content_Base extends Widget_Base {
      * @param string $prefix Control prefix.
      * @param string $selector CSS selector.
      */
-    protected function register_description_style_controls( $prefix = 'description', $selector = '{{WRAPPER}} .acst-widget-description' ) {
+    protected function register_description_style_controls( $prefix = 'description', $selector = '{{WRAPPER}} .pressiq-widget-description' ) {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             array(
@@ -167,7 +167,7 @@ abstract class Content_Base extends Widget_Base {
         $this->add_control(
             $prefix . '_color',
             array(
-                'label'     => esc_html__( 'Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
                     $selector => 'color: {{VALUE}};',
@@ -178,7 +178,7 @@ abstract class Content_Base extends Widget_Base {
         $this->add_responsive_control(
             $prefix . '_margin',
             array(
-                'label'      => esc_html__( 'Margin', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Margin', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em', '%' ),
                 'selectors'  => array(
@@ -194,7 +194,7 @@ abstract class Content_Base extends Widget_Base {
      * @param string $prefix Control prefix.
      * @param string $selector CSS selector.
      */
-    protected function register_button_style_controls( $prefix = 'button', $selector = '{{WRAPPER}} .acst-button' ) {
+    protected function register_button_style_controls( $prefix = 'button', $selector = '{{WRAPPER}} .pressiq-button' ) {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             array(
@@ -209,14 +209,14 @@ abstract class Content_Base extends Widget_Base {
         $this->start_controls_tab(
             $prefix . '_style_normal',
             array(
-                'label' => esc_html__( 'Normal', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Normal', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             $prefix . '_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
                     $selector => 'color: {{VALUE}};',
@@ -227,7 +227,7 @@ abstract class Content_Base extends Widget_Base {
         $this->add_control(
             $prefix . '_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
                     $selector => 'background-color: {{VALUE}};',
@@ -241,14 +241,14 @@ abstract class Content_Base extends Widget_Base {
         $this->start_controls_tab(
             $prefix . '_style_hover',
             array(
-                'label' => esc_html__( 'Hover', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Hover', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             $prefix . '_hover_text_color',
             array(
-                'label'     => esc_html__( 'Text Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Text Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
                     $selector . ':hover' => 'color: {{VALUE}};',
@@ -259,7 +259,7 @@ abstract class Content_Base extends Widget_Base {
         $this->add_control(
             $prefix . '_hover_background_color',
             array(
-                'label'     => esc_html__( 'Background Color', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( 'Background Color', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => array(
                     $selector . ':hover' => 'background-color: {{VALUE}};',
@@ -283,7 +283,7 @@ abstract class Content_Base extends Widget_Base {
         $this->add_responsive_control(
             $prefix . '_border_radius',
             array(
-                'label'      => esc_html__( 'Border Radius', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Border Radius', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', '%' ),
                 'selectors'  => array(
@@ -295,7 +295,7 @@ abstract class Content_Base extends Widget_Base {
         $this->add_responsive_control(
             $prefix . '_padding',
             array(
-                'label'      => esc_html__( 'Padding', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Padding', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => array( 'px', 'em', '%' ),
                 'selectors'  => array(
@@ -322,7 +322,7 @@ abstract class Content_Base extends Widget_Base {
             $attr_string .= sprintf( ' %s="%s"', esc_attr( $key ), esc_attr( $value ) );
         }
 
-        printf( '<%s class="acst-icon"%s>', esc_attr( $tag ), $attr_string );
+        printf( '<%s class="pressiq-icon"%s>', esc_attr( $tag ), $attr_string );
         \Elementor\Icons_Manager::render_icon( $icon_settings, array( 'aria-hidden' => 'true' ) );
         printf( '</%s>', esc_attr( $tag ) );
     }

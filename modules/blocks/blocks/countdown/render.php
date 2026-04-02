@@ -2,7 +2,7 @@
 /**
  * Countdown Timer Block - Server-side Render
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  *
  * @var array    $attributes Block attributes.
  * @var string   $content    Block content.
@@ -50,7 +50,7 @@ foreach ( $data_attrs as $key => $value ) {
     $extra_attrs .= ' ' . esc_attr( $key ) . '="' . esc_attr( $value ) . '"';
 }
 
-$wrapper_attrs = get_block_wrapper_attributes( array( 'class' => 'acst-countdown' ) );
+$wrapper_attrs = get_block_wrapper_attributes( array( 'class' => 'pressiq-countdown' ) );
 // Inject data attributes into wrapper
 $wrapper_attrs .= $extra_attrs;
 
@@ -58,46 +58,46 @@ $separator = ':';
 ?>
 <div <?php echo $wrapper_attrs; ?>>
     <?php if ( $show_days ) : ?>
-        <div class="acst-countdown__item" data-unit="days">
-            <span class="acst-countdown__number" data-countdown="days">00</span>
+        <div class="pressiq-countdown__item" data-unit="days">
+            <span class="pressiq-countdown__number" data-countdown="days">00</span>
             <?php if ( $show_labels ) : ?>
-                <span class="acst-countdown__label"><?php echo esc_html( $label_days ); ?></span>
+                <span class="pressiq-countdown__label"><?php echo esc_html( $label_days ); ?></span>
             <?php endif; ?>
         </div>
         <?php if ( $show_separator && $show_hours ) : ?>
-            <span class="acst-countdown__separator"><?php echo esc_html( $separator ); ?></span>
+            <span class="pressiq-countdown__separator"><?php echo esc_html( $separator ); ?></span>
         <?php endif; ?>
     <?php endif; ?>
 
     <?php if ( $show_hours ) : ?>
-        <div class="acst-countdown__item" data-unit="hours">
-            <span class="acst-countdown__number" data-countdown="hours">00</span>
+        <div class="pressiq-countdown__item" data-unit="hours">
+            <span class="pressiq-countdown__number" data-countdown="hours">00</span>
             <?php if ( $show_labels ) : ?>
-                <span class="acst-countdown__label"><?php echo esc_html( $label_hours ); ?></span>
+                <span class="pressiq-countdown__label"><?php echo esc_html( $label_hours ); ?></span>
             <?php endif; ?>
         </div>
         <?php if ( $show_separator && $show_minutes ) : ?>
-            <span class="acst-countdown__separator"><?php echo esc_html( $separator ); ?></span>
+            <span class="pressiq-countdown__separator"><?php echo esc_html( $separator ); ?></span>
         <?php endif; ?>
     <?php endif; ?>
 
     <?php if ( $show_minutes ) : ?>
-        <div class="acst-countdown__item" data-unit="minutes">
-            <span class="acst-countdown__number" data-countdown="minutes">00</span>
+        <div class="pressiq-countdown__item" data-unit="minutes">
+            <span class="pressiq-countdown__number" data-countdown="minutes">00</span>
             <?php if ( $show_labels ) : ?>
-                <span class="acst-countdown__label"><?php echo esc_html( $label_minutes ); ?></span>
+                <span class="pressiq-countdown__label"><?php echo esc_html( $label_minutes ); ?></span>
             <?php endif; ?>
         </div>
         <?php if ( $show_separator && $show_seconds ) : ?>
-            <span class="acst-countdown__separator"><?php echo esc_html( $separator ); ?></span>
+            <span class="pressiq-countdown__separator"><?php echo esc_html( $separator ); ?></span>
         <?php endif; ?>
     <?php endif; ?>
 
     <?php if ( $show_seconds ) : ?>
-        <div class="acst-countdown__item" data-unit="seconds">
-            <span class="acst-countdown__number" data-countdown="seconds">00</span>
+        <div class="pressiq-countdown__item" data-unit="seconds">
+            <span class="pressiq-countdown__number" data-countdown="seconds">00</span>
             <?php if ( $show_labels ) : ?>
-                <span class="acst-countdown__label"><?php echo esc_html( $label_seconds ); ?></span>
+                <span class="pressiq-countdown__label"><?php echo esc_html( $label_seconds ); ?></span>
             <?php endif; ?>
         </div>
     <?php endif; ?>

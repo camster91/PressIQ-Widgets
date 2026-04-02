@@ -8,7 +8,7 @@
     'use strict';
 
     // Configuration from WordPress
-    const config = window.acstFilters || {
+    const config = window.pressiqFilters || {
         ajaxUrl: '/wp-admin/admin-ajax.php',
         nonce: '',
         i18n: {
@@ -43,7 +43,7 @@
          * Discover all filter widgets on the page
          */
         discoverFilters() {
-            const filterElements = document.querySelectorAll('.acst-filter');
+            const filterElements = document.querySelectorAll('.pressiq-filter');
 
             filterElements.forEach(element => {
                 const filterId = element.dataset.filterId;
@@ -65,40 +65,40 @@
         bindEvents() {
             // Select filter change
             document.addEventListener('change', (e) => {
-                if (e.target.matches('.acst-filter__select')) {
+                if (e.target.matches('.pressiq-filter__select')) {
                     this.handleFilterChange(e.target);
                 }
-                if (e.target.matches('.acst-filter__checkbox')) {
+                if (e.target.matches('.pressiq-filter__checkbox')) {
                     this.handleCheckboxChange(e.target);
                 }
-                if (e.target.matches('.acst-filter__radio')) {
+                if (e.target.matches('.pressiq-filter__radio')) {
                     this.handleFilterChange(e.target);
                 }
             });
 
             // Text input (search filter) with debounce
             document.addEventListener('input', (e) => {
-                if (e.target.matches('.acst-filter__text-input')) {
+                if (e.target.matches('.pressiq-filter__text-input')) {
                     this.handleTextInput(e.target);
                 }
-                if (e.target.matches('.acst-filter__search-input')) {
+                if (e.target.matches('.pressiq-filter__search-input')) {
                     this.handleOptionSearch(e.target);
                 }
             });
 
             // Range slider change
             document.addEventListener('input', (e) => {
-                if (e.target.matches('.acst-filter__range-input')) {
+                if (e.target.matches('.pressiq-filter__range-input')) {
                     this.handleRangeChange(e.target);
                 }
             });
 
             // Collapsible toggles
             document.addEventListener('click', (e) => {
-                if (e.target.matches('.acst-filter__toggle') || e.target.closest('.acst-filter__toggle')) {
-                    this.handleToggle(e.target.closest('.acst-filter__toggle') || e.target);
+                if (e.target.matches('.pressiq-filter__toggle') || e.target.closest('.pressiq-filter__toggle')) {
+                    this.handleToggle(e.target.closest('.pressiq-filter__toggle') || e.target);
                 }
-                if (e.target.matches('.acst-filter__show-more')) {
+                if (e.target.matches('.pressiq-filter__show-more')) {
                     this.handleShowMore(e.target);
                 }
             });
@@ -114,7 +114,7 @@
          * Handle select/radio filter change
          */
         handleFilterChange(input) {
-            const filter = input.closest('.acst-filter');
+            const filter = input.closest('.pressiq-filter');
             const filterId = filter.dataset.filterId;
             const value = input.value;
 
@@ -140,9 +140,9 @@
          * Handle checkbox filter change
          */
         handleCheckboxChange(checkbox) {
-            const filter = checkbox.closest('.acst-filter');
+            const filter = checkbox.closest('.pressiq-filter');
             const filterId = filter.dataset.filterId;
-            const checkedBoxes = filter.querySelectorAll('.acst-filter__checkbox:checked');
+            const checkedBoxes = filter.querySelectorAll('.pressiq-filter__checkbox:checked');
 
             if (checkedBoxes.length > 0) {
                 this.activeFilters[filterId] = Array.from(checkedBoxes).map(cb => cb.value);
@@ -157,7 +157,7 @@
          * Handle text input with debounce
          */
         handleTextInput(input) {
-            const filter = input.closest('.acst-filter');
+            const filter = input.closest('.pressiq-filter');
             const filterId = filter.dataset.filterId;
 
             // Clear existing timer
@@ -183,18 +183,18 @@
          * Handle range filter change
          */
         handleRangeChange(input) {
-            const filter = input.closest('.acst-filter');
+            const filter = input.closest('.pressiq-filter');
             const filterId = filter.dataset.filterId;
-            const minInput = filter.querySelector('.acst-filter__range-min');
-            const maxInput = filter.querySelector('.acst-filter__range-max');
+            const minInput = filter.querySelector('.pressiq-filter__range-min');
+            const maxInput = filter.querySelector('.pressiq-filter__range-max');
 
             if (minInput && maxInput) {
                 const min = parseFloat(minInput.value) || 0;
                 const max = parseFloat(maxInput.value) || 0;
 
                 // Update display
-                const minDisplay = filter.querySelector('.acst-filter__range-min-value');
-                const maxDisplay = filter.querySelector('.acst-filter__range-max-value');
+                const minDisplay = filter.querySelector('.pressiq-filter__range-min-value');
+                const maxDisplay = filter.querySelector('.pressiq-filter__range-max-value');
                 if (minDisplay) minDisplay.textContent = this.formatNumber(min);
                 if (maxDisplay) maxDisplay.textContent = this.formatNumber(max);
 
@@ -215,12 +215,12 @@
          * Handle option search within checkbox filters
          */
         handleOptionSearch(input) {
-            const filter = input.closest('.acst-filter');
+            const filter = input.closest('.pressiq-filter');
             const searchText = input.value.toLowerCase().trim();
-            const options = filter.querySelectorAll('.acst-filter__option');
+            const options = filter.querySelectorAll('.pressiq-filter__option');
 
             options.forEach(option => {
-                const label = option.querySelector('.acst-filter__option-label');
+                const label = option.querySelector('.pressiq-filter__option-label');
                 const text = label ? label.textContent.toLowerCase() : '';
 
                 if (searchText === '' || text.includes(searchText)) {
@@ -235,7 +235,7 @@
          * Handle collapsible toggle
          */
         handleToggle(button) {
-            const header = button.closest('.acst-filter__header');
+            const header = button.closest('.pressiq-filter__header');
             const body = header.nextElementSibling;
             const isCollapsed = header.dataset.collapsed === 'true';
 
@@ -253,8 +253,8 @@
          * Handle show more/less toggle
          */
         handleShowMore(button) {
-            const filter = button.closest('.acst-filter');
-            const hiddenOptions = filter.querySelectorAll('.acst-filter__option--hidden');
+            const filter = button.closest('.pressiq-filter');
+            const hiddenOptions = filter.querySelectorAll('.pressiq-filter__option--hidden');
             const isExpanded = button.dataset.expanded === 'true';
 
             hiddenOptions.forEach(option => {
@@ -300,7 +300,7 @@
             const target = this.findTargetContainer(queryId);
 
             if (!target) {
-                console.warn('ACST Filters: No target container found for query:', queryId);
+                console.warn('PRESSIQ Filters: No target container found for query:', queryId);
                 return;
             }
 
@@ -309,7 +309,7 @@
 
             try {
                 const formData = new FormData();
-                formData.append('action', 'acst_filter');
+                formData.append('action', 'pressiq_filter');
                 formData.append('nonce', config.nonce);
                 formData.append('query_id', queryId);
                 formData.append('page_id', this.getPageId());
@@ -338,11 +338,11 @@
                 if (data.success) {
                     this.updateResults(target, data.data);
                 } else {
-                    console.error('ACST Filters: Error', data.data?.message);
+                    console.error('PRESSIQ Filters: Error', data.data?.message);
                     this.showError(target);
                 }
             } catch (error) {
-                console.error('ACST Filters: Fetch error', error);
+                console.error('PRESSIQ Filters: Fetch error', error);
                 this.showError(target);
             } finally {
                 this.setLoading(target, false);
@@ -369,7 +369,7 @@
             if (loopWidget) return loopWidget;
 
             // Last resort: look for common grid classes
-            return document.querySelector('.acst-filter-results, .posts-container, .products');
+            return document.querySelector('.pressiq-filter-results, .posts-container, .products');
         }
 
         /**
@@ -381,13 +381,13 @@
             }
 
             // Update count display if exists
-            const countDisplay = document.querySelector('.acst-results-count');
+            const countDisplay = document.querySelector('.pressiq-results-count');
             if (countDisplay && data.found_posts !== undefined) {
                 countDisplay.textContent = data.found_posts;
             }
 
             // Trigger event for other scripts
-            const event = new CustomEvent('acst:filtered', {
+            const event = new CustomEvent('pressiq:filtered', {
                 detail: {
                     container,
                     foundPosts: data.found_posts,
@@ -402,22 +402,22 @@
          */
         setLoading(container, isLoading) {
             if (isLoading) {
-                container.classList.add('acst-loading');
+                container.classList.add('pressiq-loading');
                 container.setAttribute('aria-busy', 'true');
 
                 // Add loading overlay if not exists
-                if (!container.querySelector('.acst-loading-overlay')) {
+                if (!container.querySelector('.pressiq-loading-overlay')) {
                     const overlay = document.createElement('div');
-                    overlay.className = 'acst-loading-overlay';
-                    overlay.innerHTML = `<span class="acst-loading-spinner"></span>`;
+                    overlay.className = 'pressiq-loading-overlay';
+                    overlay.innerHTML = `<span class="pressiq-loading-spinner"></span>`;
                     container.style.position = 'relative';
                     container.appendChild(overlay);
                 }
             } else {
-                container.classList.remove('acst-loading');
+                container.classList.remove('pressiq-loading');
                 container.setAttribute('aria-busy', 'false');
 
-                const overlay = container.querySelector('.acst-loading-overlay');
+                const overlay = container.querySelector('.pressiq-loading-overlay');
                 if (overlay) {
                     overlay.remove();
                 }
@@ -430,7 +430,7 @@
         showError(container) {
             // Safely escape the error message to prevent XSS
             const errorDiv = document.createElement('div');
-            errorDiv.className = 'acst-error';
+            errorDiv.className = 'pressiq-error';
             const errorP = document.createElement('p');
             errorP.textContent = config.i18n.error;
             errorDiv.appendChild(errorP);
@@ -506,7 +506,7 @@
                 const element = filter.element;
 
                 // Handle select filters
-                const select = element.querySelector('.acst-filter__select');
+                const select = element.querySelector('.pressiq-filter__select');
                 if (select) {
                     if (filter.filterType === 'sorting' && this.activeFilters['_orderby']) {
                         select.value = `${this.activeFilters['_orderby']}|${this.activeFilters['_order'] || 'DESC'}`;
@@ -516,7 +516,7 @@
                 }
 
                 // Handle checkbox filters
-                const checkboxes = element.querySelectorAll('.acst-filter__checkbox');
+                const checkboxes = element.querySelectorAll('.pressiq-filter__checkbox');
                 if (checkboxes.length > 0) {
                     const values = Array.isArray(value) ? value : [value];
                     checkboxes.forEach(cb => {
@@ -525,13 +525,13 @@
                 }
 
                 // Handle radio filters
-                const radios = element.querySelectorAll('.acst-filter__radio');
+                const radios = element.querySelectorAll('.pressiq-filter__radio');
                 radios.forEach(radio => {
                     radio.checked = radio.value === value;
                 });
 
                 // Handle text input
-                const textInput = element.querySelector('.acst-filter__text-input');
+                const textInput = element.querySelector('.pressiq-filter__text-input');
                 if (textInput && this.activeFilters['_search']) {
                     textInput.value = this.activeFilters['_search'];
                 }
@@ -565,10 +565,10 @@
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
-            window.acstFilterManager = new FilterManager();
+            window.pressiqFilterManager = new FilterManager();
         });
     } else {
-        window.acstFilterManager = new FilterManager();
+        window.pressiqFilterManager = new FilterManager();
     }
 
 })();

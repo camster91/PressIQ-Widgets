@@ -2,10 +2,10 @@
 /**
  * Select Filter Widget
  *
- * @package AC_Starter_Toolkit
+ * @package PressIQ_Widgets
  */
 
-namespace AC_Starter_Toolkit\Modules\Filters\Widgets;
+namespace PressIQ_Widgets\Modules\Filters\Widgets;
 
 use Elementor\Controls_Manager;
 
@@ -27,7 +27,7 @@ class Select_Filter extends Filter_Base {
      * @return string
      */
     public function get_name() {
-        return 'acst-select-filter';
+        return 'pressiq-select-filter';
     }
 
     /**
@@ -36,7 +36,7 @@ class Select_Filter extends Filter_Base {
      * @return string
      */
     public function get_title() {
-        return esc_html__( 'Select Filter', 'ac-starter-toolkit' );
+        return esc_html__( 'Select Filter', 'pressiq-widgets' );
     }
 
     /**
@@ -71,7 +71,7 @@ class Select_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_select_options',
             array(
-                'label' => esc_html__( 'Select Options', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Select Options', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_CONTENT,
             )
         );
@@ -79,20 +79,20 @@ class Select_Filter extends Filter_Base {
         $this->add_control(
             'placeholder',
             array(
-                'label'   => esc_html__( 'Placeholder', 'ac-starter-toolkit' ),
+                'label'   => esc_html__( 'Placeholder', 'pressiq-widgets' ),
                 'type'    => Controls_Manager::TEXT,
-                'default' => esc_html__( 'Select an option', 'ac-starter-toolkit' ),
+                'default' => esc_html__( 'Select an option', 'pressiq-widgets' ),
             )
         );
 
         $this->add_control(
             'show_all_option',
             array(
-                'label'        => esc_html__( 'Show "All" Option', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show "All" Option', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => 'yes',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
             )
         );
@@ -100,9 +100,9 @@ class Select_Filter extends Filter_Base {
         $this->add_control(
             'all_option_label',
             array(
-                'label'     => esc_html__( '"All" Option Label', 'ac-starter-toolkit' ),
+                'label'     => esc_html__( '"All" Option Label', 'pressiq-widgets' ),
                 'type'      => Controls_Manager::TEXT,
-                'default'   => esc_html__( 'All', 'ac-starter-toolkit' ),
+                'default'   => esc_html__( 'All', 'pressiq-widgets' ),
                 'condition' => array(
                     'show_all_option' => 'yes',
                 ),
@@ -112,13 +112,13 @@ class Select_Filter extends Filter_Base {
         $this->add_control(
             'hierarchical',
             array(
-                'label'        => esc_html__( 'Show Hierarchy', 'ac-starter-toolkit' ),
+                'label'        => esc_html__( 'Show Hierarchy', 'pressiq-widgets' ),
                 'type'         => Controls_Manager::SWITCHER,
                 'default'      => '',
-                'label_on'     => esc_html__( 'Yes', 'ac-starter-toolkit' ),
-                'label_off'    => esc_html__( 'No', 'ac-starter-toolkit' ),
+                'label_on'     => esc_html__( 'Yes', 'pressiq-widgets' ),
+                'label_off'    => esc_html__( 'No', 'pressiq-widgets' ),
                 'return_value' => 'yes',
-                'description'  => esc_html__( 'Show parent-child hierarchy with indentation for taxonomies.', 'ac-starter-toolkit' ),
+                'description'  => esc_html__( 'Show parent-child hierarchy with indentation for taxonomies.', 'pressiq-widgets' ),
                 'condition'    => array(
                     'source_type' => 'taxonomy',
                 ),
@@ -135,7 +135,7 @@ class Select_Filter extends Filter_Base {
         $this->start_controls_section(
             'section_select_style',
             array(
-                'label' => esc_html__( 'Dropdown', 'ac-starter-toolkit' ),
+                'label' => esc_html__( 'Dropdown', 'pressiq-widgets' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             )
         );
@@ -143,7 +143,7 @@ class Select_Filter extends Filter_Base {
         $this->add_responsive_control(
             'select_width',
             array(
-                'label'      => esc_html__( 'Width', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Width', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px', '%' ),
                 'range'      => array(
@@ -161,7 +161,7 @@ class Select_Filter extends Filter_Base {
                     'size' => 100,
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__select' => 'width: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__select' => 'width: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -169,7 +169,7 @@ class Select_Filter extends Filter_Base {
         $this->add_responsive_control(
             'select_height',
             array(
-                'label'      => esc_html__( 'Height', 'ac-starter-toolkit' ),
+                'label'      => esc_html__( 'Height', 'pressiq-widgets' ),
                 'type'       => Controls_Manager::SLIDER,
                 'size_units' => array( 'px' ),
                 'range'      => array(
@@ -179,7 +179,7 @@ class Select_Filter extends Filter_Base {
                     ),
                 ),
                 'selectors'  => array(
-                    '{{WRAPPER}} .acst-filter__select' => 'height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pressiq-filter__select' => 'height: {{SIZE}}{{UNIT}};',
                 ),
             )
         );
@@ -201,10 +201,10 @@ class Select_Filter extends Filter_Base {
 
         $data_attrs = $this->get_filter_data_attrs( $settings );
         ?>
-        <div class="acst-filter acst-filter--select"<?php echo $this->render_data_attrs( $data_attrs ); ?>>
+        <div class="pressiq-filter pressiq-filter--select"<?php echo $this->render_data_attrs( $data_attrs ); ?>>
             <?php $this->render_label( $settings ); ?>
 
-            <select class="acst-filter__select acst-filter__input" name="<?php echo esc_attr( $this->get_filter_id( $settings ) ); ?>">
+            <select class="pressiq-filter__select pressiq-filter__input" name="<?php echo esc_attr( $this->get_filter_id( $settings ) ); ?>">
                 <?php if ( $settings['show_all_option'] === 'yes' ) : ?>
                     <option value="">
                         <?php echo esc_html( $settings['all_option_label'] ?: $settings['placeholder'] ); ?>
@@ -310,20 +310,20 @@ class Select_Filter extends Filter_Base {
         <#
         var filterId = 'filter_' + view.getID();
         #>
-        <div class="acst-filter acst-filter--select">
+        <div class="pressiq-filter pressiq-filter--select">
             <# if ( settings.show_label === 'yes' && settings.filter_label ) { #>
-                <label class="acst-filter__label">{{{ settings.filter_label }}}</label>
+                <label class="pressiq-filter__label">{{{ settings.filter_label }}}</label>
             <# } #>
 
-            <select class="acst-filter__select acst-filter__input">
+            <select class="pressiq-filter__select pressiq-filter__input">
                 <# if ( settings.show_all_option === 'yes' ) { #>
                     <option value="">{{{ settings.all_option_label || settings.placeholder }}}</option>
                 <# } else if ( settings.placeholder ) { #>
                     <option value="" disabled selected>{{{ settings.placeholder }}}</option>
                 <# } #>
-                <option value="option1"><?php esc_html_e( 'Option 1', 'ac-starter-toolkit' ); ?></option>
-                <option value="option2"><?php esc_html_e( 'Option 2', 'ac-starter-toolkit' ); ?></option>
-                <option value="option3"><?php esc_html_e( 'Option 3', 'ac-starter-toolkit' ); ?></option>
+                <option value="option1"><?php esc_html_e( 'Option 1', 'pressiq-widgets' ); ?></option>
+                <option value="option2"><?php esc_html_e( 'Option 2', 'pressiq-widgets' ); ?></option>
+                <option value="option3"><?php esc_html_e( 'Option 3', 'pressiq-widgets' ); ?></option>
             </select>
         </div>
         <?php
